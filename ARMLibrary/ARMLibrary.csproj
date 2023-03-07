@@ -103,8 +103,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\fonts\" />
-    <Folder Include="Assets\img\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\img\proglb.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

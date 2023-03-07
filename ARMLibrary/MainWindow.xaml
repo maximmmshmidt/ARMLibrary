@@ -6,25 +6,30 @@
         xmlns:local="clr-namespace:ARMLibrary"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid Background="Aqua">
         <Grid.RowDefinitions>
             <RowDefinition Height="1.2*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Height="30" Width="30" Margin="5">
-                <Image/>
+            <Button  Margin="5">
+                <Image Source="/Assets/img/proglb.jpeg" />
             </Button>
-            <Button Height="30" Width="30" Margin="5">
-                <Image/>
+            <Button  Margin="5">
+                <Image Source="/Assets/img/proglb.jpeg" />
             </Button>
-            <Button Height="30" Width="30" Margin="5">
-                <Image/>
+            <Button  Margin="5">
+                <Image Source="/Assets/img/proglb.jpeg" />
             </Button>
-            <Button Height="30" Width="30" Margin="5">
-                <Image/>
+            <Button  Margin="5">
+                <Image Source="/Assets/img/proglb.jpeg" />
+            </Button>
+            <Button Margin="5">
+                <Image Source="/Assets/img/proglb.jpeg" />
             </Button>
         </StackPanel>
+        
         <Frame x:Name="MainFrame" Grid.Column="1"/>
     </Grid>
 </Window>
