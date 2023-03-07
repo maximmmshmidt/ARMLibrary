@@ -9,27 +9,17 @@
     
     <Grid Background="Aqua">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.4*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button  Margin="5">
-                <Image Source="/Assets/img/proglb.jpeg" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Height="50" Width="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/img/polz.png"/>
             </Button>
-            <Button  Margin="5">
-                <Image Source="/Assets/img/proglb.jpeg" />
-            </Button>
-            <Button  Margin="5">
-                <Image Source="/Assets/img/proglb.jpeg" />
-            </Button>
-            <Button  Margin="5">
-                <Image Source="/Assets/img/proglb.jpeg" />
-            </Button>
-            <Button Margin="5">
-                <Image Source="/Assets/img/proglb.jpeg" />
+            <Button Height="50" Width="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="/Assets/img/polz.png"/>
             </Button>
         </StackPanel>
-        
-        <Frame x:Name="MainFrame" Grid.Column="1"/>
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

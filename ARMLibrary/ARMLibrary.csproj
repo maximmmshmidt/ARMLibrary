@@ -106,7 +106,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\img\proglb.jpeg" />
+    <Resource Include="Assets\img\polz.png" />
+    <Content Include="Assets\img\proglb.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
