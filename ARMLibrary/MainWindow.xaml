@@ -8,6 +8,16 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Grid Background="Aqua">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Height="50" Width="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                <TextBlock Text="Книги" TextAlignment="Center" />
+            </Button>
+            <Button Height="50" Width="50" Margin="5" Background="Transparent" BorderBrush="Transparent"/>
+        </StackPanel>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

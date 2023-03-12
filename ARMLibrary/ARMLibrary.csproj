@@ -76,10 +76,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AccountingBook.cs">
@@ -121,9 +117,6 @@
     <Compile Include="Models\ViewUser.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -159,6 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\fonts\" />
+    <Folder Include="Pages\PagesUser\Admin\" />
+    <Folder Include="Pages\PagesUser\Librarian\" />
+    <Folder Include="Pages\PagesUser\Reader\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
