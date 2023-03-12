@@ -1,5 +1,4 @@
-﻿using ARMLibrary.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ARMLibrary
+namespace ARMLibrary.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для LogPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LogPage : Page
     {
-        public MainWindow()
+        public LogPage()
         {
             InitializeComponent();
-            MainFrame.Navigate(new LogPage());
+        }
+
+        private void LogButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (true)
+            {
+                this.NavigationService.Navigate(new MainPage());
+            }
         }
     }
 }
