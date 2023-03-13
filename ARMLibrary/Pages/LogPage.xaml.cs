@@ -1,23 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
+using ARMLibrary.Pages.PagesUser.Admin;
+using ARMLibrary.Models;
 namespace ARMLibrary.Pages
 {
     /// <summary>
     /// Логика взаимодействия для LogPage.xaml
     /// </summary>
+    Core db = new Core();
     public partial class LogPage : Page
     {
         public LogPage()
@@ -27,10 +17,7 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            if (true)
-            {
-                this.NavigationService.Navigate(new MainPage());
-            }
+            
         }
     }
 }

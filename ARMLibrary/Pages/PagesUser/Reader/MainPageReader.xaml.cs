@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ARMLibrary.Pages
+namespace ARMLibrary.Pages.PagesUser.Reader
 {
     /// <summary>
-    /// Логика взаимодействия для MainPage.xaml
+    /// Логика взаимодействия для MainPageReader.xaml
     /// </summary>
-    public partial class MainPage : Page
+    public partial class MainPageReader : Page
     {
-        public MainPage()
+        public MainPageReader()
         {
             InitializeComponent();
         }
