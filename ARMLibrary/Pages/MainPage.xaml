@@ -10,22 +10,56 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5 *"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Height="50" Width="60" Margin="5" Background="Transparent" BorderBrush="Transparent">
-                <TextBlock Text="Книги" />
-            </Button>
-            <Button Height="50" Width="60" Margin="5" Background="Transparent" BorderBrush="Transparent">
-                <TextBlock Text="Читатели" />
-            </Button>
-            <Button Height="50" Width="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
-                <TextBlock Text="Книги" />
-            </Button>
+
+        <StackPanel>
+            <StackPanel x:Name="Admin" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Добавление книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Каталог книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Выдача книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Управление пользователями"/>
+                </Button>
+            </StackPanel>
+
+            <StackPanel x:Name="Bibliotekar" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Добавление книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Каталог книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Выдача книг" />
+                </Button>
+            </StackPanel>
+
+            <StackPanel x:Name="Reader" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Добавление книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Каталог книг" />
+                </Button>
+                <Button Height="50" Margin="5" Background="Transparent" BorderBrush="Transparent">
+                    <TextBlock Text="Выдача книг" />
+                </Button>
+            </StackPanel>
         </StackPanel>
+
         <Button Background="Transparent" HorizontalAlignment="Right" BorderBrush="Transparent" Margin="15">
             <TextBlock Text="Аккаунт"/>
         </Button>
+
+        <Frame x:Name="GridFrame" Grid.Row="1"/>
+
     </Grid>
 </Page>
