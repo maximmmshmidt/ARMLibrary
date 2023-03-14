@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ARMLibrary.Models
 {
-    public class Core
+    internal class Core
     {
         public LibraryEntities context = new LibraryEntities();
     }

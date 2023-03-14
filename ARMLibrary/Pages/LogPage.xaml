@@ -12,11 +12,11 @@
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Login" Margin="5 5 25 5"/>
-                <TextBox Width="150"/>
+                <TextBox Width="150" x:Name="LoginTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Password" Margin="5"/>
-                <TextBox Width="150"/>
+                <PasswordBox Width="150" x:Name="PasswordTB"/>
             </StackPanel>
             <Button Content="Вход" Width="150" Margin="5" Click="LogButton_Click"/>
         </StackPanel>
