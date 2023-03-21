@@ -11,10 +11,8 @@
         <Rectangle>
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="Yellow" Offset="0.0" />
-                    <GradientStop Color="Red" Offset="0.25" />
-                    <GradientStop Color="Blue" Offset="0.75" />
-                    <GradientStop Color="LimeGreen" Offset="1.0" />
+                    <GradientStop Color="#80769D" Offset="0" />
+                    <GradientStop Color="#3D1B9F" Offset="1" />
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>

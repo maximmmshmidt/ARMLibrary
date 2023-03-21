@@ -20,7 +20,7 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            LoginTB.Text.Where(x => x.);
+            //LoginTB.Text.Where(x => x.);
         }
     }
 }
