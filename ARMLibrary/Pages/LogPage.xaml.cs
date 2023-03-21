@@ -24,7 +24,7 @@ namespace ARMLibrary.Pages
             List<User> us = db.context.User.Where(x => x.Login == LoginTB.Text).ToList();
             if (us != null && us[2].ToString() == PasswordTB.Text)
             {
-                MessageBox.Show("Вход ьыл успешно выполнен");
+                MessageBox.Show("Вход был успешно выполнен");
                 this.NavigationService.Navigate(new MainPageAdmin());
             }
             else
