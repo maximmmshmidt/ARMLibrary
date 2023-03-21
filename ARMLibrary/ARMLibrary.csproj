@@ -177,7 +177,6 @@
     <None Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
-    <None Include="Models\script.ipynb" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -201,6 +200,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\script.sql" />
     <Resource Include="Assets\img\polz.png" />
     <Content Include="Assets\img\proglb.jpeg" />
   </ItemGroup>
