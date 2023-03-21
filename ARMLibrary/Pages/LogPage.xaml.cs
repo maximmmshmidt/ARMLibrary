@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using ARMLibrary.Pages.PagesUser.Admin;
 using ARMLibrary.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ARMLibrary.Pages
 {
@@ -20,7 +21,21 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            //LoginTB.Text.Where(x => x.);
+            List<User> us = db.context.User.Where(x => x.Login == LoginTB.Text).ToList();
+            if (us != null && us[2].ToString() == PasswordTB.Text)
+            {
+                MessageBox.Show("Вход ьыл успешно выполнен");
+                this.NavigationService.Navigate(new MainPageAdmin());
+            }
+            else
+            {
+                MessageBox.Show("Данные Введины не верно");
+            }
+        }
+
+        private void RegBT_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new RegPage());
         }
     }
 }
