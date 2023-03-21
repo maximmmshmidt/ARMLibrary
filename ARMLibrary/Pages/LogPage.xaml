@@ -11,15 +11,15 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Login" Margin="5 5 25 5"/>
+                <TextBlock Text="Login" Margin="5 5 40 5" FontSize="20"/>
                 <TextBox Width="150" x:Name="LoginTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
-                <TextBlock Text="Password" Margin="5"/>
+                <TextBlock Text="Password" Margin="5" FontSize="20"/>
                 <TextBox Width="150" x:Name="PasswordTB"/>
             </StackPanel>
-            <Button Content="Вход" Width="150" Margin="5" Click="LogButton_Click"/>
-            <Button Content="Регистрация" x:Name="RegBT" Width="150" Margin="5" Click="RegBT_Click"/>
+            <Button Content="Вход" Width="150" Margin="5" Click="LogButton_Click" FontSize="20" Background="White"/>
+            <Button Content="Зарегистрироваться" x:Name="RegBT" Width="150" Margin="5" Click="RegBT_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Page>
