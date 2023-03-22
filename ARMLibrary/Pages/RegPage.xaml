@@ -25,9 +25,9 @@
                 </StackPanel>
             </StackPanel>
             <Border CornerRadius="20">
-                <Button Content="Зарегистрироваться" Click="LogButton_Click" FontSize="20" Background="White"/>
+                <Button Content="Зарегистрироваться" Click="RegBT_Click" FontSize="20" Background="White"/>
             </Border>
-            <Button Content="Вход" x:Name="RegBT" Width="150" Margin="5" Click="RegBT_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
+            <Button Content="Вход" x:Name="RegBT" Width="150" Margin="5" Click="LogButton_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Page>

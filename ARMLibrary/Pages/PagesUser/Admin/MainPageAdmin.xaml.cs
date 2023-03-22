@@ -23,11 +23,40 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         public MainPageAdmin()
         {
             InitializeComponent();
+
+
+            Navigating.Navigate(new BookPage());
+
+
+            AddUser.Opacity = 1;
+            AddBook.Opacity = 1;
+            LibraryUser.Opacity = 1;
+            LibraryBook.Opacity = 0.5;
         }
 
         private void ProfilBTClic(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new ProfilUserPage());
+            Navigating.Navigate(new ProfilUserPage());
+        }
+
+        private void LibraryBook_Click(object sender, RoutedEventArgs e)
+        {
+            Navigating.Navigate(new BookPage());
+        }
+
+        private void LibraryUser_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddBook_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddUser_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

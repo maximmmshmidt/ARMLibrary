@@ -13,7 +13,7 @@
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0" Panel.ZIndex="1" Background="#371F7C" CornerRadius=" 0 15 15 0 ">
+        <Border Panel.ZIndex="1" Background="#371F7C" CornerRadius=" 0 15 15 0 " MaxWidth="100" VerticalAlignment="Stretch">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*"/>
@@ -21,25 +21,31 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Background="Transparent" BorderBrush="Transparent">
-                        <i:PackIconMaterial Kind="Book" Width="50" Height="50"/>
-                        
+
+
+                    <Button x:Name="LibraryBook" Background="Transparent" BorderBrush="Transparent" Margin="5" Click="LibraryBook_Click">
+                        <i:PackIconMaterial Kind="Book" Width="40" Height="40"/>
                     </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent">
-                        <i:PackIconMaterial Kind="Book" Width="50" Height="50"/>
+
+                    <Button x:Name="LibraryUser" Background="Transparent" BorderBrush="Transparent" Margin="5" Click="LibraryUser_Click">
+                        <i:PackIconMaterial Kind="Library" Width="40" Height="40"/>
                     </Button>
-                    <Button Background="Transparent" BorderBrush="Transparent">
-                        <i:PackIconMaterial Kind="Book" Width="50" Height="50"/>
+
+                    <Button x:Name="AddBook" Background="Transparent" BorderBrush="Transparent" Margin="5" Click="AddBook_Click">
+                        <i:PackIconMaterial Kind="BookCog" Width="40" Height="40"/>
+                    </Button>
+                    <Button x:Name="AddUser" Background="Transparent" BorderBrush="Transparent" Click="AddUser_Click">
+                        <Image Source="/Assets/img/61183-removebg-preview 1.png" Width="40" Height="40"/>
                     </Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button Background="Transparent" BorderBrush="Transparent" Width="70" Height="70" Click="ProfilBTClic">
-                        <Image Source="/Assets/img/polz.png" Width="50"/>
+                        <i:PackIconMaterial Kind="Account" Width="40" Height="40"/>
                     </Button>
                 </StackPanel>
                 
             </Grid>
         </Border>
-        
+        <Frame Grid.Column="1" x:Name="Navigating"/>
     </Grid>
 </Page>

@@ -16,6 +16,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Frame x:Name="MainFrame"/>
+        <Button Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Click="Button_Click"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

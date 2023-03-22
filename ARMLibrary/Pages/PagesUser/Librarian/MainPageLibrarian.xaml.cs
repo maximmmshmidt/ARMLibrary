@@ -24,5 +24,10 @@ namespace ARMLibrary.Pages.PagesUser.Librarian
         {
             InitializeComponent();
         }
+
+        private void ProfilBTClic(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

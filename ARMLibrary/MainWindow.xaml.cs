@@ -1,4 +1,5 @@
 ﻿using ARMLibrary.Pages;
+using ARMLibrary.Pages.PagesUser.Admin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace ARMLibrary
         {
             InitializeComponent();
             MainFrame.Navigate(new LogPage());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new MainPageAdmin());
         }
     }
 }

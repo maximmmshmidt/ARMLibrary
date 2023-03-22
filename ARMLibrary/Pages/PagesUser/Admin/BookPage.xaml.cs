@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ARMLibrary.Pages.PagesUser.Reader
+namespace ARMLibrary.Pages.PagesUser.Admin
 {
     /// <summary>
-    /// Логика взаимодействия для MainPageReader.xaml
+    /// Логика взаимодействия для BookPage.xaml
     /// </summary>
-    public partial class MainPageReader : Page
+    public partial class BookPage : Page
     {
-        public MainPageReader()
+        public BookPage()
         {
             InitializeComponent();
-        }
-
-        private void ProfilBTClic(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
