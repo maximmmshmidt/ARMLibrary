@@ -39,7 +39,7 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Background="Transparent" BorderBrush="Transparent" Width="70" Height="70" Click="ProfilBTClic">
+                    <Button x:Name="ProfilBT" Background="Transparent" BorderBrush="Transparent" Width="70" Height="70" Click="ProfilBTClic">
                         <i:PackIconMaterial Kind="Account" Width="40" Height="40"/>
                     </Button>
                 </StackPanel>

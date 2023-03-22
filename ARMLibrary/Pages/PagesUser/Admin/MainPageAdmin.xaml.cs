@@ -27,7 +27,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
             Navigating.Navigate(new BookPage());
 
-
+            ProfilBT.Opacity = 1;
             AddUser.Opacity = 1;
             AddBook.Opacity = 1;
             LibraryUser.Opacity = 1;
@@ -37,26 +37,48 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         private void ProfilBTClic(object sender, RoutedEventArgs e)
         {
             Navigating.Navigate(new ProfilUserPage());
+            ProfilBT.Opacity = 0.5;
+            AddUser.Opacity = 1;
+            AddBook.Opacity = 1;
+            LibraryUser.Opacity = 1;
+            LibraryBook.Opacity = 1;
         }
 
         private void LibraryBook_Click(object sender, RoutedEventArgs e)
         {
+            ProfilBT.Opacity = 1;
+            AddUser.Opacity = 1;
+            AddBook.Opacity = 1;
+            LibraryUser.Opacity = 1;
+            LibraryBook.Opacity = 0.5;
             Navigating.Navigate(new BookPage());
         }
 
         private void LibraryUser_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfilBT.Opacity = 1;
+            AddUser.Opacity = 1;
+            AddBook.Opacity =1;
+            LibraryUser.Opacity = 0.5 ;
+            LibraryBook.Opacity = 1;
         }
 
         private void AddBook_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfilBT.Opacity = 1;
+            AddUser.Opacity = 1;
+            AddBook.Opacity = 0.5;
+            LibraryUser.Opacity = 1;
+            LibraryBook.Opacity = 1;
         }
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            ProfilBT.Opacity = 1;
+            AddUser.Opacity = 0.5;
+            AddBook.Opacity = 1;
+            LibraryUser.Opacity = 1;
+            LibraryBook.Opacity = 1;
         }
     }
 }
