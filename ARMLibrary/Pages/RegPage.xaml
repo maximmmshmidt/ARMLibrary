@@ -9,6 +9,25 @@
       Title="RegPage">
 
     <Grid>
-        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Margin=" 0 0 0 20">
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Login" Margin="5 5 80 5" FontSize="20"/>
+                    <TextBox Width="150" x:Name="LoginTB"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Password" Margin="5 5 46 5" FontSize="20"/>
+                    <TextBox Width="150" x:Name="PasswordTB"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock Text="Two Password" Margin="5" FontSize="20"/>
+                    <TextBox Width="150" x:Name="TwoPasswordTB"/>
+                </StackPanel>
+            </StackPanel>
+            <Border CornerRadius="20">
+                <Button Content="Зарегистрироваться" Click="LogButton_Click" FontSize="20" Background="White"/>
+            </Border>
+            <Button Content="Вход" x:Name="RegBT" Width="150" Margin="5" Click="RegBT_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
+        </StackPanel>
     </Grid>
 </Page>

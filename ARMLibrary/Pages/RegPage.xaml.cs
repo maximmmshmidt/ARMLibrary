@@ -24,5 +24,15 @@ namespace ARMLibrary.Pages
         {
             InitializeComponent();
         }
+
+        private void LogButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new LogPage());
+        }
+
+        private void RegBT_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
