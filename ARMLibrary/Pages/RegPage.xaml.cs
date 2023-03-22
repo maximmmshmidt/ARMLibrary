@@ -1,18 +1,8 @@
 ﻿using ARMLibrary.Pages.PagesUser.Admin;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ARMLibrary.Pages.PagesUser.Reader;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace ARMLibrary.Pages
 {
@@ -26,14 +16,21 @@ namespace ARMLibrary.Pages
             InitializeComponent();
         }
 
+        private void RegBT_Click(object sender, RoutedEventArgs e)
+        {
+            if (Librarianship.RegexClass.CheckingLogin(LoginTB.Text) && Librarianship.RegexClass.CheckingPassword(PasswordTB.Text) && PasswordTB == TwoPasswordTB)
+            {
+                this.NavigationService.Navigate(new MainPageReader());
+            }
+            else
+            {
+                MessageBox.Show("Введеные данные не коректны");
+            }
+        }
+
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new LogPage());
-        }
-
-        private void RegBT_Click(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new MainPageAdmin());
         }
     }
 }

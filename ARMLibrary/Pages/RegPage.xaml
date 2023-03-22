@@ -1,6 +1,7 @@
 ﻿<Page x:Class="ARMLibrary.Pages.RegPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:i="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ARMLibrary.Pages"
@@ -13,7 +14,11 @@
             <StackPanel Margin=" 0 0 0 20">
                 <StackPanel Orientation="Horizontal" Margin="10">
                     <TextBlock Text="Login" Margin="5 5 80 5" FontSize="20"/>
-                    <TextBox Width="150" x:Name="LoginTB"/>
+                    <TextBox Width="150" x:Name="LoginTB">
+                        <TextBox.ToolTip>
+                            asd
+                        </TextBox.ToolTip>
+                    </TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="10">
                     <TextBlock Text="Password" Margin="5 5 46 5" FontSize="20"/>
