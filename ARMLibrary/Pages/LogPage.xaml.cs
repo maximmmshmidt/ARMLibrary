@@ -21,10 +21,9 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            List<User> us = db.context.User.Where(x => x.Login == LoginTB.Text).ToList();
-            if (us != null && us[2].ToString() == PasswordTB.Text)
+            var us = db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
+            if (us != null)
             {
-                MessageBox.Show("Вход был успешно выполнен");
                 this.NavigationService.Navigate(new MainPageAdmin());
             }
             else
