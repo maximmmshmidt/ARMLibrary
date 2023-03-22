@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ARMLibrary.Pages.PagesUser.Admin
+namespace ARMLibrary.Pages.PagesUser
 {
     /// <summary>
-    /// Логика взаимодействия для MainPageAdmin.xaml
+    /// Логика взаимодействия для ProfilUserPage.xaml
     /// </summary>
-    public partial class MainPageAdmin : Page
+    public partial class ProfilUserPage : Page
     {
-        public MainPageAdmin()
+        public ProfilUserPage()
         {
             InitializeComponent();
-        }
-
-        private void ProfilBTClic(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new ProfilUserPage());
         }
     }
 }

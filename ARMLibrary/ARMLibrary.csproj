@@ -88,6 +88,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PagesUser\ProfilUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagesUser\Reader\MainPageReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +151,9 @@
     <Compile Include="Pages\PagesUser\Librarian\MainPageLibrarian.xaml.cs">
       <DependentUpon>MainPageLibrarian.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PagesUser\ProfilUserPage.xaml.cs">
+      <DependentUpon>ProfilUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PagesUser\Reader\MainPageReader.xaml.cs">
       <DependentUpon>MainPageReader.xaml</DependentUpon>
     </Compile>
@@ -188,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\fonts\" />
+    <Folder Include="Assets\Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
@@ -202,7 +210,6 @@
     </Content>
     <Content Include="Models\script.sql" />
     <Resource Include="Assets\img\polz.png" />
-    <Content Include="Assets\img\proglb.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

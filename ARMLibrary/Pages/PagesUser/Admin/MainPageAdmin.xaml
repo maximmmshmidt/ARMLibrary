@@ -9,14 +9,30 @@
       Title="MainPageAdmin">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="10*"/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Panel.ZIndex="1" Background="#371F7C" CornerRadius=" 0 15 15 0 ">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
 
-        <StackPanel Background="Gray" Opacity="0.5">
-            
-        </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Background="Transparent" BorderBrush="Transparent">
+
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Background="Transparent" BorderBrush="Transparent" Width="70" Height="70" Click="ProfilBTClic">
+                        <Image Source="/Assets/img/polz.png" Width="50"/>
+                    </Button>
+                </StackPanel>
+                
+            </Grid>
+        </Border>
         
     </Grid>
 </Page>

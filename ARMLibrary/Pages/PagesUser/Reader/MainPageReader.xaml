@@ -9,6 +9,13 @@
       Title="MainPageReader">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Panel.ZIndex="1" Background="#371F7C" CornerRadius=" 0 15 15 0 ">
+            <StackPanel Orientation="Vertical"/>
+
+        </Border>
     </Grid>
 </Page>
