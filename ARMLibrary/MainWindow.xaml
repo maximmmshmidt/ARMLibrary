@@ -9,24 +9,28 @@
         Title="MainWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" 
         >
 
-    <Grid>
+    <Grid MouseLeftButtonDown="RowDefinition_MouseLeftButtonDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.6*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
-        
-        <StackPanel HorizontalAlignment="Right" Panel.ZIndex="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="RollUpButtonClick">
-                <i:PackIconMaterial Kind="MinusBox"/>
-            </Button>
-            <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="UnwrapButtonClick">
-                <i:PackIconMaterial Kind="BoxShadow"/>
-            </Button>
-            <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="CloseButtonClick">
-                <i:PackIconMaterial Kind="CloseBox"/>
-            </Button>
+        <Button Panel.ZIndex="1" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Click="Button_Click"/>
+        <StackPanel Grid.Row="0" Panel.ZIndex="1" >
+            
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="RollUpButtonClick">
+                    <i:PackIconMaterial Kind="MinusBox"/>
+                </Button>
+                <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="UnwrapButtonClick">
+                    <i:PackIconMaterial Kind="BoxShadow"/>
+                </Button>
+                <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="CloseButtonClick">
+                    <i:PackIconMaterial Kind="CloseBox"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
-     
+        
+        
         <Rectangle Grid.RowSpan="2">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -36,8 +40,8 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Button Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Click="Button_Click"/>
 
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"/>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" />
     </Grid>
 </Window>

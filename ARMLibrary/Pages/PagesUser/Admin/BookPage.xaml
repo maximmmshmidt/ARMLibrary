@@ -11,11 +11,16 @@
 
     <Grid Margin="5">
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-            <Border CornerRadius="10" Panel.ZIndex="1" Background="White" Width="150" Height="25" >
-                <StackPanel>
-                    <TextBox Margin="5 0 5 0" Background="Transparent" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                </StackPanel>
+        <Border CornerRadius="15" Background="Aqua" Width="160">
+                <TextBox Margin="5" Background="Gray" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="15" />
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
             </Border>
+
             <Button Background="Transparent" BorderBrush="Transparent" Margin=" 10 0 10 0" Padding="10 0" BorderThickness="0" >
                 <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20"/>
             </Button>
