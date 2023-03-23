@@ -13,7 +13,7 @@ namespace ARMLibrary.Pages
 
     public partial class LogPage : Page
     {
-        Core db = new Core();
+        readonly Core db = new Core();
         public LogPage()
         {
             InitializeComponent();
