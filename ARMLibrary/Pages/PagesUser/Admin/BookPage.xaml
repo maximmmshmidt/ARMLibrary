@@ -11,8 +11,8 @@
 
     <Grid Margin="5">
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-        <Border CornerRadius="15" Background="Aqua" Width="160">
-                <TextBox Margin="5" Background="Gray" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <Border CornerRadius="15" Background="#3D1b91" Width="160">
+                <TextBox Margin="5" Background="#3D1B9F" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <TextBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15" />
