@@ -11,17 +11,16 @@
 
     <Grid Margin="5">
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-            <Border CornerRadius="15" Background="#3D1b91" Width="160">
-                <TextBox Margin="5" Background="#3D1B9F" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="15" />
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </Border>
 
-            <Button Background="Transparent" BorderBrush="Transparent" Margin=" 10 0 10 0" Padding="10 0" BorderThickness="0" >
+            <TextBox x:Name="FindTextBox" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15" />
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            
+            <Button x:Name="Search" Background="Transparent" BorderBrush="Transparent" Margin="0 0 10 0" Padding="10 0" BorderThickness="0" >
                 <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20"/>
             </Button>
             <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
@@ -32,8 +31,34 @@
             </Button>
         </StackPanel>
 
-        <DataGrid Background="#FFFFFF" Margin="40" Opacity="0.4">
-            
-        </DataGrid>
+        <ListView x:Name="ProductListView" HorizontalAlignment="Stretch"  Background="#FFFFFF" Margin="40" Opacity="0.4">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--<Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="880"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <i:PackIconMaterial Kind="Book"/>
+                        <Grid Grid.Column="1" Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock Text="{Binding ProductType.Title}" FontSize="17"/>
+                                <TextBlock Text=" | " FontSize="17"/>
+                                <TextBlock Text="{Binding Title}" FontSize="17"/>
+                            </StackPanel>
+                            <TextBlock Text="{Binding ArticleNumber}" FontSize="15" Grid.Row="1"/>
+                            <TextBlock Text="{Binding MaterialList}" FontSize="15" Grid.Row="2"/>
+                        </Grid>
+                        <TextBlock Text="{Binding CostProduct, StringFormat=' {0} ₽'}" VerticalAlignment="Center" FontSize="20" Grid.Column="2"/>
+                    </Grid>-->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
