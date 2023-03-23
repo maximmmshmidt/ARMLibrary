@@ -49,9 +49,6 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         private void UpdateUI()
         {
             List<Book> displayProduct = GetRows();
-
-
-
             if (GetRows().Count > 10)
             {
                 
@@ -61,11 +58,6 @@ namespace ARMLibrary.Pages.PagesUser.Admin
                 {
                     Console.WriteLine(item.idBook);
                 }
-                
-            }
-            else
-            {
-
                 
             }
             ProductListView.ItemsSource = displayProduct;

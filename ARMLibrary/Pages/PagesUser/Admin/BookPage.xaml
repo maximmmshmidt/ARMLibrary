@@ -12,7 +12,7 @@
     <Grid Margin="5">
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
 
-            <TextBox x:Name="FindTextBox" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <TextBox x:Name="FindTextBox" KeyDown="FindTextBox_KeyDown" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15" />
