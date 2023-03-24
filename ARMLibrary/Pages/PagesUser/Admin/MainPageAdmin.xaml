@@ -15,11 +15,12 @@
         </Grid.ColumnDefinitions>
         <Border Panel.ZIndex="1" Background="#371F7C" CornerRadius=" 0 15 15 0 " MaxWidth="100" VerticalAlignment="Stretch">
             <Grid>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
-
+                
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
 

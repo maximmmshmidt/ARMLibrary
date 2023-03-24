@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARMLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,7 +28,7 @@ namespace ARMLibrary.Pages.PagesUser.Reader
 
         private void ProfilBTClic(object sender, RoutedEventArgs e)
         {
-
+            Navigating.Navigate(new ProfilUserPage());
         }
     }
 }

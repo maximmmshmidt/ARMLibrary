@@ -27,7 +27,7 @@ namespace ARMLibrary.Pages.PagesUser.Librarian
 
         private void ProfilBTClic(object sender, RoutedEventArgs e)
         {
-
+            Navigating.Navigate(new ProfilUserPage());
         }
     }
 }

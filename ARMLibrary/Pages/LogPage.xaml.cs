@@ -1,9 +1,12 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using ARMLibrary.Pages.PagesUser.Admin;
+using ARMLibrary.Pages.PagesUser.Librarian;
+using ARMLibrary.Pages.PagesUser.Reader;
 using ARMLibrary.Models;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace ARMLibrary.Pages
 {
@@ -13,6 +16,7 @@ namespace ARMLibrary.Pages
 
     public partial class LogPage : Page
     {
+        public static User us;
         readonly Core db = new Core();
         public LogPage()
         {
@@ -21,10 +25,22 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            var us = db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
+            us = db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
             if (us != null)
             {
-                this.NavigationService.Navigate(new MainPageAdmin(us));
+                switch (us.idViewUser)
+                {
+                    case 1:
+                        this.NavigationService.Navigate(new MainPageAdmin());
+                        break;
+                    case 2:
+                        this.NavigationService.Navigate(new MainPageLibrarian());
+                        break;
+                    case 3:
+                        this.NavigationService.Navigate(new MainPageReader());
+                        break;
+                }
+                
             }
             else
             {

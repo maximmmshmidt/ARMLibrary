@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARMLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ARMLibrary.Pages.PagesUser
         public ProfilUserPage()
         {
             InitializeComponent();
+            LastName.Text = LogPage.us.LastName;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ARMLibrary
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new MainPageAdmin());
+            //MainFrame.Navigate(new MainPageAdmin());
         }
 
         private void RollUpButtonClick(object sender, RoutedEventArgs e)

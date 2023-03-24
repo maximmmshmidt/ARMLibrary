@@ -9,6 +9,6 @@
       Title="ProfilUserPage">
 
     <Grid Background="Red">
-        
+        <TextBlock x:Name="LastName"/>
     </Grid>
 </Page>

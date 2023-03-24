@@ -22,14 +22,14 @@ namespace ARMLibrary.Pages.PagesUser.Admin
     /// </summary>
     public partial class MainPageAdmin : Page
     {
+        
         readonly Core db = new Core();
-        public MainPageAdmin(Models.User user)
+        public MainPageAdmin()
         {
             InitializeComponent();
-
-
+            
             Navigating.Navigate(new BookPage());
-
+            
             ProfilBT.Opacity = 1;
             AddUser.Opacity = 1;
             AddBook.Opacity = 1;

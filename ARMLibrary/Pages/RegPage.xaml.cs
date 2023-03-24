@@ -1,4 +1,5 @@
-﻿using ARMLibrary.Pages.PagesUser.Admin;
+﻿using ARMLibrary.Models;
+using ARMLibrary.Pages.PagesUser.Admin;
 using ARMLibrary.Pages.PagesUser.Reader;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,10 @@ namespace ARMLibrary.Pages
         {
             if (Librarianship.RegexClass.CheckingLogin(LoginTB.Text) && Librarianship.RegexClass.CheckingPassword(PasswordTB.Text) && PasswordTB == TwoPasswordTB)
             {
+                User user = new User{ 
+                    Login = LoginTB.Text,
+                    Password = PasswordTB.Text
+                };
                 this.NavigationService.Navigate(new MainPageReader());
             }
             else

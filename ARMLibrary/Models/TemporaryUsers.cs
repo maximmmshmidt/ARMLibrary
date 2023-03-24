@@ -12,12 +12,11 @@ namespace ARMLibrary.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class TemporaryUsers
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int idTemporaryUser { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Patronymic { get; set; }
     }
 }
