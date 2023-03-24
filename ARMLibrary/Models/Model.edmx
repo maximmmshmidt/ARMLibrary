@@ -10,8 +10,7 @@
             <PropertyRef Name="AccountingBook" />
           </Key>
           <Property Name="AccountingBook" Type="int" Nullable="false" />
-          <Property Name="idBook" Type="int" />
-          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="idBook" Type="int" Nullable="false" />
           <Property Name="NumberBook" Type="int" Nullable="false" />
           <Property Name="NumberBookGiven" Type="int" Nullable="false" />
         </EntityType>
@@ -38,8 +37,9 @@
           <Property Name="PlacePublication" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="YearPublication" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NumberPages" Type="int" Nullable="false" />
-          <Property Name="ISBN" Type="int" Nullable="false" />
-          <Property Name="BBK" Type="int" Nullable="false" />
+          <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BBK" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -55,6 +55,8 @@
           <Property Name="IdBookGiven" Type="int" Nullable="false" />
           <Property Name="AccountingBook" Type="int" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="DateIssue" Type="date" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -71,8 +73,8 @@
             <PropertyRef Name="idUser" />
           </Key>
           <Property Name="idUser" Type="int" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -80,7 +82,7 @@
           <Property Name="YearBirth" Type="date" Nullable="false" />
           <Property Name="ResidentialAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PlaceWork" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="NumbrePhone" Type="int" Nullable="false" />
+          <Property Name="NumbrePhone" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="ViewUser">
           <Key>
@@ -90,7 +92,7 @@
           <Property Name="NameViewUser" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_AccountingBook_Book">
-          <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Book">
@@ -205,8 +207,7 @@
             <PropertyRef Name="AccountingBook1" />
           </Key>
           <Property Name="AccountingBook1" Type="Int32" Nullable="false" />
-          <Property Name="idBook" Type="Int32" />
-          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="idBook" Type="Int32" Nullable="false" />
           <Property Name="NumberBook" Type="Int32" Nullable="false" />
           <Property Name="NumberBookGiven" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_AccountingBook_Book" FromRole="AccountingBook" ToRole="Book" />
@@ -236,8 +237,9 @@
           <Property Name="PlacePublication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="YearPublication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NumberPages" Type="Int32" Nullable="false" />
-          <Property Name="ISBN" Type="Int32" Nullable="false" />
-          <Property Name="BBK" Type="Int32" Nullable="false" />
+          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BBK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AccountingBook" Relationship="Self.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBook" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
@@ -257,6 +259,8 @@
           <Property Name="IdBookGiven" Type="Int32" Nullable="false" />
           <Property Name="AccountingBook" Type="Int32" Nullable="false" />
           <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="AccountingBook1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />
           <NavigationProperty Name="User" Relationship="Self.FK_NumberBookGiven_User" FromRole="NumberBookGiven" ToRole="User" />
         </EntityType>
@@ -275,8 +279,8 @@
             <PropertyRef Name="idUser" />
           </Key>
           <Property Name="idUser" Type="Int32" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -284,7 +288,7 @@
           <Property Name="YearBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ResidentialAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PlaceWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NumbrePhone" Type="Int32" Nullable="false" />
+          <Property Name="NumbrePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="NumberBookGiven" Relationship="Self.FK_NumberBookGiven_User" FromRole="User" ToRole="NumberBookGiven" />
           <NavigationProperty Name="ViewUser" Relationship="Self.FK_User_ViewUser" FromRole="User" ToRole="ViewUser" />
         </EntityType>
@@ -297,7 +301,7 @@
           <NavigationProperty Name="User" Relationship="Self.FK_User_ViewUser" FromRole="ViewUser" ToRole="User" />
         </EntityType>
         <Association Name="FK_AccountingBook_Book">
-          <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
           <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Book">
@@ -368,7 +372,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LibraryEntitiess" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AccountingBook" EntityType="Self.AccountingBook" />
           <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="Book" EntityType="Self.Book" />
@@ -407,13 +411,12 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntitiess">
           <EntitySetMapping Name="AccountingBook">
             <EntityTypeMapping TypeName="LibraryModel.AccountingBook">
               <MappingFragment StoreEntitySet="AccountingBook">
                 <ScalarProperty Name="AccountingBook1" ColumnName="AccountingBook" />
                 <ScalarProperty Name="idBook" ColumnName="idBook" />
-                <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="NumberBook" ColumnName="NumberBook" />
                 <ScalarProperty Name="NumberBookGiven" ColumnName="NumberBookGiven" />
               </MappingFragment>
@@ -444,6 +447,7 @@
                 <ScalarProperty Name="NumberPages" ColumnName="NumberPages" />
                 <ScalarProperty Name="ISBN" ColumnName="ISBN" />
                 <ScalarProperty Name="BBK" ColumnName="BBK" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -461,6 +465,8 @@
                 <ScalarProperty Name="IdBookGiven" ColumnName="IdBookGiven" />
                 <ScalarProperty Name="AccountingBook" ColumnName="AccountingBook" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

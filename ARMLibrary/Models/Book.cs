@@ -28,8 +28,9 @@ namespace ARMLibrary.Models
         public string PlacePublication { get; set; }
         public string YearPublication { get; set; }
         public int NumberPages { get; set; }
-        public int ISBN { get; set; }
-        public int BBK { get; set; }
+        public string ISBN { get; set; }
+        public string BBK { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AccountingBook> AccountingBook { get; set; }

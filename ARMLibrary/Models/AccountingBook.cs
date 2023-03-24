@@ -21,8 +21,7 @@ namespace ARMLibrary.Models
         }
     
         public int AccountingBook1 { get; set; }
-        public Nullable<int> idBook { get; set; }
-        public int idUser { get; set; }
+        public int idBook { get; set; }
         public int NumberBook { get; set; }
         public int NumberBookGiven { get; set; }
     

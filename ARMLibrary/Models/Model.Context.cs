@@ -13,10 +13,10 @@ namespace ARMLibrary.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LibraryEntities : DbContext
+    public partial class LibraryEntitiess : DbContext
     {
-        public LibraryEntities()
-            : base("name=LibraryEntities")
+        public LibraryEntitiess()
+            : base("name=LibraryEntitiess")
         {
         }
     

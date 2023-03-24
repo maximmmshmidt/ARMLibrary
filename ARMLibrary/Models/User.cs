@@ -30,7 +30,7 @@ namespace ARMLibrary.Models
         public System.DateTime YearBirth { get; set; }
         public string ResidentialAddress { get; set; }
         public string PlaceWork { get; set; }
-        public int NumbrePhone { get; set; }
+        public string NumbrePhone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NumberBookGiven> NumberBookGiven { get; set; }
