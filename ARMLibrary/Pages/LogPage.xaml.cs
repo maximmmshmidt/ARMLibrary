@@ -24,7 +24,7 @@ namespace ARMLibrary.Pages
             var us = db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
             if (us != null)
             {
-                this.NavigationService.Navigate(new MainPageAdmin());
+                this.NavigationService.Navigate(new MainPageAdmin(us));
             }
             else
             {
