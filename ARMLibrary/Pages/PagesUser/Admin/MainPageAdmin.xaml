@@ -10,7 +10,7 @@
       Title="MainPageAdmin">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition MinWidth="100" MaxWidth="100"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <Border Panel.ZIndex="1" Background="#371F7C" CornerRadius=" 0 15 15 0 " MaxWidth="100" VerticalAlignment="Stretch">

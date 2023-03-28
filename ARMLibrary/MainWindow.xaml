@@ -11,7 +11,7 @@
 
     <Grid MouseLeftButtonDown="RowDefinition_MouseLeftButtonDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="30" />
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
         <Button Panel.ZIndex="1" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Click="Button_Click"/>
