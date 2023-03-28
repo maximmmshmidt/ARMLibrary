@@ -364,4 +364,4 @@ FodyWeavers.xsd
 
 #игнорирование папка model
 
-Models
+/Models
