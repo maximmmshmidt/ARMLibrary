@@ -11,7 +11,7 @@
 
     <Grid Margin="5">
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-            <ListBox Width="100"/>
+            <ComboBox x:Name="JanreFilter" Width="100" ContextMenu="{Binding Genre.NameGenre}"/>
             <TextBox x:Name="FindTextBox" KeyDown="FindTextBox_KeyDown" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <TextBox.Resources>
                     <Style TargetType="Border">
