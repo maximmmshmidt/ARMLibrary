@@ -90,7 +90,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PagesUser\Admin\BookPage.xaml">
+    <Page Include="Pages\PagesUser\BookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,7 +162,7 @@
     <Compile Include="Pages\LogPage.xaml.cs">
       <DependentUpon>LogPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PagesUser\Admin\BookPage.xaml.cs">
+    <Compile Include="Pages\PagesUser\BookPage.xaml.cs">
       <DependentUpon>BookPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PagesUser\Admin\MainPageAdmin.xaml.cs">

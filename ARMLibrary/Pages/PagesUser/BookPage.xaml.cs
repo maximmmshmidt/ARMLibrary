@@ -16,11 +16,8 @@ namespace ARMLibrary.Pages.PagesUser.Admin
     {
         Core db = new Core();
 
-        int countElement = 10;
-        int page = 1;
-
         List<Book> productTypes;
-        bool reverseType;
+
         public BookPage()
         {
             InitializeComponent();
@@ -38,16 +35,9 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         private void UpdateUI()
         {
             List<Book> displayProduct = GetRows();
-            if (GetRows().Count > 10)
+            foreach (var item in displayProduct)
             {
-                
-
-                displayProduct = GetRows().Skip((page - 1) * countElement).Take(countElement).ToList();
-                foreach (var item in displayProduct)
-                {
-                    Console.WriteLine(item.idBook);
-                }
-                
+                Console.WriteLine(item.idBook);
             }
             ProductListView.ItemsSource = displayProduct;
         }
@@ -60,10 +50,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
                 arrayProduct = arrayProduct.Where(x => x.NameBook.ToUpper().Contains(searchData)).ToList();
                 arrayProduct = arrayProduct.Where(x => LevenshteinDistance(x.NameBook.ToUpper(), searchData) <= 12).ToList();
             }
-            if (reverseType)
-            {
-                arrayProduct.Reverse();
-            }
+            
             return arrayProduct;
         }
 
@@ -110,49 +97,12 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
 
         }
-        private void FindTextBoxGotFocus(object sender, RoutedEventArgs e)
-        {
-            FindTextBox.Text = "";
-        }
-
-
-        private void FindTextBoxTextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateUI();
-        }
-
-
-
-        private void ComboBoxFiltrSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateUI();
-        }
-
-        private void ComboBoxSortSelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            UpdateUI();
-        }
-
-
-        private void ReverseButtonClick(object sender, RoutedEventArgs e)
-        {
-            reverseType = !reverseType;
-            UpdateUI();
-        }
-
-
-        private void TextBlockMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            TextBlock activePage = (TextBlock)sender;
-            page = Convert.ToInt32(activePage.Text);
-            UpdateUI();
-        }
 
         private void FindTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                FindTextBox.Focus();
+                //FindTextBox.Focus();
             }
         }
     }
