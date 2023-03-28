@@ -58,6 +58,16 @@
           <Property Name="DateIssue" Type="date" Nullable="false" />
           <Property Name="ReturnDate" Type="date" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
             <PropertyRef Name="idTemporaryUser" />
@@ -168,6 +178,7 @@
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" Schema="dbo" store:Type="Tables" />
@@ -262,6 +273,16 @@
           <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="AccountingBook1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />
           <NavigationProperty Name="User" Relationship="Self.FK_NumberBookGiven_User" FromRole="NumberBookGiven" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
@@ -370,12 +391,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LibraryEntitiess" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AccountingBook" EntityType="Self.AccountingBook" />
           <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="Book" EntityType="Self.Book" />
           <EntitySet Name="Genre" EntityType="Self.Genre" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" />
@@ -409,7 +431,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntitiess">
           <EntitySetMapping Name="AccountingBook">
             <EntityTypeMapping TypeName="LibraryModel.AccountingBook">
               <MappingFragment StoreEntitySet="AccountingBook">
@@ -465,6 +487,17 @@
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
                 <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LibraryModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

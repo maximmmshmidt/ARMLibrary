@@ -362,6 +362,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-#игнорирование файла model
-Model.edmx
+#игнорирование папка model
 
+Models

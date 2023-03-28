@@ -147,6 +147,9 @@
     <Compile Include="Models\NumberBookGiven.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TemporaryUsers.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -228,7 +231,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\script.sql" />
+    <Content Include="Scripts\script.sql" />
     <Resource Include="Assets\img\polz.png" />
   </ItemGroup>
   <ItemGroup>
