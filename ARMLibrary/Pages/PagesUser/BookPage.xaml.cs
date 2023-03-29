@@ -16,11 +16,13 @@ namespace ARMLibrary.Pages.PagesUser.Admin
     {
         Core db = new Core();
 
-        List<Book> productTypes;
+        static List<Book> productTypes;
 
         public BookPage()
         {
             InitializeComponent();
+            JanreFilter.ItemsSource = db.context.Genre.ToList();
+            JanreFilter.DisplayMemberPath = "NameGenre";
             productTypes = new List<Book>
             {
                 new Book()
@@ -45,11 +47,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         {
             List<Book> arrayProduct = db.context.Book.ToList();
             string searchData = FindTextBox.Text.ToUpper();
-            if (!String.IsNullOrEmpty(FindTextBox.Text))
-            {
-                arrayProduct = arrayProduct.Where(x => x.NameBook.ToUpper().Contains(searchData)).ToList();
-                arrayProduct = arrayProduct.Where(x => LevenshteinDistance(x.NameBook.ToUpper(), searchData) <= 12).ToList();
-            }
+            
             
             return arrayProduct;
         }
@@ -104,6 +102,33 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             {
                 //FindTextBox.Focus();
             }
+        }
+
+        private void JanreFilter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            productTypes = db.context.Book.Where(x=>x.idGenre == JanreFilter.SelectedIndex).ToList();
+            UpdateUI();
+        }
+
+        private void JanreFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            Genre genre = JanreFilter.SelectedItem as Genre;
+            if (genre.idGenre == 0)
+            {
+                ProductListView.ItemsSource = null;
+                ProductListView.ItemsSource = db.context.Book.ToList();
+            }
+            else
+            {
+                ProductListView.ItemsSource = null;
+                ProductListView.ItemsSource = db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
+            }
+        }
+
+        private void FindTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

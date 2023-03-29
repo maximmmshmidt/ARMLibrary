@@ -11,8 +11,9 @@
 
     <Grid Margin="5">
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-            <ComboBox x:Name="JanreFilter" Width="100" ContextMenu="{Binding Genre.NameGenre}"/>
-            <TextBox x:Name="FindTextBox" KeyDown="FindTextBox_KeyDown" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBox x:Name="JanreFilter" SelectionChanged="JanreFilter_SelectionChanged" Width="100" Margin="15 0"/>
+            
+            <TextBox x:Name="FindTextBox" TextChanged="FindTextBox_TextChanged" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="15" />
@@ -23,12 +24,12 @@
             <Button x:Name="Search" Background="Transparent" BorderBrush="Transparent" Margin="0 0 10 0" Padding="10 0" BorderThickness="0" >
                 <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20"/>
             </Button>
-            <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
+            <!--<Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                 <i:PackIconMaterial Kind="ArrowUpBold" Width="20" Height="20"/>
             </Button>
             <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                 <i:PackIconMaterial Kind="ArrowDownBold" Width="20" Height="20"/>
-            </Button>
+            </Button>-->
         </StackPanel>
 
         <ListView x:Name="ProductListView" HorizontalAlignment="Center"  Background="#FFFFFF" Margin="40" Opacity="0.4" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
