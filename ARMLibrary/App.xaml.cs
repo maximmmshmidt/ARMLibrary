@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARMLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,7 @@ namespace ARMLibrary
     /// </summary>
     public partial class App : Application
     {
+        Core db = new Core();
+        public static User loginAuntificate = null;
     }
 }

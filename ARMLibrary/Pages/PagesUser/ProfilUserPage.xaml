@@ -8,7 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfilUserPage">
 
-    <Grid Background="Red">
-        <TextBlock x:Name="LastName"/>
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
+            <TextBlock x:Name="LastName"/>
+        </StackPanel>
+        <StackPanel Visibility="Hidden">
+            
+        </StackPanel>
+        <Button Content="Редактировать профиль" Width="150" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="15">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Page>

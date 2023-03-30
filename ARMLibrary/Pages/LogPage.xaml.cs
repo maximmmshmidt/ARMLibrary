@@ -26,6 +26,7 @@ namespace ARMLibrary.Pages
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
             us = db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
+            App.loginAuntificate = us;
             if (us != null)
             {
                 switch (us.idViewUser)

@@ -24,7 +24,7 @@ namespace ARMLibrary.Pages.PagesUser
         public ProfilUserPage()
         {
             InitializeComponent();
-            LastName.Text = LogPage.us.LastName;
+            LastName.Text = App.loginAuntificate.LastName +" "+ App.loginAuntificate.FirstName +" "+ App.loginAuntificate.Patronymic;
         }
     }
 }

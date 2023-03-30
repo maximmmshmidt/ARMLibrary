@@ -32,24 +32,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
                 }
             };
             productTypes.AddRange(db.context.Book.ToList());
-            UpdateUI();
-        }
-        private void UpdateUI()
-        {
-            List<Book> displayProduct = GetRows();
-            foreach (var item in displayProduct)
-            {
-                Console.WriteLine(item.idBook);
-            }
-            ProductListView.ItemsSource = displayProduct;
-        }
-        private List<Book> GetRows()
-        {
-            List<Book> arrayProduct = db.context.Book.ToList();
-            string searchData = FindTextBox.Text.ToUpper();
-            
-            
-            return arrayProduct;
+            ProductListView.ItemsSource = db.context.Book.ToList();
         }
 
         public static int LevenshteinDistance(string source1, string source2)
@@ -104,15 +87,8 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             }
         }
 
-        private void JanreFilter_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            productTypes = db.context.Book.Where(x=>x.idGenre == JanreFilter.SelectedIndex).ToList();
-            UpdateUI();
-        }
-
         private void JanreFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
             Genre genre = JanreFilter.SelectedItem as Genre;
             if (genre.idGenre == 0)
             {
@@ -130,6 +106,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         {
 
         }
+
     }
 }
 
