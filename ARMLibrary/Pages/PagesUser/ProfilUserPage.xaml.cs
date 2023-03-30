@@ -21,10 +21,24 @@ namespace ARMLibrary.Pages.PagesUser
     /// </summary>
     public partial class ProfilUserPage : Page
     {
+        Core db = new Core();
         public ProfilUserPage()
         {
             InitializeComponent();
-            LastName.Text = App.loginAuntificate.LastName +" "+ App.loginAuntificate.FirstName +" "+ App.loginAuntificate.Patronymic;
+            LastName.Text += App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName +" "+ App.loginAuntificate.Patronymic;
+            ViewUser usrole = db.context.ViewUser.Where(x => x.idViewUser == App.loginAuntificate.idViewUser).FirstOrDefault();
+            ViewUser.Text += usrole.NameViewUser;
+            NumberPhone.Text += App.loginAuntificate.NumbrePhone;
+            YearBirth.Text += Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
+            ResidAdres.Text += Convert.ToString(App.loginAuntificate.ResidentialAddress);
+            PlaceWork.Text += Convert.ToString(App.loginAuntificate.PlaceWork);
+            NumberPhone.Text += Convert.ToString(App.loginAuntificate.NumbrePhone);
+            //LastName.Text = "ФИО:"
+            //LastNameBox.Text =  App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName +" "+ App.loginAuntificate.Patronymic;
+            //вывод из box ФИО
+            //string[] mass = new string[];
+            //mass = LastNameBox.Text.Split(' ');
+            //User redactUser = new User(){индификация начинается с 0}
         }
     }
 }

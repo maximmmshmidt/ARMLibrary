@@ -19,13 +19,13 @@
             
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
                 <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="RollUpButtonClick">
-                    <i:PackIconMaterial Kind="MinusBox"/>
+                    <i:PackIconMaterial Kind="MinusBox" Foreground="White"/>
                 </Button>
                 <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="UnwrapButtonClick">
-                    <i:PackIconMaterial Kind="BoxShadow"/>
+                    <i:PackIconMaterial Kind="BoxShadow" Foreground="White"/>
                 </Button>
                 <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="CloseButtonClick">
-                    <i:PackIconMaterial Kind="CloseBox"/>
+                    <i:PackIconMaterial Kind="CloseBox" Foreground="White"/>
                 </Button>
             </StackPanel>
         </StackPanel>

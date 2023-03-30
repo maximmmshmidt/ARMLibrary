@@ -22,16 +22,10 @@
             </TextBox>
 
             <Button x:Name="Search" Background="Transparent" BorderBrush="Transparent" Margin="0 0 10 0" Padding="10 0" BorderThickness="0" >
-                <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20"/>
+                <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20" Foreground="White"/>
             </Button>
-            <!--<Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
-                <i:PackIconMaterial Kind="ArrowUpBold" Width="20" Height="20"/>
-            </Button>
-            <Button Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
-                <i:PackIconMaterial Kind="ArrowDownBold" Width="20" Height="20"/>
-            </Button>-->
         </StackPanel>
-        <ListView x:Name="ProductListView" HorizontalAlignment="Center" Background="#FFFFFF" Margin="40" Opacity="0.4" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView x:Name="ProductListView" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Margin="0 40 0 0" VerticalAlignment="Top"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate >
                         <WrapPanel/>
@@ -39,7 +33,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical" Width="200">
+                    <StackPanel Orientation="Vertical" Width="194">
                         <StackPanel.Background>
                             <LinearGradientBrush>
                                 <GradientStop Color="BlueViolet" Offset="0"></GradientStop>
@@ -47,7 +41,7 @@
                             </LinearGradientBrush>
                         </StackPanel.Background>
                         <StackPanel Margin="5">
-                        <i:PackIconMaterial Kind="Book" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                            <i:PackIconMaterial Kind="Book" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="1"/>
                         <StackPanel Height="120" Width="100"  Orientation="Vertical" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Grid>
                                 <Grid.RowDefinitions>
