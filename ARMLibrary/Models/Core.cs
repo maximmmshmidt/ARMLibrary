@@ -8,6 +8,6 @@ namespace ARMLibrary.Models
 {
     internal class Core
     {
-        public LibraryEntitiess context = new LibraryEntitiess();
+        public LibraryEntities context = new LibraryEntities();
     }
 }

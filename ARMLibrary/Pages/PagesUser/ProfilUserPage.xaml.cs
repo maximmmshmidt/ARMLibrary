@@ -1,4 +1,5 @@
 ﻿using ARMLibrary.Models;
+using DocumentFormat.OpenXml.Math;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,13 +33,47 @@ namespace ARMLibrary.Pages.PagesUser
             YearBirth.Text += Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
             ResidAdres.Text += Convert.ToString(App.loginAuntificate.ResidentialAddress);
             PlaceWork.Text += Convert.ToString(App.loginAuntificate.PlaceWork);
-            NumberPhone.Text += Convert.ToString(App.loginAuntificate.NumbrePhone);
             //LastName.Text = "ФИО:"
             //LastNameBox.Text =  App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName +" "+ App.loginAuntificate.Patronymic;
             //вывод из box ФИО
             //string[] mass = new string[];
             //mass = LastNameBox.Text.Split(' ');
             //User redactUser = new User(){индификация начинается с 0}
+        }
+
+        bool editBT = true;
+
+        private void RedactionBTClic(object sender, RoutedEventArgs e)
+        {
+            if (editBT)
+            {
+                EditBT.Opacity = 0.5;
+                editBT = false;
+                HideTB.Visibility = Visibility.Visible;
+
+                LastName.Text = "ФИО : ";
+                LastNameBox.Text = App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName + " " + App.loginAuntificate.Patronymic;
+
+                NumberPhone.Text = App.loginAuntificate.NumbrePhone;
+                NumberPhoneBox.Text = "Номер Телефона : ";
+
+                YearBirth.Text = Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
+                YearBirthBox.Text = "Дата Рождения : ";
+
+                ResidAdres.Text = Convert.ToString(App.loginAuntificate.ResidentialAddress);
+                ResidAdresBox.Text = "Место Проживания : ";
+
+                PlaceWork.Text = Convert.ToString(App.loginAuntificate.PlaceWork);
+                PlaceWorkBox.Text = "Место Учебы\\Работы : ";
+            }
+            else
+            {
+                EditBT.Opacity = 1;
+                editBT = true;
+                HideTB.Visibility = Visibility.Hidden;
+
+
+            }
         }
     }
 }

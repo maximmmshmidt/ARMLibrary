@@ -13,10 +13,10 @@ namespace ARMLibrary.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LibraryEntitiess : DbContext
+    public partial class LibraryEntities : DbContext
     {
-        public LibraryEntitiess()
-            : base("name=LibraryEntitiess")
+        public LibraryEntities()
+            : base("name=LibraryEntities")
         {
         }
     
@@ -30,7 +30,6 @@ namespace ARMLibrary.Models
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<NumberBookGiven> NumberBookGiven { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TemporaryUsers> TemporaryUsers { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<ViewUser> ViewUser { get; set; }

@@ -150,9 +150,6 @@
     <Compile Include="Models\NumberBookGiven.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TemporaryUsers.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
