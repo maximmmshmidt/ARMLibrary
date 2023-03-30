@@ -23,6 +23,7 @@ namespace ARMLibrary.Pages.PagesUser
     public partial class ProfilUserPage : Page
     {
         Core db = new Core();
+        string[] mass;
         public ProfilUserPage()
         {
             InitializeComponent();
@@ -33,12 +34,6 @@ namespace ARMLibrary.Pages.PagesUser
             YearBirth.Text += Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
             ResidAdres.Text += Convert.ToString(App.loginAuntificate.ResidentialAddress);
             PlaceWork.Text += Convert.ToString(App.loginAuntificate.PlaceWork);
-            //LastName.Text = "ФИО:"
-            //LastNameBox.Text =  App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName +" "+ App.loginAuntificate.Patronymic;
-            //вывод из box ФИО
-            //string[] mass = new string[];
-            //mass = LastNameBox.Text.Split(' ');
-            //User redactUser = new User(){индификация начинается с 0}
         }
 
         bool editBT = true;
@@ -71,8 +66,27 @@ namespace ARMLibrary.Pages.PagesUser
                 EditBT.Opacity = 1;
                 editBT = true;
                 HideTB.Visibility = Visibility.Hidden;
+            }
+        }
 
+        bool save = true;
 
+        private void SaveBTClic(object sender, RoutedEventArgs e)
+        {
+            if (save && LastName.Text.Length < 10 && Librarianship.RegexClass.CheckingСyrillic(LastName.Text))
+            {
+                save = false;
+                mass = LastNameBox.Text.Split(' ');
+                User redactUser = new User()
+                {
+                    LastName = mass[0],
+                    FirstName = mass[0],
+                    Patronymic = mass[0]
+                };
+            }
+            else
+            {
+                SaveBT.Opacity = 0.5;
             }
         }
     }

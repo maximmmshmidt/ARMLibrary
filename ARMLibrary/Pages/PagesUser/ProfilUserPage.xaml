@@ -29,8 +29,13 @@
             </StackPanel>
         </StackPanel>
 
-        <Button x:Name="EditBT" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="RedactionBTClic" Margin="15" BorderBrush="Transparent" BorderThickness="0,0,0,0">
-            <i:PackIconMaterial Kind="Pencil" Foreground="White" Width="30" Height="30"/>
-        </Button>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
+            <Button x:Name="EditBT" Background="Transparent" Click="RedactionBTClic" Margin="15" BorderBrush="Transparent" BorderThickness="0,0,0,0">
+                <i:PackIconMaterial Kind="ContentSaveEdit" Foreground="White" Width="30" Height="30"/>
+            </Button>
+            <Button x:Name="SaveBT" Background="Transparent" Click="SaveBTClic" Margin="15" BorderBrush="Transparent" BorderThickness="0,0,0,0">
+                <i:PackIconMaterial Kind="Pencil" Foreground="White" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
