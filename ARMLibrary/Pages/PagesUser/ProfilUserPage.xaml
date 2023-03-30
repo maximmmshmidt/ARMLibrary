@@ -19,9 +19,9 @@
                 <TextBlock Text="Место Проживания : " x:Name="ResidAdres" Margin="5" Foreground="White" Height="18"/>
                 <TextBlock Text="Место Учебы\Работы : " x:Name="PlaceWork" Margin="5" Foreground="White" Height="18"/>
             </StackPanel>
-            <StackPanel x:Name="HideTB" Orientation="Vertical" Visibility="Hidden">
-                <TextBox Margin="5"/>
-                <TextBox Margin="5"/>
+            <StackPanel x:Name="HideTB" Orientation="Vertical" Visibility="Visible">
+                <TextBox Margin="5"  x:Name="LastNameBox" Width="100"/>
+                <TextBox Margin="5" />
                 <TextBox Margin="5"/>
                 <TextBox Margin="5"/>
                 <TextBox Margin="5"/>
