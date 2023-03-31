@@ -105,6 +105,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PagesUser\ListUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagesUser\ProfilUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +174,9 @@
     </Compile>
     <Compile Include="Pages\PagesUser\Librarian\MainPageLibrarian.xaml.cs">
       <DependentUpon>MainPageLibrarian.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagesUser\ListUserPage.xaml.cs">
+      <DependentUpon>ListUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PagesUser\ProfilUserPage.xaml.cs">
       <DependentUpon>ProfilUserPage.xaml</DependentUpon>

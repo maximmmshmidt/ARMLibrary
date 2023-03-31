@@ -59,6 +59,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
         private void LibraryUser_Click(object sender, RoutedEventArgs e)
         {
+            Navigating.Navigate(new ListUserPage());
             ProfilBT.Opacity = 1;
             AddUser.Opacity = 1;
             AddBook.Opacity =1;
