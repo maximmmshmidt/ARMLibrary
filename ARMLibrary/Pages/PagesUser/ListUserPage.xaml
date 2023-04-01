@@ -16,14 +16,35 @@
         <DataGrid x:Name="DataGridUser" Grid.Row="1"  AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id User" Binding="{Binding idUser}"/>
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"/>
+                <DataGridTextColumn Header="Имя" x:Name="FIO">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat="{}{0} {1} {2}">
+                            <Binding Path="LastName" />
+                            <Binding Path="FirstName" />
+                            <Binding Path="Patronymic" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Вид Пользователя" Binding="{Binding  ViewUser.NameViewUser}"/>
-                <DataGridTextColumn Header="Дата Рождения" Binding="{Binding YearBirth }"/>
+                <DataGridTextColumn Header="Дата Рождения" >
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding>
+                            <Binding x:Name="DateUser" Path="YearBirth"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Адрес Проживания" Binding="{Binding ResidentialAddress}"/>
                 <DataGridTextColumn Header="Работа\Учёба" Binding="{Binding PlaceWork}"/>
                 <DataGridTextColumn Header="Номер Телефона" Binding="{Binding NumbrePhone}"/>
+                <DataGridTemplateColumn x:Name="RedactionBT" Header="Редактировать" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Button Content="Провиль" x:Name="ProfilButton" Background="Transparent" BorderBrush="Transparent" Click="ProfilButtonClick" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -3,16 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ARMLibrary.Pages.PagesUser
 {
@@ -27,7 +20,25 @@ namespace ARMLibrary.Pages.PagesUser
         {
             InitializeComponent();
             mass = db.context.User.ToList();
+            mass = mass.Where(x => x.idViewUser != App.loginAuntificate.idViewUser).ToList();
+            if (App.loginAuntificate.idViewUser > 1)
+            {
+                mass = mass.Where(x => x.idViewUser != 1).ToList();
+            }
             DataGridUser.ItemsSource = mass;
+            //Convert.ToString(DateUser ToString("D"));
+
+        }
+
+        private void ProfilButtonClick(object sender, RoutedEventArgs e)
+        {
+            //User activeStudent = ((Button)sender).DataContext as Students;
+            Button activeButton = sender as Button;
+            User activeStudent = activeButton.DataContext as User;
+            if (activeStudent != null)
+            {
+                this.NavigationService.Navigate(new ProfilUserPageForList(activeStudent));
+            }
         }
     }
 }

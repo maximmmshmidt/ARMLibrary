@@ -14,7 +14,6 @@ namespace ARMLibrary
     /// </summary>
     public partial class App : Application
     {
-        Core db = new Core();
         public static User loginAuntificate = null;
     }
 }

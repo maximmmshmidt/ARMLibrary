@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PagesUser\ProfilUserPageForList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagesUser\Reader\MainPageReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +184,9 @@
     </Compile>
     <Compile Include="Pages\PagesUser\ProfilUserPage.xaml.cs">
       <DependentUpon>ProfilUserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagesUser\ProfilUserPageForList.xaml.cs">
+      <DependentUpon>ProfilUserPageForList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PagesUser\Reader\MainPageReader.xaml.cs">
       <DependentUpon>MainPageReader.xaml</DependentUpon>
