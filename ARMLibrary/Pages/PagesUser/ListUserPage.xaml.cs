@@ -26,7 +26,7 @@ namespace ARMLibrary.Pages.PagesUser
                 mass = mass.Where(x => x.idViewUser != 1).ToList();
             }
             DataGridUser.ItemsSource = mass;
-            //Convert.ToString(DateUser ToString("D"));
+            Convert.ToString(DateUser.Source.ToString('D'));
 
         }
 
