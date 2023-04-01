@@ -28,7 +28,7 @@
                 <DataGridTextColumn Header="Вид Пользователя" Binding="{Binding  ViewUser.NameViewUser}"/>
                 <DataGridTextColumn Header="Дата Рождения" >
                     <DataGridTextColumn.Binding>
-                        <MultiBinding>
+                        <MultiBinding StringFormat="MM/dd/yyyy">
                             <Binding x:Name="DateUser" Path="YearBirth"/>
                         </MultiBinding>
                     </DataGridTextColumn.Binding>

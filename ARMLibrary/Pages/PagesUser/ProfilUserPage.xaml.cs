@@ -41,7 +41,22 @@ namespace ARMLibrary.Pages.PagesUser
             // если нет то дается возможность зарегаться
             else
             {
+                HideTB.Visibility = Visibility.Visible;
 
+                LastName.Text = "ФИО : ";
+
+
+                NumberPhone.Text = App.loginAuntificate.NumbrePhone;
+                NumberPhoneBox.Text = "Номер Телефона : ";
+
+                YearBirth.Text = Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
+                YearBirthBox.Text = "Дата Рождения : ";
+
+                ResidAdres.Text = Convert.ToString(App.loginAuntificate.ResidentialAddress);
+                ResidAdresBox.Text = "Место Проживания : ";
+
+                PlaceWork.Text = Convert.ToString(App.loginAuntificate.PlaceWork);
+                PlaceWorkBox.Text = "Место Учебы\\Работы : ";
             }
         }
 
@@ -58,17 +73,17 @@ namespace ARMLibrary.Pages.PagesUser
                 LastName.Text = "ФИО : ";
                 LastNameBox.Text = App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName + " " + App.loginAuntificate.Patronymic;
 
-                NumberPhone.Text = App.loginAuntificate.NumbrePhone;
-                NumberPhoneBox.Text = "Номер Телефона : ";
+                NumberPhone.Text = "Номер Телефона : ";
+                NumberPhoneBox.Text = App.loginAuntificate.NumbrePhone;
 
-                YearBirth.Text = Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
-                YearBirthBox.Text = "Дата Рождения : ";
+                YearBirth.Text = "Дата Рождения : ";
+                YearBirthBox.Text = Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
 
-                ResidAdres.Text = Convert.ToString(App.loginAuntificate.ResidentialAddress);
-                ResidAdresBox.Text = "Место Проживания : ";
+                ResidAdres.Text = "Место Проживания : ";
+                ResidAdresBox.Text = Convert.ToString(App.loginAuntificate.ResidentialAddress);
 
-                PlaceWork.Text = Convert.ToString(App.loginAuntificate.PlaceWork);
-                PlaceWorkBox.Text = "Место Учебы\\Работы : ";
+                PlaceWork.Text = "Место Учебы\\Работы : ";
+                PlaceWorkBox.Text = Convert.ToString(App.loginAuntificate.PlaceWork);
             }
             else
             {
@@ -95,7 +110,6 @@ namespace ARMLibrary.Pages.PagesUser
             }
             else
             {
-                SaveBT.Opacity = 0.5;
             }
         }
     }
