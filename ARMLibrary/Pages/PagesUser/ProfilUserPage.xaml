@@ -12,20 +12,20 @@
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="ФИО : " x:Name="LastName" Margin="5" Foreground="White" Height="20"/>
-                <TextBlock Text="Вид Пользователя : " x:Name="ViewUser" Foreground="White" Margin="5" Height="18"/>
-                <TextBlock Text="Номер Телефона : " x:Name="NumberPhone" Foreground="White" Margin="5" Height="18"/>
-                <TextBlock Text="Дата Рождения : " x:Name="YearBirth" Margin="5" Foreground="White" Height="18"/>
-                <TextBlock Text="Место Проживания : " x:Name="ResidAdres" Margin="5" Foreground="White" Height="18"/>
-                <TextBlock Text="Место Учебы\Работы : " x:Name="PlaceWork" Margin="5" Foreground="White" Height="18"/>
+                <TextBlock Text="ФИО : " FontSize="22" x:Name="LastName" Margin="5" Foreground="White" />
+                <TextBlock Text="Вид Пользователя : " FontSize="22" x:Name="ViewUser" Foreground="White" Margin="5" />
+                <TextBlock Text="Номер Телефона : " FontSize="22" x:Name="NumberPhone" Foreground="White" Margin="5" />
+                <TextBlock Text="Дата Рождения : " FontSize="22" x:Name="YearBirth" Margin="5" Foreground="White" />
+                <TextBlock Text="Место Проживания : " FontSize="22" x:Name="ResidAdres" Margin="5" Foreground="White" />
+                <TextBlock Text="Место Учебы\Работы : " FontSize="22" x:Name="PlaceWork" Margin="5" Foreground="White" />
             </StackPanel>
-            <StackPanel x:Name="HideTB" Orientation="Vertical" Visibility="Hidden">
-                <TextBox Margin="5"  x:Name="LastNameBox" Width="100"/>
-                <TextBox Margin="5" Visibility="Hidden"/>
-                <TextBox Margin="5" x:Name="NumberPhoneBox"/>
-                <TextBox Margin="5" x:Name="YearBirthBox"/>
-                <TextBox Margin="5" x:Name="ResidAdresBox"/>
-                <TextBox Margin="5" x:Name="PlaceWorkBox"/>
+            <StackPanel x:Name="HideTB" Orientation="Vertical" Visibility="Visible">
+                <TextBox Margin="10"  x:Name="LastNameBox" Height="20" Width="140"/>
+                <TextBox Margin="10" Visibility="Hidden" Height="20"/>
+                <TextBox Margin="10" x:Name="NumberPhoneBox" Height="20"/>
+                <TextBox Margin="10" x:Name="YearBirthBox" Height="20"/>
+                <TextBox Margin="10" x:Name="ResidAdresBox" Height="20"/>
+                <TextBox Margin="10" x:Name="PlaceWorkBox" Height="20"/>
             </StackPanel>
         </StackPanel>
 

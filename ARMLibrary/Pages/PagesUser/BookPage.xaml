@@ -33,30 +33,32 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
                 <DataTemplate>
-                    <StackPanel Orientation="Vertical" Width="194">
-                        <StackPanel.Background>
-                            <LinearGradientBrush>
-                                <GradientStop Color="BlueViolet" Offset="0"></GradientStop>
-                                <GradientStop Color="#3D1B9F" Offset="1"></GradientStop>
-                            </LinearGradientBrush>
-                        </StackPanel.Background>
-                        <StackPanel Margin="5">
-                            <i:PackIconMaterial Kind="Book" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="1"/>
-                        <StackPanel Height="120" Width="100"  Orientation="Vertical" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="70">
-                                    </RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <TextBlock Grid.Row="0" VerticalAlignment="Center" Foreground="White" Text="{Binding NameBook}" TextAlignment="Center" FontWeight="Bold"  FontSize="17" TextWrapping="Wrap"/>
-                                <TextBlock Grid.Row="1" VerticalAlignment="Center" Foreground="White" Text=" | " FontSize="17" TextAlignment="Center"/>
-                                <TextBlock Grid.Row="2" VerticalAlignment="Center" Foreground="White" Text="{Binding Genre.NameGenre}" Opacity="0.8" TextAlignment="Center" FontSize="17"/>
-                            </Grid>
+                    <Button>
+                        <StackPanel Orientation="Vertical" Width="194">
+                            <StackPanel.Background>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="BlueViolet" Offset="0"></GradientStop>
+                                    <GradientStop Color="#3D1B9F" Offset="1"></GradientStop>
+                                </LinearGradientBrush>
+                            </StackPanel.Background>
+                            <StackPanel Margin="5">
+                                <i:PackIconMaterial Kind="Book" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="1"/>
+                                <StackPanel Height="120" Width="100"  Orientation="Vertical" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="70">
+                                            </RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0" VerticalAlignment="Center" Foreground="White" Text="{Binding NameBook}" TextAlignment="Center" FontWeight="Bold"  FontSize="17" TextWrapping="Wrap"/>
+                                        <TextBlock Grid.Row="1" VerticalAlignment="Center" Foreground="White" Text=" | " FontSize="17" TextAlignment="Center"/>
+                                        <TextBlock Grid.Row="2" VerticalAlignment="Center" Foreground="White" Text="{Binding Genre.NameGenre}" Opacity="0.8" TextAlignment="Center" FontSize="17"/>
+                                    </Grid>
+                                </StackPanel>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    </StackPanel>
+                    </Button>
                 </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

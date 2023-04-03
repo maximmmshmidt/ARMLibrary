@@ -14,8 +14,8 @@ namespace ARMLibrary.Pages.PagesUser.Admin
     /// </summary>
     public partial class BookPage : Page
     {
-        Core db = new Core();
-
+        readonly Core db = new Core();
+        static List<Book> mass = null;
         static List<Book> productTypes;
 
         public BookPage()
@@ -32,7 +32,8 @@ namespace ARMLibrary.Pages.PagesUser.Admin
                 }
             };
             productTypes.AddRange(db.context.Book.ToList());
-            ProductListView.ItemsSource = db.context.Book.ToList();
+            mass = db.context.Book.ToList();
+            ProductListView.ItemsSource = mass;
         }
 
         public static int LevenshteinDistance(string source1, string source2)
@@ -83,7 +84,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         {
             if (e.Key == Key.Enter)
             {
-                //FindTextBox.Focus();
+                //FindTextBox.Focus(); 
             }
         }
 
@@ -93,18 +94,23 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             if (genre.idGenre == 0)
             {
                 ProductListView.ItemsSource = null;
-                ProductListView.ItemsSource = db.context.Book.ToList();
+                mass = db.context.Book.ToList();
+                ProductListView.ItemsSource = mass;
             }
             else
             {
                 ProductListView.ItemsSource = null;
-                ProductListView.ItemsSource = db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
+                mass = db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
+                ProductListView.ItemsSource = mass;
             }
         }
 
         private void FindTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (FindTextBox.Text!= null && mass!= null)
+            {
+                
+            }
         }
 
     }
