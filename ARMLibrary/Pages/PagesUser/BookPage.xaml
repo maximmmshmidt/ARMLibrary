@@ -25,7 +25,8 @@
                 <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20" Foreground="White"/>
             </Button>
         </StackPanel>
-        <ListView x:Name="ProductListView" HorizontalAlignment="Left" Background="Transparent" BorderBrush="Transparent" Margin="0 40 0 0" VerticalAlignment="Top"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+        <ListView x:Name="ProductListView" HorizontalAlignment="Left" Background="Transparent"
+                  BorderBrush="Transparent" Margin="0 40 -40 0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate >
                         <WrapPanel/>

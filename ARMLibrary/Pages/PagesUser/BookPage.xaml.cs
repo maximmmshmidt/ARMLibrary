@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 
 
@@ -80,14 +81,6 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
         }
 
-        private void FindTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                //FindTextBox.Focus(); 
-            }
-        }
-
         private void JanreFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Genre genre = JanreFilter.SelectedItem as Genre;
@@ -99,19 +92,28 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             }
             else
             {
+                
                 ProductListView.ItemsSource = null;
                 mass = db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
                 ProductListView.ItemsSource = mass;
             }
         }
-
         private void FindTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (FindTextBox.Text!= null && mass!= null)
-            {
-                
-            }
+            ProductListView.ItemsSource = GetRows();
         }
+
+        private List<Book> GetRows()
+        {
+            List<Book> arrayProduct = db.context.Book.ToList();
+            string searchData = FindTextBox.Text.ToUpper();
+            if (!String.IsNullOrEmpty(FindTextBox.Text))
+            {
+                arrayProduct = arrayProduct.Where(x => x.NameBook.ToUpper().Contains(searchData)).ToList();
+            }
+            return arrayProduct;
+        }
+
 
     }
 }
