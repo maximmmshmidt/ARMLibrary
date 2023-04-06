@@ -10,7 +10,7 @@
       Title="ProfilUserPage">
     
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible">
+        <StackPanel x:Name="InfoPolzov" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden">
             <StackPanel Orientation="Vertical">
                 <TextBlock Text="ФИО : " FontSize="22" x:Name="LastName" Margin="5" Foreground="White" />
                 <TextBlock Text="Вид Пользователя : " FontSize="22" x:Name="ViewUser" Foreground="White" Margin="5" />
@@ -19,19 +19,13 @@
                 <TextBlock Text="Место Проживания : " FontSize="22" x:Name="ResidAdres" Margin="5" Foreground="White" />
                 <TextBlock Text="Место Учебы\Работы : " FontSize="22" x:Name="PlaceWork" Margin="5" Foreground="White" />
             </StackPanel>
-            <StackPanel x:Name="HideTB" Orientation="Vertical" Visibility="Visible">
-                <TextBox Margin="10"  x:Name="LastNameBox" Height="20" Width="140"/>
-                <TextBox Margin="10" Visibility="Hidden" Height="20"/>
-                <TextBox Margin="10" x:Name="NumberPhoneBox" Height="20"/>
-                <TextBox Margin="10" x:Name="YearBirthBox" Height="20"/>
-                <TextBox Margin="10" x:Name="ResidAdresBox" Height="20"/>
-                <TextBox Margin="10" x:Name="PlaceWorkBox" Height="20"/>
-            </StackPanel>
         </StackPanel>
-
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal">
-            <Button x:Name="EditBT" Background="Transparent" Click="RedactionBTClic" Margin="15" BorderBrush="Transparent" BorderThickness="0,0,0,0">
-                <i:PackIconMaterial Kind="ContentSaveEdit" Foreground="White" Width="30" Height="30"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" >
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="5" Click="AddUserPageNav">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <i:PackIconMaterial Kind="PlusBox" Foreground="White" Width="30" Height="30"/>
+                    <TextBlock Text="Зарегистрироваться" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="10 0"/>
+                </StackPanel>
             </Button>
         </StackPanel>
     </Grid>

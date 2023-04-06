@@ -23,7 +23,6 @@ namespace ARMLibrary.Pages.PagesUser
     public partial class ProfilUserPage : Page
     {
         readonly Core db = new Core();
-        string[] mass;
         public ProfilUserPage()
         {
             InitializeComponent();
@@ -41,76 +40,13 @@ namespace ARMLibrary.Pages.PagesUser
             // если нет то дается возможность зарегаться
             else
             {
-                HideTB.Visibility = Visibility.Visible;
-
-                LastName.Text = "ФИО : ";
-
-
-                NumberPhone.Text = App.loginAuntificate.NumbrePhone;
-                NumberPhoneBox.Text = "Номер Телефона : ";
-
-                YearBirth.Text = Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
-                YearBirthBox.Text = "Дата Рождения : ";
-
-                ResidAdres.Text = Convert.ToString(App.loginAuntificate.ResidentialAddress);
-                ResidAdresBox.Text = "Место Проживания : ";
-
-                PlaceWork.Text = Convert.ToString(App.loginAuntificate.PlaceWork);
-                PlaceWorkBox.Text = "Место Учебы\\Работы : ";
+                InfoPolzov.Visibility = Visibility.Hidden;
             }
         }
 
-        bool editBT = true;
-
-        private void RedactionBTClic(object sender, RoutedEventArgs e)
+        private void AddUserPageNav(object sender, RoutedEventArgs e)
         {
-            if (editBT)
-            {
-                EditBT.Opacity = 0.5;
-                editBT = false;
-                HideTB.Visibility = Visibility.Visible;
-
-                LastName.Text = "ФИО : ";
-                LastNameBox.Text = App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName + " " + App.loginAuntificate.Patronymic;
-
-                NumberPhone.Text = "Номер Телефона : ";
-                NumberPhoneBox.Text = App.loginAuntificate.NumbrePhone;
-
-                YearBirth.Text = "Дата Рождения : ";
-                YearBirthBox.Text = Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));
-
-                ResidAdres.Text = "Место Проживания : ";
-                ResidAdresBox.Text = Convert.ToString(App.loginAuntificate.ResidentialAddress);
-
-                PlaceWork.Text = "Место Учебы\\Работы : ";
-                PlaceWorkBox.Text = Convert.ToString(App.loginAuntificate.PlaceWork);
-            }
-            else
-            {
-                EditBT.Opacity = 1;
-                editBT = true;
-                HideTB.Visibility = Visibility.Hidden;
-            }
-        }
-
-        bool save = true;
-
-        private void SaveBTClic(object sender, RoutedEventArgs e)
-        {
-            if (save && LastName.Text.Length < 10 && Librarianship.RegexClass.CheckingСyrillic(LastName.Text))
-            {
-                save = false;
-                mass = LastNameBox.Text.Split(' ');
-                _ = new User()
-                {
-                    LastName = mass[0],
-                    FirstName = mass[0],
-                    Patronymic = mass[0]
-                };
-            }
-            else
-            {
-            }
+            this.NavigationService.Navigate(new RegPage());
         }
     }
 }

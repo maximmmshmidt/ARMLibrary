@@ -9,10 +9,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BookPage">
 
-    <Grid Margin="5">
-        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-            <ComboBox x:Name="JanreFilter" SelectionChanged="JanreFilter_SelectionChanged" Width="100" Margin="15 0"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1.4*"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
+            <TextBlock Text="Фильтр" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="14" Margin="5 0"/>
+            <ComboBox x:Name="JanreFilter" SelectionChanged="JanreFilter_SelectionChanged" Width="110" Margin="5 0"/>
+            <TextBlock Text="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="14" Margin="5 0"/>
             <TextBox x:Name="FindTextBox" TextChanged="FindTextBox_TextChanged" Background="White" Width="150" Height="25" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <TextBox.Resources>
                     <Style TargetType="Border">
@@ -21,11 +28,10 @@
                 </TextBox.Resources>
             </TextBox>
 
-            <Button x:Name="Search" Background="Transparent" BorderBrush="Transparent" Margin="0 0 10 0" Padding="10 0" BorderThickness="0" >
-                <i:PackIconMaterial Kind="SearchWeb" Width="20" Height="20" Foreground="White"/>
-            </Button>
         </StackPanel>
-        <ListView x:Name="ProductListView" HorizontalAlignment="Left" Background="Transparent"
+
+        <Grid x:Name="ListViewGrid" Margin="5" Grid.Row="1"  Grid.RowSpan="1">
+            <ListView x:Name="ProductListView" HorizontalAlignment="Left" Background="Transparent"
                   BorderBrush="Transparent" Margin="0 40 -40 0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate >
@@ -33,35 +39,50 @@
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
-                <DataTemplate>
-                    <Button>
-                        <StackPanel Orientation="Vertical" Width="194">
-                            <StackPanel.Background>
-                                <LinearGradientBrush>
-                                    <GradientStop Color="BlueViolet" Offset="0"></GradientStop>
-                                    <GradientStop Color="#3D1B9F" Offset="1"></GradientStop>
-                                </LinearGradientBrush>
-                            </StackPanel.Background>
-                            <StackPanel Margin="5">
-                                <i:PackIconMaterial Kind="Book" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="1"/>
-                                <StackPanel Height="120" Width="100"  Orientation="Vertical" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="70">
-                                            </RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <TextBlock Grid.Row="0" VerticalAlignment="Center" Foreground="White" Text="{Binding NameBook}" TextAlignment="Center" FontWeight="Bold"  FontSize="17" TextWrapping="Wrap"/>
-                                        <TextBlock Grid.Row="1" VerticalAlignment="Center" Foreground="White" Text=" | " FontSize="17" TextAlignment="Center"/>
-                                        <TextBlock Grid.Row="2" VerticalAlignment="Center" Foreground="White" Text="{Binding Genre.NameGenre}" Opacity="0.8" TextAlignment="Center" FontSize="17"/>
-                                    </Grid>
+                    <DataTemplate>
+                        <Button>
+                            <StackPanel Orientation="Vertical" Width="194">
+                                <StackPanel.Background>
+                                    <LinearGradientBrush>
+                                        <GradientStop Color="BlueViolet" Offset="0"></GradientStop>
+                                        <GradientStop Color="#3D1B9F" Offset="1"></GradientStop>
+                                    </LinearGradientBrush>
+                                </StackPanel.Background>
+                                <StackPanel Margin="5">
+                                    <i:PackIconMaterial Kind="Book" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" Opacity="1"/>
+                                    <StackPanel Height="120" Width="100"  Orientation="Vertical" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="70">
+                                                </RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <TextBlock Grid.Row="0" VerticalAlignment="Center" Foreground="White" Text="{Binding NameBook}" TextAlignment="Center" FontWeight="Bold"  FontSize="17" TextWrapping="Wrap"/>
+                                            <TextBlock Grid.Row="1" VerticalAlignment="Center" Foreground="White" Text=" | " FontSize="17" TextAlignment="Center"/>
+                                            <TextBlock Grid.Row="2" VerticalAlignment="Center" Foreground="White" Text="{Binding Genre.NameGenre}" Opacity="0.8" TextAlignment="Center" FontSize="17"/>
+                                        </Grid>
+                                    </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </Button>
-                </DataTemplate>
+                        </Button>
+                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </Grid>
+        <StackPanel x:Name="AddBook" Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2" Visibility="Visible">
+            <Button Background="Transparent" BorderBrush="Transparent" Click="AddAutor">
+                <StackPanel Orientation="Horizontal">
+                    <i:PackIconMaterial Kind="PlusBox" Foreground="White" Width="30" Height="30" Margin="5 0"/>
+                    <TextBlock Text="Добавить Автора" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Button>
+            <Button Background="Transparent" BorderBrush="Transparent" Click="AddBookNavi">
+                <StackPanel Orientation="Horizontal">
+                    <i:PackIconMaterial Kind="PlusBox" Foreground="White" Width="30" Height="30" Margin="5 0"/>
+                    <TextBlock Text="Добавить книгу" TextAlignment="Center" VerticalAlignment="Center" Foreground="White" HorizontalAlignment="Right"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>

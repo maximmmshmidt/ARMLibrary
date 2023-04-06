@@ -35,6 +35,17 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             productTypes.AddRange(db.context.Book.ToList());
             mass = db.context.Book.ToList();
             ProductListView.ItemsSource = mass;
+
+            if (App.loginAuntificate.idViewUser == 1 || App.loginAuntificate.idViewUser == 2 && App.loginAuntificate != null)
+            {
+                AddBook.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AddBook.Visibility = Visibility.Hidden;
+
+            }
+
         }
 
         public static int LevenshteinDistance(string source1, string source2)
@@ -102,7 +113,6 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         {
             ProductListView.ItemsSource = GetRows();
         }
-
         private List<Book> GetRows()
         {
             List<Book> arrayProduct = db.context.Book.ToList();
@@ -114,7 +124,15 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             return arrayProduct;
         }
 
+        private void AddBookNavi(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddBookPage());
+        }
 
+        private void AddAutor(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
 

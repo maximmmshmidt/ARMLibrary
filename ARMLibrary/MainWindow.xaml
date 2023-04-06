@@ -11,15 +11,18 @@
 
     <Grid MouseLeftButtonDown="RowDefinition_MouseLeftButtonDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
+            <RowDefinition Height="30"/>
             <RowDefinition Height="10*" />
         </Grid.RowDefinitions>
         <Button Panel.ZIndex="1" Width="10" Height="10" HorizontalAlignment="Left" VerticalAlignment="Top" Background="Transparent" Click="Button_Click"/>
-        <StackPanel Grid.Row="0" Panel.ZIndex="1" Margin="5">
-            
-            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center">
+        <StackPanel Grid.Row="0" Panel.ZIndex="1" >
+            <StackPanel.Background>
+                <SolidColorBrush Color="Black" Opacity="0.5"/>
+            </StackPanel.Background>
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" VerticalAlignment="Center" Margin="5">
                 <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="RollUpButtonClick">
-                    <i:PackIconMaterial Kind="MinusBox" Foreground="White"/>
+                    <i:PackIconMaterial Kind="MinusBox" Foreground="White" />
                 </Button>
                 <Button Margin=" 0 0 5 0" Background="Transparent" BorderBrush="Transparent" Click="UnwrapButtonClick">
                     <i:PackIconMaterial Kind="BoxShadow" Foreground="White"/>
