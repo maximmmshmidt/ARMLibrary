@@ -14,7 +14,8 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+        
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
             <Button Background="Transparent" BorderBrush="Transparent" Click="AddUserPageNav" Padding="5" >
                 <StackPanel Orientation="Horizontal">
                     <i:PackIconMaterial Kind="PlusBox" Foreground="White" Margin="5 0" Width="25" Height="25"/>
@@ -22,7 +23,9 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+        
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <ComboBox SelectionChanged="FilterUser_SelectionChanged"  x:Name="FilterUser" Width="110" Height="20" Margin="5 0"/>
             <TextBlock Text="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="14" Margin="5 0"/>
             <TextBox x:Name="FindTextBox" TextChanged="FindTextBox_TextChanged" Background="White" Width="150" Height="25" Margin="5 0" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <TextBox.Resources>
@@ -32,9 +35,10 @@
                 </TextBox.Resources>
             </TextBox>
         </StackPanel>
+        
         <DataGrid x:Name="DataGridUser" Grid.Row="1"  AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <DataGrid.Columns >
-                <DataGridTextColumn Header="Id User" Binding="{Binding idUser}"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding idUser}" Width="30"/>
                 <DataGridTextColumn Header="Имя" x:Name="FIO">
                     <DataGridTextColumn.Binding>
                         <MultiBinding StringFormat="{}{0} {1} {2}">
