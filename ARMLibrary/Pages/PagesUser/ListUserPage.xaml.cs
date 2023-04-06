@@ -45,5 +45,10 @@ namespace ARMLibrary.Pages.PagesUser
         {
             this.NavigationService.Navigate(new AddUserPage());
         }
+
+        private void FindTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
