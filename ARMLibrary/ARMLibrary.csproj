@@ -93,10 +93,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PagesUser\AddBookPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\PagesUser\BookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,9 +170,6 @@
     <Compile Include="Pages\LogPage.xaml.cs">
       <DependentUpon>LogPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PagesUser\AddBookPage.xaml.cs">
-      <DependentUpon>AddBookPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\PagesUser\BookPage.xaml.cs">
       <DependentUpon>BookPage.xaml</DependentUpon>
     </Compile>
@@ -236,12 +229,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\fonts\" />
+    <Folder Include="Assets\img\" />
     <Folder Include="Assets\Scripts\" />
+    <Folder Include="Pages\PagesUser\Add\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\img\png-clipart-computer-icons-book-novel-l-angle-text-transformed 3.png" />
-    <Resource Include="Assets\img\61183-removebg-preview 1.png" />
-    <Resource Include="Assets\img\648270-removebg-preview 1.png" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
@@ -253,7 +245,6 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\script.sql" />
-    <Resource Include="Assets\img\polz.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

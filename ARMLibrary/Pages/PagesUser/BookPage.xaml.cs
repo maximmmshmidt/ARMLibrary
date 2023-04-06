@@ -1,4 +1,5 @@
 ﻿using ARMLibrary.Models;
+using ARMLibrary.Pages.PagesUser.Add;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -131,7 +132,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
         private void AddAutor(object sender, RoutedEventArgs e)
         {
-
+            this.NavigationService.Navigate(new AddAutorPage());
         }
     }
 }

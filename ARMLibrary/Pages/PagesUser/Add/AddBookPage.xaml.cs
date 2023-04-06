@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ARMLibrary.Pages.PagesUser
+namespace ARMLibrary.Pages.PagesUser.Add
 {
     /// <summary>
     /// Логика взаимодействия для AddBookPage.xaml
