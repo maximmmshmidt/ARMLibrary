@@ -1,4 +1,5 @@
 ﻿using ARMLibrary.Models;
+using ARMLibrary.Pages.PagesUser.Add;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,11 @@ namespace ARMLibrary.Pages.PagesUser
             {
                 this.NavigationService.Navigate(new ProfilUserPageForList(activeStudent));
             }
+        }
+
+        private void AddUserPageNav(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AddUserPage());
         }
     }
 }

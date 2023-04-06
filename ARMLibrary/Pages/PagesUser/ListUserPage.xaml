@@ -1,6 +1,7 @@
 ﻿<Page x:Class="ARMLibrary.Pages.PagesUser.ListUserPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:i="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ARMLibrary.Pages.PagesUser"
@@ -13,6 +14,14 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="8*"/>
         </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Background="Transparent" BorderBrush="Transparent" Click="AddUserPageNav" Padding="5" >
+                <StackPanel Orientation="Horizontal">
+                    <i:PackIconMaterial Kind="PlusBox" Foreground="White" Margin="5 0" Width="25" Height="25"/>
+                    <TextBlock Text="Добавить пользователя" VerticalAlignment="Center" Foreground="White"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
         <DataGrid x:Name="DataGridUser" Grid.Row="1"  AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id User" Binding="{Binding idUser}"/>

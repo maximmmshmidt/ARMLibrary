@@ -93,6 +93,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PagesUser\Add\AddAutorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PagesUser\Add\AddBookPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PagesUser\Add\AddUserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagesUser\BookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +182,15 @@
     <Compile Include="Pages\LogPage.xaml.cs">
       <DependentUpon>LogPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PagesUser\Add\AddAutorPage.xaml.cs">
+      <DependentUpon>AddAutorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagesUser\Add\AddBookPage.xaml.cs">
+      <DependentUpon>AddBookPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagesUser\Add\AddUserPage.xaml.cs">
+      <DependentUpon>AddUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PagesUser\BookPage.xaml.cs">
       <DependentUpon>BookPage.xaml</DependentUpon>
     </Compile>
@@ -231,7 +252,6 @@
     <Folder Include="Assets\fonts\" />
     <Folder Include="Assets\img\" />
     <Folder Include="Assets\Scripts\" />
-    <Folder Include="Pages\PagesUser\Add\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
