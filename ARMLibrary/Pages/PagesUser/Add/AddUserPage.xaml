@@ -7,8 +7,71 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddUserPage">
-
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Логин" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Пароль" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Имя" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Отчество" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Логин" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Пароль" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Имя" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Отчестыо" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox Width="150"/>
+            </StackPanel>
+        </StackPanel>
+
     </Grid>
 </Page>
