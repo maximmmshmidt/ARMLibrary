@@ -9,6 +9,64 @@
       Title="AddBookPage">
 
     <Grid>
-        
+        <TextBlock.Foreground>
+            <SolidColorBrush Color="White"/>
+        </TextBlock.Foreground>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Название Книги" Margin="10 0"/>
+                <TextBox x:Name="NameBookTB" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Id жанра" Margin="10 0"/>
+                <TextBox x:Name="IdJanreTB" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Автор" Margin="10 0"/>
+                <TextBox x:Name="AutorTB" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Место Публикации" Margin="10 0"/>
+                <TextBox Width="150" x:Name="PublicationHouseTB"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Издатель" Margin="10 0"/>
+                <TextBox Width="150" x:Name="PlacePublTB"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Год публикации" Margin="10 0"/>
+                <DatePicker Width="150" x:Name="YearPublTB"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Страниц в Книге" Margin="10 0"/>
+                <TextBox Width="150" x:Name="NumberPage"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="IBN" Margin="10 0"/>
+                <TextBox Width="150" x:Name="IsbnTB"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="BBK" Margin="10 0"/>
+                <TextBox Width="150" x:Name="BbkTB"/>
+            </StackPanel><StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Описание" Margin="10 0"/>
+                <TextBox Width="150" x:Name="DescripTB"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+            <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="Add">
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>

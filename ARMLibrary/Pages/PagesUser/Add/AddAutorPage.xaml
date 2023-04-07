@@ -9,6 +9,39 @@
       Title="AddAutorPage">
 
     <Grid>
-        
+        <TextBlock.Foreground>
+            <SolidColorBrush Color="White"/>
+        </TextBlock.Foreground>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBox x:Name="LastNameTB" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Имя" Margin="10 0"/>
+                <TextBox Width="150" x:Name="FirstNameTB"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Отчество" Margin="10 0"/>
+                <TextBox Width="150" x:Name="PatronicTB"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Дата Рождения" Margin="10 0"/>
+                <DatePicker x:Name="LoginTB" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+                <TextBlock Text="Дата Смерти" Margin="10 0"/>
+                <DatePicker x:Name="PasswordTB" Width="150"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+            <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="Add">
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>

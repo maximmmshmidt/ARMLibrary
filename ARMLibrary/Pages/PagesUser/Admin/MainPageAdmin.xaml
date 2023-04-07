@@ -31,13 +31,6 @@
                     <Button x:Name="LibraryUser" Background="Transparent" BorderBrush="Transparent" Margin="5" Click="LibraryUser_Click">
                         <i:PackIconMaterial Kind="Library" Width="40" Height="40" Foreground="White"/>
                     </Button>
-
-                    <Button x:Name="AddBook" Background="Transparent" BorderBrush="Transparent" Margin="5" Click="AddBook_Click">
-                        <i:PackIconMaterial Kind="BookCog" Width="40" Height="40" Foreground="White"/>
-                    </Button>
-                    <Button x:Name="AddUser" Background="Transparent" BorderBrush="Transparent" Click="AddUser_Click">
-                        <i:PackIconMaterial Kind="PlusCircle" Width="40" Height="40" Foreground="White"/>
-                    </Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button x:Name="ProfilBT" Background="Transparent" BorderBrush="Transparent" Click="ProfilBTClic">

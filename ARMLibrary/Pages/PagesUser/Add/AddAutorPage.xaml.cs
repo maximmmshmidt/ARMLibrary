@@ -24,5 +24,15 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             InitializeComponent();
         }
+
+        private void AddUserLibrary(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
