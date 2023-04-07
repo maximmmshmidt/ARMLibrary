@@ -7,8 +7,6 @@
         mc:Ignorable="d"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
-        </Style>
+        
     </Application.Resources>
 </Application>

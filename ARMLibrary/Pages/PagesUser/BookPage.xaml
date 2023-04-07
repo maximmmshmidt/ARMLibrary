@@ -30,8 +30,10 @@
                 </Button>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Margin="5">
-                <TextBlock Text="Фильтр" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="14" Margin="5 0"/>
-                <ComboBox x:Name="JanreFilter" SelectionChanged="JanreFilter_SelectionChanged" Width="110" Margin="5 0"/>
+                <StackPanel Orientation="Horizontal" Visibility="Hidden">
+                    <TextBlock Text="Фильтр" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="14" Margin="5 0"/>
+                    <ComboBox x:Name="JanreFilter" Foreground="Black" SelectionChanged="JanreFilter_SelectionChanged" Width="110" Margin="5 0"/>
+                </StackPanel>
                 <TextBlock Text="Поиск" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White" FontSize="14" Margin="5 0"/>
                 <TextBox x:Name="FindTextBox" TextChanged="FindTextBox_TextChanged" Background="White" Width="150" Height="25" Margin="5 0" BorderBrush="Transparent" BorderThickness="0" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                     <TextBox.Resources>

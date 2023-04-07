@@ -19,7 +19,11 @@
                 <TextBox Width="150" FontSize="18" x:Name="PasswordTB" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             </StackPanel>
             <Border CornerRadius="20" >
-                <Button Content="Вход" Width="150" Margin="5" Click="LogButton_Click" FontSize="20" Background="White"/>
+                <Button Content="Вход" Margin="5" Foreground="White"  Click="LogButton_Click" FontSize="20">
+                    <Button.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.5"/>
+                    </Button.Background>
+                </Button>
             </Border>
             <Button Foreground="White" Content="Зарегистрироваться" x:Name="RegBT" Width="150" Margin="5" Click="RegBT_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
         </StackPanel>

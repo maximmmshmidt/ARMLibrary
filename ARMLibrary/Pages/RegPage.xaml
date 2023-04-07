@@ -30,7 +30,11 @@
                 </StackPanel>
             </StackPanel>
             <Border CornerRadius="20">
-                <Button Content="Зарегистрироваться" Click="RegBT_Click" FontSize="20" Background="White"/>
+                <Button Content="Зарегистрироваться" Foreground="White"  Click="RegBT_Click" FontSize="20" Margin="5">
+                    <Button.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.5"/>
+                    </Button.Background>
+                </Button>
             </Border>
             <Button Foreground="White" Content="Вход" x:Name="RegBT" Width="150" Margin="5" Click="LogButton_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
         </StackPanel>

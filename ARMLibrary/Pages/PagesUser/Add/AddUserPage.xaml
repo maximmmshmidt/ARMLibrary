@@ -8,6 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AddUserPage">
     <Grid>
+        <TextBlock.Foreground>
+            <SolidColorBrush Color="White"/>
+        </TextBlock.Foreground>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="*"/>
@@ -15,62 +18,55 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Логин" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBox x:Name="LoginTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Пароль" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBox x:Name="PasswordTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBox x:Name="LastNameTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Имя" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBox Width="150" x:Name="FirstNameTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Отчество" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBox Width="150" x:Name="PatronicTB"/>
             </StackPanel>
         </StackPanel>
+        
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Логин" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBlock Text="Год рождения" Margin="10 0"/>
+                <DatePicker Width="150" x:Name="YearBitrhtTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Пароль" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBlock Text="Адрес проживания" Margin="10 0"/>
+                <TextBox Width="150" x:Name="AdresTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBlock Text="Учебы/Работа" Margin="10 0"/>
+                <TextBox Width="150" x:Name="WorkTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Имя" Margin="10 0"/>
-                <TextBox Width="150"/>
+                <TextBlock Text="Номер телефона" Margin="10 0"/>
+                <TextBox Width="150" x:Name="NumberPhoneTB"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Отчестыо" Margin="10 0"/>
-                <TextBox Width="150"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Visibility="Visible" x:Name="VisibleVid">
+                <TextBlock Text="Вид пользователя" Margin="10 0" VerticalAlignment="Center"/>
+                <Button  x:Name="Reader" Click="Reader_Click" Background="Transparent" BorderBrush="Transparent" Padding="10" Content="Читатель" Foreground="White" Margin="5 0"/>
+                <Button x:Name="Biblioteck" Click="Biblioteck_Click" Content="Библиотекарь" Foreground="White" Background="Transparent" BorderBrush="Transparent" Padding="10" Margin="5 0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
+            <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="AddUserLibrary">
+                <Button.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
     </Grid>
