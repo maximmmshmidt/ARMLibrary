@@ -36,7 +36,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
         private void ProfilBTClic(object sender, RoutedEventArgs e)
         {
-            Navigating.Navigate(new ProfilUserPage());
+            NavigationService.Navigate(new LogPage());
             ProfilBT.Opacity = 0.5;
             LibraryUser.Opacity = 1;
             LibraryBook.Opacity = 1;

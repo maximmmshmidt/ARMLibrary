@@ -33,8 +33,11 @@
                     </Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button x:Name="ProfilBT" Background="Transparent" BorderBrush="Transparent" Click="ProfilBTClic">
-                        <i:PackIconMaterial Kind="Account" Width="40" Height="40" Foreground="White"/>
+                    <Button x:Name="ProfilBT" Background="Transparent" BorderBrush="Transparent" Click="ProfilBTClic"  Margin="0 5">
+                        <StackPanel>
+                            <i:PackIconMaterial Kind="Account" Width="40" Height="40" Foreground="White"/>
+                            <TextBlock Text="LogOut" Foreground="White"/>
+                        </StackPanel>
                     </Button>
                 </StackPanel>
                 
