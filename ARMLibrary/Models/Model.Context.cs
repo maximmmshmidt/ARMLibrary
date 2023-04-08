@@ -31,6 +31,7 @@ namespace ARMLibrary.Models
         public virtual DbSet<Genre> Genre { get; set; }
         public virtual DbSet<NumberBookGiven> NumberBookGiven { get; set; }
         public virtual DbSet<TemporaryUsers> TemporaryUsers { get; set; }
+        public virtual DbSet<Tenant> Tenant { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<ViewUser> ViewUser { get; set; }
     }

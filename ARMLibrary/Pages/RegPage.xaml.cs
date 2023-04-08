@@ -12,6 +12,7 @@ namespace ARMLibrary.Pages
     /// </summary>
     public partial class RegPage : Page
     {
+        readonly Core db = new Core();
         public RegPage()
         {
             InitializeComponent();
@@ -21,10 +22,14 @@ namespace ARMLibrary.Pages
         {
             if (Librarianship.RegexClass.CheckingLogin(LoginTB.Text) && Librarianship.RegexClass.CheckingPassword(PasswordTB.Text) && PasswordTB == TwoPasswordTB)
             {
-                User user = new User{ 
-                    Login = LoginTB.Text,
-                    Password = PasswordTB.Text
+                Tenant user = new Tenant
+                {
+                    loginTenant = LoginTB.Text,
+                    paswordTenant = PasswordTB.Text,
+                    idViewUser = 4,
                 };
+                db.context.Tenant.Add(user);
+                db.context.SaveChanges();
                 this.NavigationService.Navigate(new MainPageReader());
             }
             else

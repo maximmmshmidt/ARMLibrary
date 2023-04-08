@@ -35,7 +35,7 @@ namespace ARMLibrary.Pages
                         this.NavigationService.Navigate(new MainPageAdmin());
                         break;
                     case 2:
-                        this.NavigationService.Navigate(new MainPageLibrarian());
+                        this.NavigationService.Navigate(new MainPageLibrian());
                         break;
                     case 3:
                         this.NavigationService.Navigate(new MainPageReader());

@@ -67,6 +67,15 @@
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Tenant">
+          <Key>
+            <PropertyRef Name="IdTenant" />
+          </Key>
+          <Property Name="IdTenant" Type="int" Nullable="false" />
+          <Property Name="loginTenant" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="paswordTenant" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="idViewUser" Type="int" />
+        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="idUser" />
@@ -169,6 +178,7 @@
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tenant" EntityType="Self.Tenant" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AccountingBook_Book" Association="Self.FK_AccountingBook_Book">
@@ -271,6 +281,15 @@
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tenant">
+          <Key>
+            <PropertyRef Name="IdTenant" />
+          </Key>
+          <Property Name="IdTenant" Type="Int32" Nullable="false" />
+          <Property Name="loginTenant" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="paswordTenant" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="idViewUser" Type="Int32" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -377,6 +396,7 @@
           <EntitySet Name="Genre" EntityType="Self.Genre" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" />
+          <EntitySet Name="Tenant" EntityType="Self.Tenant" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" />
           <AssociationSet Name="FK_AccountingBook_Book" Association="Self.FK_AccountingBook_Book">
@@ -475,6 +495,16 @@
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tenant">
+            <EntityTypeMapping TypeName="LibraryModel.Tenant">
+              <MappingFragment StoreEntitySet="Tenant">
+                <ScalarProperty Name="IdTenant" ColumnName="IdTenant" />
+                <ScalarProperty Name="loginTenant" ColumnName="loginTenant" />
+                <ScalarProperty Name="paswordTenant" ColumnName="paswordTenant" />
+                <ScalarProperty Name="idViewUser" ColumnName="idViewUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

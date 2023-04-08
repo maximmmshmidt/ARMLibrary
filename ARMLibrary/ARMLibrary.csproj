@@ -113,6 +113,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PagesUser\Librarian\MainPageLibrian.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PagesUser\ListUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PagesUser\ProfilUserPageForList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PagesUser\Reader\MainPageReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,6 +173,9 @@
     <Compile Include="Models\TemporaryUsers.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tenant.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -189,6 +200,9 @@
     <Compile Include="Pages\PagesUser\Admin\MainPageAdmin.xaml.cs">
       <DependentUpon>MainPageAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PagesUser\Librarian\MainPageLibrian.xaml.cs">
+      <DependentUpon>MainPageLibrian.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PagesUser\ListUserPage.xaml.cs">
       <DependentUpon>ListUserPage.xaml</DependentUpon>
     </Compile>
@@ -197,6 +211,9 @@
     </Compile>
     <Compile Include="Pages\PagesUser\ProfilUserPageForList.xaml.cs">
       <DependentUpon>ProfilUserPageForList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PagesUser\Reader\MainPageReader.xaml.cs">
+      <DependentUpon>MainPageReader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
@@ -238,8 +255,6 @@
     <Folder Include="Assets\fonts\" />
     <Folder Include="Assets\img\" />
     <Folder Include="Assets\Scripts\" />
-    <Folder Include="Pages\PagesUser\Librarian\" />
-    <Folder Include="Pages\PagesUser\Reader\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
