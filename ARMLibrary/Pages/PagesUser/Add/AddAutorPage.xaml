@@ -15,23 +15,23 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox x:Name="LastNameTB" Width="150"/>
+                <TextBox x:Name="LastNameTB" Width="150" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Имя" Margin="10 0"/>
-                <TextBox Width="150" x:Name="FirstNameTB"/>
+                <TextBox Width="150" x:Name="FirstNameTB" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Отчество" Margin="10 0"/>
-                <TextBox Width="150" x:Name="PatronicTB"/>
+                <TextBox Width="150" x:Name="PatronicTB" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Дата Рождения" Margin="10 0"/>
-                <DatePicker x:Name="LoginTB" Width="150"/>
+                <DatePicker x:Name="LoginTB" Width="150" Height="28"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Дата Смерти" Margin="10 0"/>
-                <DatePicker x:Name="PasswordTB" Width="150"/>
+                <DatePicker x:Name="PasswordTB" Width="150" Height="28"/>
             </StackPanel>
         </StackPanel>
 

@@ -25,7 +25,7 @@
                     </Button.Background>
                 </Button>
             </Border>
-            <Button Foreground="White" Content="Зарегистрироваться" x:Name="RegBT" Width="150" Margin="5" Click="RegBT_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
+            <Button Foreground="White" Content="Зарегистрироваться" x:Name="RegBT" Margin="5" Click="RegBT_Click" Background="Transparent" BorderBrush="Transparent" FontSize="20"/>
         </StackPanel>
     </Grid>
 </Page>
