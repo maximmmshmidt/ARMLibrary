@@ -23,11 +23,21 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Id жанра" Margin="10 0"/>
-                <TextBox x:Name="IdJanreTB" Width="150"/>
+                <ComboBox x:Name="IdJanreTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Автор" Margin="10 0"/>
-                <TextBox x:Name="AutorTB" Width="150"/>
+                <ComboBox x:Name="AutorTB" MinWidth="150">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <Run Text="{Binding LastName}"/>
+                                <Run Text="{Binding FirstName}"/>
+                                <Run Text="{Binding Patronymic}"/>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Место Публикации" Margin="10 0"/>
@@ -57,7 +67,7 @@
                 <TextBox Width="150" x:Name="BbkTB"/>
             </StackPanel><StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Описание" Margin="10 0"/>
-                <TextBox Width="150" x:Name="DescripTB"/>
+                <TextBox Width="150" x:Name="DescripTB" TextWrapping="Wrap"/>
             </StackPanel>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
