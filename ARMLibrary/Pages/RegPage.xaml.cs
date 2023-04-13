@@ -20,22 +20,22 @@ namespace ARMLibrary.Pages
 
         private void RegBT_Click(object sender, RoutedEventArgs e)
         {
-            if (Librarianship.RegexClass.CheckingLogin(LoginTB.Text) && Librarianship.RegexClass.CheckingPassword(PasswordTB.Text) && PasswordTB == TwoPasswordTB)
-            {
-                Tenant user = new Tenant
-                {
-                    loginTenant = LoginTB.Text,
-                    paswordTenant = PasswordTB.Text,
-                    idViewUser = 4,
-                };
-                db.context.Tenant.Add(user);
-                db.context.SaveChanges();
-                this.NavigationService.Navigate(new MainPageReader());
-            }
-            else
-            {
-                MessageBox.Show("Введеные данные не коректны");
-            }
+            //if (Librarianship.RegexClass.CheckingLogin(LoginTB.Text) && Librarianship.RegexClass.CheckingPassword(PasswordTB.Text) && PasswordTB == TwoPasswordTB)
+            //{
+            //    TemporaryUsers user = new TemporaryUsers()
+            //    {
+            //        loginTenant = LoginTB.Text,
+            //        paswordTenant = PasswordTB.Text,
+            //        idViewUser = 4,
+            //    };
+            //    db.context.TemporaryUsers.Add(user);
+            //    db.context.SaveChanges();
+            //    this.NavigationService.Navigate(new MainPageReader());
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Введеные данные не коректны");
+            //}
         }
 
         private void LogButton_Click(object sender, RoutedEventArgs e)

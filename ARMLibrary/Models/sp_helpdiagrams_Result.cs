@@ -10,13 +10,13 @@
 namespace ARMLibrary.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Tenant
+    public partial class sp_helpdiagrams_Result
     {
-        public int IdTenant { get; set; }
-        public string loginTenant { get; set; }
-        public string paswordTenant { get; set; }
-        public Nullable<int> idViewUser { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

@@ -10,18 +10,10 @@
 namespace ARMLibrary.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class NumberBookGiven
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int IdBookGiven { get; set; }
-        public int AccountingBook { get; set; }
-        public int idUser { get; set; }
-        public System.DateTime DateIssue { get; set; }
-        public System.DateTime ReturnDate { get; set; }
-        public Nullable<bool> ReturnedBook { get; set; }
-    
-        public virtual AccountingBook AccountingBook1 { get; set; }
-        public virtual User User { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
