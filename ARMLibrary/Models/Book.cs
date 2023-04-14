@@ -26,7 +26,7 @@ namespace ARMLibrary.Models
         public int idAuthor { get; set; }
         public string PublishingHouse { get; set; }
         public string PlacePublication { get; set; }
-        public string YearPublication { get; set; }
+        public System.DateTime YearPublication { get; set; }
         public int NumberPages { get; set; }
         public string ISBN { get; set; }
         public string BBK { get; set; }

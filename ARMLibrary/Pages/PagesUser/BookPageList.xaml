@@ -1,0 +1,60 @@
+﻿<Page x:Class="ARMLibrary.Pages.PagesUser.BookPageList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:i="http://metro.mahapps.com/winfx/xaml/iconpacks"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ARMLibrary.Pages.PagesUser"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BookPageList">
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15">
+            <i:PackIconMaterial Kind="Book" Foreground="White" Width="100" Height="100" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="NameBookTB" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Margin="15 0 0 0" VerticalAlignment="Center" Grid.Row="1" Grid.RowSpan="2">
+            <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Text="Автор: " x:Name="AuthorTB"/>
+                <TextBlock Text="Жанр: " x:Name="GenreTB"/>
+                <TextBlock Text="Издательство: " x:Name="PublishingHouseTB"/>
+                <TextBlock Text="МестоПубликация: " x:Name="PlacePublicationTB"/>
+                <TextBlock Text="Год Публикации: " x:Name="YearPublicationTB">
+                    <!--<TextBlock.BindingGroup>
+                        <MultiBinding StringFormat="MM/dd/yyyy">
+                            <Binding x:Name="YearPublicationTB" Path="YearPublication"/>
+                        </MultiBinding>
+                    </TextBlock.BindingGroup>-->
+                </TextBlock>
+                <TextBlock Text="Страниц в книге: " x:Name="NumberBagesTB"/>
+                <TextBlock Text="ISBN: " x:Name="ISBNTB"/>
+                <TextBlock Text="BBK: " x:Name="BBKTB"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TextBlock Text="Описание" HorizontalAlignment="Center" Margin="0 0 0 10" FontSize="22" FontWeight="Bold" TextWrapping="Wrap"/>
+            <TextBlock TextAlignment="Justify" TextWrapping="Wrap" x:Name="DescriptionTB" Margin="10"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Background="Transparent" BorderBrush="Transparent" Padding="10">
+                <i:PackIconMaterial Kind="Bug" MinHeight="25" MinWidth="25" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

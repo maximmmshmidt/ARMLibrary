@@ -134,6 +134,15 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         {
             this.NavigationService.Navigate(new AddAutorPage());
         }
+
+        private void BookPageNavi(object sender, RoutedEventArgs e)
+        {
+            Button activeButton = sender as Button;
+            if (activeButton.DataContext is Book activeStudent)
+            {
+                NavigationService.Navigate(new BookPageList(activeStudent));
+            }
+        }
     }
 }
 

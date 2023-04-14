@@ -56,7 +56,7 @@
                 </ListView.ItemsPanel>
                 <ListView.ItemTemplate >
                     <DataTemplate>
-                        <Button>
+                        <Button Click="BookPageNavi">
                             <StackPanel Orientation="Vertical" Width="194">
                                 <StackPanel.Background>
                                     <LinearGradientBrush>

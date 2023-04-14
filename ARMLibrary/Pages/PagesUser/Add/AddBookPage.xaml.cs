@@ -45,7 +45,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     idGenre = IdJanreTB.Items.Count,
                     PublishingHouse = PublicationHouseTB.Text,
                     PlacePublication = PlacePublTB.Text,
-                    YearPublication = YearPublTB.Text,
+                    YearPublication = YearPublTB.SelectedDate.Value,
                     NumberPages = num,
                     ISBN = IsbnTB.Text,
                     BBK = BbkTB.Text,
