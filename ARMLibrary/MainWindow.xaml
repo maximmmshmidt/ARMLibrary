@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ARMLibrary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" 
+        Title="MainWindow" Height="550" Width="800" WindowStyle="None" AllowsTransparency="True" 
         >
 
     <Grid MouseLeftButtonDown="RowDefinition_MouseLeftButtonDown">
