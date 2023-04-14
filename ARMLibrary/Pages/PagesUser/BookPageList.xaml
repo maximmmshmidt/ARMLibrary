@@ -23,7 +23,8 @@
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Stretch" Margin="15 0 0 0" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15">
-                <i:PackIconMaterial Kind="Book" Foreground="White" Width="100" Height="100" HorizontalAlignment="Center"/>
+                <i:PackIconMaterial Kind="Book" x:Name="ImageBookNone" Foreground="White" Width="100" Height="100" HorizontalAlignment="Center" />
+                <Image x:Name="ImageBook" Visibility="Hidden"/>
                 <TextBlock x:Name="NameBookTB" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
             </StackPanel>
             <Border HorizontalAlignment="Center" Margin="15 0 0 0" VerticalAlignment="Center" 

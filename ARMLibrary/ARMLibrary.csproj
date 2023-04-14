@@ -257,9 +257,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\fonts\" />
+    <Folder Include="Assets\asd\" />
     <Folder Include="Assets\img\" />
-    <Folder Include="Assets\Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">

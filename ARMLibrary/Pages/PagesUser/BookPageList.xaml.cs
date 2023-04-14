@@ -35,6 +35,10 @@ namespace ARMLibrary.Pages.PagesUser
             PublishingHouseTB.Text += book.PublishingHouse;
             GenreTB.Text += book.Genre.NameGenre;
             AuthorTB.Text += book.Author.LastName + " " + book.Author.FirstName + " " + book.Author.Patronymic;
+            if (book.ImageBook != null)
+            {
+                ImageBook.Source = new BitmapImage( new Uri(book.ImageBook.ToString())); 
+            }
         }
     }
 }
