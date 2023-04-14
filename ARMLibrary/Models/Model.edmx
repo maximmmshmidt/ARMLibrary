@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountingBook">
           <Key>
             <PropertyRef Name="AccountingBook" />
@@ -59,16 +59,6 @@
           <Property Name="ReturnDate" Type="date" Nullable="false" />
           <Property Name="ReturnedBook" Type="bit" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
             <PropertyRef Name="idTemporaryUser" />
@@ -77,8 +67,6 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Login" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Password" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -175,44 +163,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="Хранилище LibraryModelContainer">
           <EntitySet Name="AccountingBook" EntityType="Self.AccountingBook" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" Schema="dbo" store:Type="Tables" />
@@ -241,86 +197,11 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="LibraryEntitiess" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(LibraryModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(LibraryModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="AccountingBook" EntityType="LibraryModel.AccountingBook" />
-          <EntitySet Name="Author" EntityType="LibraryModel.Author" />
-          <EntitySet Name="Book" EntityType="LibraryModel.Book" />
-          <EntitySet Name="Genre" EntityType="LibraryModel.Genre" />
-          <EntitySet Name="NumberBookGiven" EntityType="LibraryModel.NumberBookGiven" />
-          <EntitySet Name="sysdiagrams" EntityType="LibraryModel.sysdiagrams" />
-          <EntitySet Name="TemporaryUsers" EntityType="LibraryModel.TemporaryUsers" />
-          <EntitySet Name="User" EntityType="LibraryModel.User" />
-          <EntitySet Name="ViewUser" EntityType="LibraryModel.ViewUser" />
-          <AssociationSet Name="FK_AccountingBook_Book" Association="LibraryModel.FK_AccountingBook_Book">
-            <End Role="Book" EntitySet="Book" />
-            <End Role="AccountingBook" EntitySet="AccountingBook" />
-          </AssociationSet>
-          <AssociationSet Name="FK_NumberBookGiven_AccountingBook" Association="LibraryModel.FK_NumberBookGiven_AccountingBook">
-            <End Role="AccountingBook" EntitySet="AccountingBook" />
-            <End Role="NumberBookGiven" EntitySet="NumberBookGiven" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_Author" Association="LibraryModel.FK_Book_Author">
-            <End Role="Author" EntitySet="Author" />
-            <End Role="Book" EntitySet="Book" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Book_Genre" Association="LibraryModel.FK_Book_Genre">
-            <End Role="Genre" EntitySet="Genre" />
-            <End Role="Book" EntitySet="Book" />
-          </AssociationSet>
-          <AssociationSet Name="FK_NumberBookGiven_User" Association="LibraryModel.FK_NumberBookGiven_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="NumberBookGiven" EntitySet="NumberBookGiven" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_ViewUser" Association="LibraryModel.FK_User_ViewUser">
-            <End Role="ViewUser" EntitySet="ViewUser" />
-            <End Role="User" EntitySet="User" />
-          </AssociationSet>
-        </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
         <EntityType Name="AccountingBook">
           <Key>
             <PropertyRef Name="AccountingBook1" />
@@ -329,47 +210,47 @@
           <Property Name="idBook" Type="Int32" Nullable="false" />
           <Property Name="NumberBook" Type="Int32" Nullable="false" />
           <Property Name="NumberBookGiven" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_AccountingBook_Book" FromRole="AccountingBook" ToRole="Book" />
-          <NavigationProperty Name="NumberBookGiven1" Relationship="LibraryModel.FK_NumberBookGiven_AccountingBook" FromRole="AccountingBook" ToRole="NumberBookGiven" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_AccountingBook_Book" FromRole="AccountingBook" ToRole="Book" />
+          <NavigationProperty Name="NumberBookGiven1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="AccountingBook" ToRole="NumberBookGiven" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="idAuthor" />
           </Key>
           <Property Name="idAuthor" Type="Int32" Nullable="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="YearBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="YearDeath" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Book_Author" FromRole="Author" ToRole="Book" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Book_Author" FromRole="Author" ToRole="Book" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
             <PropertyRef Name="idBook" />
           </Key>
           <Property Name="idBook" Type="Int32" Nullable="false" />
-          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idGenre" Type="Int32" Nullable="false" />
           <Property Name="idAuthor" Type="Int32" Nullable="false" />
-          <Property Name="PublishingHouse" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PlacePublication" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PublishingHouse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlacePublication" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="YearPublication" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="NumberPages" Type="Int32" Nullable="false" />
-          <Property Name="ISBN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="BBK" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BBK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="AccountingBook" Relationship="LibraryModel.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBook" />
-          <NavigationProperty Name="Author" Relationship="LibraryModel.FK_Book_Author" FromRole="Book" ToRole="Author" />
-          <NavigationProperty Name="Genre" Relationship="LibraryModel.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
+          <NavigationProperty Name="AccountingBook" Relationship="Self.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBook" />
+          <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
+          <NavigationProperty Name="Genre" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
             <PropertyRef Name="idGenre" />
           </Key>
           <Property Name="idGenre" Type="Int32" Nullable="false" />
-          <Property Name="NameGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="LibraryModel.FK_Book_Genre" FromRole="Genre" ToRole="Book" />
+          <Property Name="NameGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Book_Genre" FromRole="Genre" ToRole="Book" />
         </EntityType>
         <EntityType Name="NumberBookGiven">
           <Key>
@@ -381,59 +262,47 @@
           <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ReturnedBook" Type="Boolean" />
-          <NavigationProperty Name="AccountingBook1" Relationship="LibraryModel.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />
-          <NavigationProperty Name="User" Relationship="LibraryModel.FK_NumberBookGiven_User" FromRole="NumberBookGiven" ToRole="User" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="AccountingBook1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />
+          <NavigationProperty Name="User" Relationship="Self.FK_NumberBookGiven_User" FromRole="NumberBookGiven" ToRole="User" />
         </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
             <PropertyRef Name="idTemporaryUser" />
           </Key>
           <Property Name="idTemporaryUser" Type="Int32" Nullable="false" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="idUser" />
           </Key>
           <Property Name="idUser" Type="Int32" Nullable="false" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idViewUser" Type="Int32" Nullable="false" />
           <Property Name="YearBirth" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ResidentialAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PlaceWork" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NumbrePhone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="NumberBookGiven" Relationship="LibraryModel.FK_NumberBookGiven_User" FromRole="User" ToRole="NumberBookGiven" />
-          <NavigationProperty Name="ViewUser" Relationship="LibraryModel.FK_User_ViewUser" FromRole="User" ToRole="ViewUser" />
+          <Property Name="ResidentialAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PlaceWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumbrePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="NumberBookGiven" Relationship="Self.FK_NumberBookGiven_User" FromRole="User" ToRole="NumberBookGiven" />
+          <NavigationProperty Name="ViewUser" Relationship="Self.FK_User_ViewUser" FromRole="User" ToRole="ViewUser" />
         </EntityType>
         <EntityType Name="ViewUser">
           <Key>
             <PropertyRef Name="idViewUser" />
           </Key>
           <Property Name="idViewUser" Type="Int32" Nullable="false" />
-          <Property Name="NameViewUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="User" Relationship="LibraryModel.FK_User_ViewUser" FromRole="ViewUser" ToRole="User" />
+          <Property Name="NameViewUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_ViewUser" FromRole="ViewUser" ToRole="User" />
         </EntityType>
         <Association Name="FK_AccountingBook_Book">
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="1" />
-          <End Type="LibraryModel.AccountingBook" Role="AccountingBook" Multiplicity="*" />
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Book">
               <PropertyRef Name="idBook" />
@@ -444,8 +313,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NumberBookGiven_AccountingBook">
-          <End Type="LibraryModel.AccountingBook" Role="AccountingBook" Multiplicity="1" />
-          <End Type="LibraryModel.NumberBookGiven" Role="NumberBookGiven" Multiplicity="*" />
+          <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="1" />
+          <End Role="NumberBookGiven" Type="Self.NumberBookGiven" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AccountingBook">
               <PropertyRef Name="AccountingBook1" />
@@ -456,8 +325,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Author">
-          <End Type="LibraryModel.Author" Role="Author" Multiplicity="1" />
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
+          <End Role="Author" Type="Self.Author" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Author">
               <PropertyRef Name="idAuthor" />
@@ -468,8 +337,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Book_Genre">
-          <End Type="LibraryModel.Genre" Role="Genre" Multiplicity="1" />
-          <End Type="LibraryModel.Book" Role="Book" Multiplicity="*" />
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Genre">
               <PropertyRef Name="idGenre" />
@@ -480,8 +349,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NumberBookGiven_User">
-          <End Type="LibraryModel.User" Role="User" Multiplicity="1" />
-          <End Type="LibraryModel.NumberBookGiven" Role="NumberBookGiven" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="NumberBookGiven" Type="Self.NumberBookGiven" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="idUser" />
@@ -492,8 +361,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_ViewUser">
-          <End Type="LibraryModel.ViewUser" Role="ViewUser" Multiplicity="1" />
-          <End Type="LibraryModel.User" Role="User" Multiplicity="*" />
+          <End Role="ViewUser" Type="Self.ViewUser" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ViewUser">
               <PropertyRef Name="idViewUser" />
@@ -503,140 +372,137 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccountingBook" EntityType="Self.AccountingBook" />
+          <EntitySet Name="Author" EntityType="Self.Author" />
+          <EntitySet Name="Book" EntityType="Self.Book" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" />
+          <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" />
+          <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <EntitySet Name="ViewUser" EntityType="Self.ViewUser" />
+          <AssociationSet Name="FK_AccountingBook_Book" Association="Self.FK_AccountingBook_Book">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="AccountingBook" EntitySet="AccountingBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumberBookGiven_AccountingBook" Association="Self.FK_NumberBookGiven_AccountingBook">
+            <End Role="AccountingBook" EntitySet="AccountingBook" />
+            <End Role="NumberBookGiven" EntitySet="NumberBookGiven" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_Genre" Association="Self.FK_Book_Genre">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NumberBookGiven_User" Association="Self.FK_NumberBookGiven_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="NumberBookGiven" EntitySet="NumberBookGiven" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_ViewUser" Association="Self.FK_User_ViewUser">
+            <End Role="ViewUser" EntitySet="ViewUser" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntitiess">
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище LibraryModel.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище LibraryModel.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище LibraryModel.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище LibraryModel.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="LibraryModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище LibraryModel.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="LibraryModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище LibraryModel.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище LibraryModel.sp_upgraddiagrams" />
+        <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntities">
           <EntitySetMapping Name="AccountingBook">
             <EntityTypeMapping TypeName="LibraryModel.AccountingBook">
               <MappingFragment StoreEntitySet="AccountingBook">
-                <ScalarProperty Name="NumberBookGiven" ColumnName="NumberBookGiven" />
-                <ScalarProperty Name="NumberBook" ColumnName="NumberBook" />
-                <ScalarProperty Name="idBook" ColumnName="idBook" />
                 <ScalarProperty Name="AccountingBook1" ColumnName="AccountingBook" />
+                <ScalarProperty Name="idBook" ColumnName="idBook" />
+                <ScalarProperty Name="NumberBook" ColumnName="NumberBook" />
+                <ScalarProperty Name="NumberBookGiven" ColumnName="NumberBookGiven" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Author">
             <EntityTypeMapping TypeName="LibraryModel.Author">
               <MappingFragment StoreEntitySet="Author">
-                <ScalarProperty Name="YearDeath" ColumnName="YearDeath" />
-                <ScalarProperty Name="YearBirth" ColumnName="YearBirth" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="idAuthor" ColumnName="idAuthor" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="YearBirth" ColumnName="YearBirth" />
+                <ScalarProperty Name="YearDeath" ColumnName="YearDeath" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="LibraryModel.Book">
               <MappingFragment StoreEntitySet="Book">
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="BBK" ColumnName="BBK" />
-                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
-                <ScalarProperty Name="NumberPages" ColumnName="NumberPages" />
-                <ScalarProperty Name="YearPublication" ColumnName="YearPublication" />
-                <ScalarProperty Name="PlacePublication" ColumnName="PlacePublication" />
-                <ScalarProperty Name="PublishingHouse" ColumnName="PublishingHouse" />
-                <ScalarProperty Name="idAuthor" ColumnName="idAuthor" />
-                <ScalarProperty Name="idGenre" ColumnName="idGenre" />
-                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
                 <ScalarProperty Name="idBook" ColumnName="idBook" />
+                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+                <ScalarProperty Name="idGenre" ColumnName="idGenre" />
+                <ScalarProperty Name="idAuthor" ColumnName="idAuthor" />
+                <ScalarProperty Name="PublishingHouse" ColumnName="PublishingHouse" />
+                <ScalarProperty Name="PlacePublication" ColumnName="PlacePublication" />
+                <ScalarProperty Name="YearPublication" ColumnName="YearPublication" />
+                <ScalarProperty Name="NumberPages" ColumnName="NumberPages" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="BBK" ColumnName="BBK" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Genre">
             <EntityTypeMapping TypeName="LibraryModel.Genre">
               <MappingFragment StoreEntitySet="Genre">
-                <ScalarProperty Name="NameGenre" ColumnName="NameGenre" />
                 <ScalarProperty Name="idGenre" ColumnName="idGenre" />
+                <ScalarProperty Name="NameGenre" ColumnName="NameGenre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NumberBookGiven">
             <EntityTypeMapping TypeName="LibraryModel.NumberBookGiven">
               <MappingFragment StoreEntitySet="NumberBookGiven">
-                <ScalarProperty Name="ReturnedBook" ColumnName="ReturnedBook" />
-                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
-                <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
-                <ScalarProperty Name="idUser" ColumnName="idUser" />
-                <ScalarProperty Name="AccountingBook" ColumnName="AccountingBook" />
                 <ScalarProperty Name="IdBookGiven" ColumnName="IdBookGiven" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="LibraryModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="AccountingBook" ColumnName="AccountingBook" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="ReturnedBook" ColumnName="ReturnedBook" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TemporaryUsers">
             <EntityTypeMapping TypeName="LibraryModel.TemporaryUsers">
               <MappingFragment StoreEntitySet="TemporaryUsers">
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="idTemporaryUser" ColumnName="idTemporaryUser" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="LibraryModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="NumbrePhone" ColumnName="NumbrePhone" />
-                <ScalarProperty Name="PlaceWork" ColumnName="PlaceWork" />
-                <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
-                <ScalarProperty Name="YearBirth" ColumnName="YearBirth" />
-                <ScalarProperty Name="idViewUser" ColumnName="idViewUser" />
-                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="idViewUser" ColumnName="idViewUser" />
+                <ScalarProperty Name="YearBirth" ColumnName="YearBirth" />
+                <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
+                <ScalarProperty Name="PlaceWork" ColumnName="PlaceWork" />
+                <ScalarProperty Name="NumbrePhone" ColumnName="NumbrePhone" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ViewUser">
             <EntityTypeMapping TypeName="LibraryModel.ViewUser">
               <MappingFragment StoreEntitySet="ViewUser">
-                <ScalarProperty Name="NameViewUser" ColumnName="NameViewUser" />
                 <ScalarProperty Name="idViewUser" ColumnName="idViewUser" />
+                <ScalarProperty Name="NameViewUser" ColumnName="NameViewUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

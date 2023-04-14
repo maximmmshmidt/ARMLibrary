@@ -23,25 +23,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15">
             <i:PackIconMaterial Kind="Book" Foreground="White" Width="100" Height="100" HorizontalAlignment="Center"/>
             <TextBlock x:Name="NameBookTB" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="22" FontWeight="Bold"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" Margin="15 0 0 0" VerticalAlignment="Center" Grid.Row="1" Grid.RowSpan="2">
+        <StackPanel HorizontalAlignment="Stretch" Margin="15 0 0 0" VerticalAlignment="Center" Grid.Row="1" Grid.RowSpan="2">
             <StackPanel  HorizontalAlignment="Left" VerticalAlignment="Center">
                 <TextBlock Text="Автор: " x:Name="AuthorTB"/>
                 <TextBlock Text="Жанр: " x:Name="GenreTB"/>
                 <TextBlock Text="Издательство: " x:Name="PublishingHouseTB"/>
                 <TextBlock Text="МестоПубликация: " x:Name="PlacePublicationTB"/>
-                <TextBlock Text="Год Публикации: " x:Name="YearPublicationTB">
-                    <!--<TextBlock.BindingGroup>
-                        <MultiBinding StringFormat="MM/dd/yyyy">
-                            <Binding x:Name="YearPublicationTB" Path="YearPublication"/>
-                        </MultiBinding>
-                    </TextBlock.BindingGroup>-->
-                </TextBlock>
+                <TextBlock Text="Год Публикации: " x:Name="YearPublicationTB"/>
                 <TextBlock Text="Страниц в книге: " x:Name="NumberBagesTB"/>
                 <TextBlock Text="ISBN: " x:Name="ISBNTB"/>
                 <TextBlock Text="BBK: " x:Name="BBKTB"/>
