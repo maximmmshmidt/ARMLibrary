@@ -37,6 +37,8 @@ namespace ARMLibrary.Pages.PagesUser
             AuthorTB.Text += book.Author.LastName + " " + book.Author.FirstName + " " + book.Author.Patronymic;
             if (book.ImageBook != null)
             {
+                ImageBookNone.Visibility = Visibility.Hidden;
+                ImageBook.Visibility = Visibility.Visible;
                 ImageBook.Source = new BitmapImage( new Uri(book.ImageBook.ToString())); 
             }
         }
