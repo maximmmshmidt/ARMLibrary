@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountingBook">
           <Key>
             <PropertyRef Name="AccountingBook" />
@@ -40,6 +40,7 @@
           <Property Name="ISBN" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="BBK" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageBook" Type="image" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -197,8 +198,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -243,6 +243,7 @@
           <NavigationProperty Name="AccountingBook" Relationship="Self.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBook" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
+          <Property Name="ImageBook" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -437,6 +438,7 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="LibraryModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="ImageBook" ColumnName="ImageBook" />
                 <ScalarProperty Name="idBook" ColumnName="idBook" />
                 <ScalarProperty Name="NameBook" ColumnName="NameBook" />
                 <ScalarProperty Name="idGenre" ColumnName="idGenre" />
