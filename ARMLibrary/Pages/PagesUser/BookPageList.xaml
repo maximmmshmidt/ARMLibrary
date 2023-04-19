@@ -38,6 +38,7 @@
                     <TextBlock Text="Страниц в книге: " x:Name="NumberBagesTB"/>
                     <TextBlock Text="ISBN: " x:Name="ISBNTB"/>
                     <TextBlock Text="BBK: " x:Name="BBKTB"/>
+                    <TextBlock Text="Осатлось книг: " x:Name="NumberBooks"/>
                 </StackPanel>
             </Border>
         </StackPanel>
