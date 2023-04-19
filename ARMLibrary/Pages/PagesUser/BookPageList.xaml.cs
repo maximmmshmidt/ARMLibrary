@@ -48,8 +48,10 @@ namespace ARMLibrary.Pages.PagesUser
                 ImageBook.Source = new BitmapImage( new Uri(book.ImageBook.ToString())); 
             }
         }
+        readonly NumberBookGiven numberBookGiven;
         private void ExcelBTClick(object sender, RoutedEventArgs e)   
         {
+            //numberBookGiven = db.context.NumberBookGiven.Where(x=>x.);
             /*создаем файл Excel*/
 
             var aplication = new Excel.Application
@@ -96,13 +98,20 @@ namespace ARMLibrary.Pages.PagesUser
             worksheet.Cells[1][2] = bok.NameBook;
             worksheet.Cells[2][2] = bok.NameBook;
             worksheet.Cells[3][2] = bok.NameBook;
+            worksheet.Cells[4][2] = bok.Author.LastName + " " + bok.Author.FirstName + " " + bok.Author.Patronymic;
+            worksheet.Cells[5][2] = bok.NameBook;
+            worksheet.Cells[6][2] = bok.NameBook;
+            worksheet.Cells[7][2] = bok.NameBook;
+            worksheet.Cells[8][2] = bok.NameBook;
             worksheet.Columns.AutoFit();
+
+            //int rowIndex = 2;
 
             //foreach (var item in bok)
             //{
             //    if (true)
             //    {
-                    
+            //        rowIndex++;
             //    }
             //}
         }
