@@ -40,7 +40,6 @@ namespace ARMLibrary.Pages.PagesUser
             {
                 Excel.Visibility = Visibility.Visible;
             }
-
             if (book.ImageBook != null)
             {
                 ImageBookNone.Visibility = Visibility.Hidden;
