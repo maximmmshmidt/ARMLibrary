@@ -13,10 +13,13 @@ namespace ARMLibrary.Pages.PagesUser
     public partial class BookPageList : Page
     {
         readonly Core db = new Core();
+
+        readonly Book bok;
+
         public BookPageList(Book book)
         {
-            
             InitializeComponent();
+            bok = book;
             NumberBooks.Text += db.context.AccountingBook.Where(x => x.idBook == book.idBook).Select(x => x.NumberBook).SingleOrDefault();
             NameBookTB.Text = book.NameBook;
             DescriptionTB.Text = book.Description;
@@ -29,7 +32,11 @@ namespace ARMLibrary.Pages.PagesUser
             GenreTB.Text += book.Genre.NameGenre;
             AuthorTB.Text += book.Author.LastName + " " + book.Author.FirstName + " " + book.Author.Patronymic;
 
-            if (App.loginAuntificate.idViewUser <= 2)
+            if (App.loginAuntificate.idViewUser > 2)
+            {
+                Excel.Visibility = Visibility.Hidden;
+            }
+            else
             {
                 Excel.Visibility = Visibility.Visible;
             }
@@ -43,7 +50,7 @@ namespace ARMLibrary.Pages.PagesUser
         }
         private void ExcelBTClick(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
