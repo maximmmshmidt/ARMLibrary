@@ -12,7 +12,7 @@ namespace ARMLibrary.Pages.PagesUser
     /// </summary>
     public partial class BookPageList : Page
     {
-        Core db = new Core();
+        readonly Core db = new Core();
         public BookPageList(Book book)
         {
             
