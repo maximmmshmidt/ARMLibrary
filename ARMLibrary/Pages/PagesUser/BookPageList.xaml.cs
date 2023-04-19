@@ -29,6 +29,10 @@ namespace ARMLibrary.Pages.PagesUser
             GenreTB.Text += book.Genre.NameGenre;
             AuthorTB.Text += book.Author.LastName + " " + book.Author.FirstName + " " + book.Author.Patronymic;
 
+            if (App.loginAuntificate.idViewUser <= 2)
+            {
+                Excel.Visibility = Visibility.Visible;
+            }
 
             if (book.ImageBook != null)
             {
@@ -36,6 +40,10 @@ namespace ARMLibrary.Pages.PagesUser
                 ImageBook.Visibility = Visibility.Visible;
                 ImageBook.Source = new BitmapImage( new Uri(book.ImageBook.ToString())); 
             }
+        }
+        private void ExcelBTClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
