@@ -107,6 +107,9 @@ namespace ARMLibrary.Pages.PagesUser
                 worksheet.Cells[3][rowIndex] = bok.PublishingHouse;
                 worksheet.Cells[4][rowIndex] = bok.Author.LastName + " " + bok.Author.FirstName + " " + bok.Author.Patronymic;
                 worksheet.Cells[5][rowIndex] = bok.NameBook;
+                worksheet.Cells[6][rowIndex] = item.User.FirstName + " "
+                    + item.User.LastName[0].ToString().ToUpper() 
+                    + "." + item.User.Patronymic[0].ToString().ToUpper() + ".";
                 if (item.ReturnedBook == true)
                 {
                     worksheet.Cells[7][rowIndex] = "(❁´◡`❁)";
