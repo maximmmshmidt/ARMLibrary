@@ -21,6 +21,8 @@ namespace ARMLibrary.Pages.PagesUser
     /// </summary>
     public partial class ProfilUserPageForList : Page
     {
+        readonly Core db = new Core();
+        public List<NumberBookGiven> mass;
         public ProfilUserPageForList(User activeStudent)
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace ARMLibrary.Pages.PagesUser
             YearBirth.Text += activeStudent.YearBirth.ToString("D");
             ViewUsers.Text += activeStudent.ViewUser.NameViewUser;
             FIO.Text += activeStudent.LastName + " "+ activeStudent.FirstName + " " + activeStudent.Patronymic;
+            mass = db.context.NumberBookGiven.Where(x => x.idUser == activeStudent.idUser).ToList();
+            DataGridBook.ItemsSource = mass;
 
         }
     }

@@ -32,7 +32,17 @@
             <TextBlock Text="Номер телефона" x:Name="numberPhone"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-            
+            <TextBlock Text="Сколько книг взял"/>
+            <TextBlock Text="Сколько вернул"/>
+            <TextBlock Text="Сколько купил"/>
+            <TextBlock Text="Какие книги брал:"/>
+            <DataGrid x:Name="DataGridBook" AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Name Book" Binding="{Binding AccountingBook.idBook.NameBook}"/>
+                    <DataGridTextColumn Header="ReturnDate" Binding="{Binding ReturnDate}"/>
+                    <DataGridTextColumn Header="BuyBook" Binding="{Binding BuyBook}"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
 
     </Grid>
