@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountingBook">
           <Key>
             <PropertyRef Name="AccountingBook" />
@@ -59,6 +59,17 @@
           <Property Name="DateIssue" Type="date" Nullable="false" />
           <Property Name="ReturnDate" Type="date" Nullable="false" />
           <Property Name="ReturnedBook" Type="bit" />
+          <Property Name="BuyBook" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
@@ -170,6 +181,7 @@
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" Schema="dbo" store:Type="Tables" />
@@ -198,7 +210,8 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -240,10 +253,10 @@
           <Property Name="ISBN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="BBK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageBook" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="AccountingBook" Relationship="Self.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBook" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
-          <Property Name="ImageBook" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Genre">
           <Key>
@@ -263,8 +276,19 @@
           <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ReturnedBook" Type="Boolean" />
+          <Property Name="BuyBook" Type="Boolean" />
           <NavigationProperty Name="AccountingBook1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />
           <NavigationProperty Name="User" Relationship="Self.FK_NumberBookGiven_User" FromRole="NumberBookGiven" ToRole="User" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
@@ -379,6 +403,7 @@
           <EntitySet Name="Book" EntityType="Self.Book" />
           <EntitySet Name="Genre" EntityType="Self.Genre" />
           <EntitySet Name="NumberBookGiven" EntityType="Self.NumberBookGiven" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TemporaryUsers" EntityType="Self.TemporaryUsers" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" />
@@ -438,7 +463,6 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="LibraryModel.Book">
               <MappingFragment StoreEntitySet="Book">
-                <ScalarProperty Name="ImageBook" ColumnName="ImageBook" />
                 <ScalarProperty Name="idBook" ColumnName="idBook" />
                 <ScalarProperty Name="NameBook" ColumnName="NameBook" />
                 <ScalarProperty Name="idGenre" ColumnName="idGenre" />
@@ -450,6 +474,7 @@
                 <ScalarProperty Name="ISBN" ColumnName="ISBN" />
                 <ScalarProperty Name="BBK" ColumnName="BBK" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageBook" ColumnName="ImageBook" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -470,6 +495,18 @@
                 <ScalarProperty Name="DateIssue" ColumnName="DateIssue" />
                 <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
                 <ScalarProperty Name="ReturnedBook" ColumnName="ReturnedBook" />
+                <ScalarProperty Name="BuyBook" ColumnName="BuyBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LibraryModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

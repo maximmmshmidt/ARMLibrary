@@ -139,11 +139,11 @@ namespace ARMLibrary.Pages.PagesUser
                     ReturnDate = DateTime.Now.AddDays(14),
                     ReturnedBook = false
                 };
-                AccountingBook accountingBook = (AccountingBook)db.context.AccountingBook.Where(x => x.idBook == bok.idBook);
-                accountingBook.NumberBook -= 1;
-                accountingBook.NumberBookGiven += 1;
-                db.context.NumberBookGiven.Add(numberBookGiven);
-                db.context.AccountingBook.Remove(accountingBook);
+                //AccountingBook accountingBook = (AccountingBook)db.context.AccountingBook.Where(x => x.idBook == bok.idBook);
+                //accountingBook.NumberBook -= 1;
+                //accountingBook.NumberBookGiven += 1;
+                //db.context.NumberBookGiven.Add(numberBookGiven);
+                //db.context.AccountingBook.Remove(accountingBook);
                 try
                 {
                     db.context.SaveChanges();
