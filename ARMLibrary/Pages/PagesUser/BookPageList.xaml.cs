@@ -6,6 +6,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using ARMLibrary;
+using System.Data.Entity.Migrations;
 
 namespace ARMLibrary.Pages.PagesUser
 {
@@ -124,6 +125,7 @@ namespace ARMLibrary.Pages.PagesUser
                 rowIndex++;
             }
         }
+        AccountingBook accountingBok = new AccountingBook();
         private void TakeBook(object sender, RoutedEventArgs e)
         {
             var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnedBook == false).SingleOrDefault();
@@ -142,11 +144,11 @@ namespace ARMLibrary.Pages.PagesUser
                     ReturnDate = DateTime.Now.AddDays(14),
                     ReturnedBook = false
                 };
-                //AccountingBook accountingBook = (AccountingBook)db.context.AccountingBook.Where(x => x.idBook == bok.idBook);
-                //accountingBook.NumberBook -= 1;
-                //accountingBook.NumberBookGiven += 1;
-                //db.context.NumberBookGiven.Add(numberBookGiven);
-                //db.context.AccountingBook.Remove(accountingBook);
+                accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
+                accountingBok.NumberBook -= 1;
+                accountingBok.NumberBookGiven += 1;
+                db.context.NumberBookGiven.Add(numberBookGiven);
+                db.context.AccountingBook.AddOrUpdate(accountingBok);
                 try
                 {
                     db.context.SaveChanges();
@@ -159,4 +161,4 @@ namespace ARMLibrary.Pages.PagesUser
             }
         }
     }
-}
+} 

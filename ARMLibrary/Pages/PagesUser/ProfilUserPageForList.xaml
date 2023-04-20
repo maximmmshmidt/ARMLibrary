@@ -7,7 +7,13 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProfilUserPageForList">
-
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
     <Grid>
         <TextBlock.Foreground>
             <SolidColorBrush Color="White"/>
@@ -17,48 +23,16 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Имя" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Отчество" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
+            <TextBlock Text="Id User" x:Name="idUsers"/>
+            <TextBlock Text="ФИО" x:Name="FIO"/>
+            <TextBlock Text="Вид Пользователя" x:Name="ViewUsers"/>
+            <TextBlock Text="Год Рождения" x:Name="YearBirth"/>
+            <TextBlock Text="Адрес Проживания" x:Name="Adres"/>
+            <TextBlock Text="Место работы\Учебы" x:Name="placeWork"/>
+            <TextBlock Text="Номер телефона" x:Name="numberPhone"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Имя" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Отчестыо" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
-                <TextBox Width="150"/>
-            </StackPanel>
+            
         </StackPanel>
 
     </Grid>

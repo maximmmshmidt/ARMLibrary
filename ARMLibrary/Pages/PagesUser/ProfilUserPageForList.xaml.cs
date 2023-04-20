@@ -24,6 +24,14 @@ namespace ARMLibrary.Pages.PagesUser
         public ProfilUserPageForList(User activeStudent)
         {
             InitializeComponent();
+            idUsers.Text += activeStudent.idUser.ToString();
+            numberPhone.Text += activeStudent.NumbrePhone;
+            placeWork.Text += activeStudent.PlaceWork;
+            Adres.Text += activeStudent.ResidentialAddress;
+            YearBirth.Text += activeStudent.YearBirth.ToString("D");
+            ViewUsers.Text += activeStudent.ViewUser.NameViewUser;
+            FIO.Text += activeStudent.LastName + " "+ activeStudent.FirstName + " " + activeStudent.Patronymic;
+
         }
     }
 }
