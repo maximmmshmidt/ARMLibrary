@@ -1,19 +1,17 @@
 ﻿using ARMLibrary.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Media.Imaging;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Windows.Media.Imaging;
+using System.Collections.Generic;
 
 namespace ARMLibrary.Pages.PagesUser
 {
     /// <summary>
     /// Логика взаимодействия для BookPageList.xaml
     /// </summary>
-    public partial class BookPageList : Page
+    public partial class BookPageList : System.Windows.Controls.Page
     {
         readonly Core db = new Core();
 
@@ -50,9 +48,10 @@ namespace ARMLibrary.Pages.PagesUser
                 ImageBook.Source = new BitmapImage( new Uri(book.ImageBook.ToString())); 
             }
         }
+        
         private void ExcelBTClick(object sender, RoutedEventArgs e)   
         {
-            List<NumberBookGiven> numberBookGiven = db.context.NumberBookGiven.Where(x=>x.AccountingBook == bok.idBook).ToList();
+            List<NumberBookGiven> numberBookGiven = db.context.NumberBookGiven.Where(x => x.AccountingBook == bok.idBook).ToList();
             /*создаем файл Excel*/
 
             var aplication = new Excel.Application
@@ -115,10 +114,40 @@ namespace ARMLibrary.Pages.PagesUser
                 else
                 {
                     worksheet.Cells[7][rowIndex] = "(╯°□°）╯︵ ┻━┻";
-                    worksheet.Cells[7][rowIndex] ="Срок сдачи просрочен";
+                    worksheet.Cells[8][rowIndex] ="Срок сдачи просрочен";
                 }
                 worksheet.Columns.AutoFit();
                 rowIndex++;
+            }
+        }
+        private void TakeBook(object sender, RoutedEventArgs e)
+        {
+            var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnedBook == false).SingleOrDefault();
+            var use = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnDate).SingleOrDefault();
+            if (us && use.Date < DateTime.Now)
+            {
+                MessageBox.Show("Вы еще не сдали прошлую книгу");
+            }
+            else
+            {
+                NumberBookGiven numberBookGiven = new NumberBookGiven()
+                {
+                    AccountingBook = bok.idBook,
+                    idUser = App.loginAuntificate.idUser,
+                    DateIssue = DateTime.Now,
+                    ReturnDate = DateTime.Now.AddDays(14),
+                    ReturnedBook = false
+                };
+                //db.context.AccountingBook.Remove();
+                try
+                {
+                    db.context.SaveChanges();
+                    MessageBox.Show("Вы Взяли книгу" );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка :"+ex);
+                }
             }
         }
     }

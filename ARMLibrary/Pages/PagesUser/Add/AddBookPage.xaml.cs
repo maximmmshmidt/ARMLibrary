@@ -52,7 +52,15 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     Description = DescripTB.Text
                 };
                 db.context.Book.Add(book);
-                db.context.SaveChanges();
+                try
+                {
+                    db.context.SaveChanges();
+                    MessageBox.Show("Вы Взяли книгу");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ошибка :" + ex);
+                }
             }
         }
 
