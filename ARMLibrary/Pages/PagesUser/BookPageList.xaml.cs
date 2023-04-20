@@ -1,8 +1,10 @@
 ﻿using ARMLibrary.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -48,10 +50,9 @@ namespace ARMLibrary.Pages.PagesUser
                 ImageBook.Source = new BitmapImage( new Uri(book.ImageBook.ToString())); 
             }
         }
-        readonly NumberBookGiven numberBookGiven;
         private void ExcelBTClick(object sender, RoutedEventArgs e)   
         {
-            //numberBookGiven = db.context.NumberBookGiven.Where(x=>x.);
+            List<NumberBookGiven> numberBookGiven = db.context.NumberBookGiven.Where(x=>x.AccountingBook == bok.idBook).ToList();
             /*создаем файл Excel*/
 
             var aplication = new Excel.Application
@@ -71,7 +72,7 @@ namespace ARMLibrary.Pages.PagesUser
 
             Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-            worksheet.Name = "Student"; //имя листа нужно вводить латинскими буквами
+            worksheet.Name = "BookForGiven"; //имя листа нужно вводить латинскими буквами
 
             /*заголовки вывод в Excel (в первую строку)*/
 
@@ -95,26 +96,30 @@ namespace ARMLibrary.Pages.PagesUser
 
             /*вывод данных из массива в Excel*/
 
-            worksheet.Cells[1][2] = bok.NameBook;
-            worksheet.Cells[2][2] = bok.NameBook;
-            worksheet.Cells[3][2] = bok.NameBook;
-            worksheet.Cells[4][2] = bok.Author.LastName + " " + bok.Author.FirstName + " " + bok.Author.Patronymic;
-            worksheet.Cells[5][2] = bok.NameBook;
-            worksheet.Cells[6][2] = bok.NameBook;
-            worksheet.Cells[7][2] = bok.NameBook;
-            worksheet.Cells[8][2] = bok.NameBook;
-            worksheet.Columns.AutoFit();
 
-            //int rowIndex = 2;
 
-            //foreach (var item in bok)
-            //{
-            //    if (true)
-            //    {
-            //        rowIndex++;
-            //    }
-            //}
+            int rowIndex = 2;
+
+            foreach (var item in numberBookGiven)
+            {
+                worksheet.Cells[1][rowIndex] = item.DateIssue;
+                worksheet.Cells[2][rowIndex] = item.ReturnDate;
+                worksheet.Cells[3][rowIndex] = bok.PublishingHouse;
+                worksheet.Cells[4][rowIndex] = bok.Author.LastName + " " + bok.Author.FirstName + " " + bok.Author.Patronymic;
+                worksheet.Cells[5][rowIndex] = bok.NameBook;
+                if (item.ReturnedBook == true)
+                {
+                    worksheet.Cells[7][rowIndex] = "(❁´◡`❁)";
+                    worksheet.Cells[8][rowIndex] = "Отдал во время";
+                }
+                else
+                {
+                    worksheet.Cells[7][rowIndex] = "(╯°□°）╯︵ ┻━┻";
+                    worksheet.Cells[7][rowIndex] ="Срок сдачи просрочен";
+                }
+                worksheet.Columns.AutoFit();
+                rowIndex++;
+            }
         }
-
     }
 }
