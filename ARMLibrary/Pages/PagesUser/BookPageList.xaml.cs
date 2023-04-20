@@ -5,6 +5,7 @@ using System.Windows;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
+using ARMLibrary;
 
 namespace ARMLibrary.Pages.PagesUser
 {
@@ -138,15 +139,19 @@ namespace ARMLibrary.Pages.PagesUser
                     ReturnDate = DateTime.Now.AddDays(14),
                     ReturnedBook = false
                 };
-                //db.context.AccountingBook.Remove();
+                AccountingBook accountingBook = (AccountingBook)db.context.AccountingBook.Where(x => x.idBook == bok.idBook);
+                accountingBook.NumberBook -= 1;
+                accountingBook.NumberBookGiven += 1;
+                db.context.NumberBookGiven.Add(numberBookGiven);
+                db.context.AccountingBook.Remove(accountingBook);
                 try
                 {
                     db.context.SaveChanges();
-                    MessageBox.Show("Вы Взяли книгу" );
+                    MessageBox.Show("Вы Взяли книгу");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка :"+ex);
+                    MessageBox.Show("Ошибка :" + ex);
                 }
             }
         }
