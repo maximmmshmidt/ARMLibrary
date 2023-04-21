@@ -48,7 +48,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     try
                     {
                         db.context.SaveChanges();
-                        MessageBox.Show("Вы Взяли книгу");
+                        MessageBox.Show("Пользов добавлен!");
                     }
                     catch (Exception ex)
                     {
@@ -64,11 +64,15 @@ namespace ARMLibrary.Pages.PagesUser.Add
 
         private void Biblioteck_Click(object sender, RoutedEventArgs e)
         {
+            Biblioteck.Opacity = 0.5;
+            Reader.Opacity = 1;
             usAddIdViewUser = 2;
         }
 
         private void Reader_Click(object sender, RoutedEventArgs e)
         {
+            Biblioteck.Opacity = 1;
+            Reader.Opacity = 0.5;
             usAddIdViewUser = 3;
         }
     }

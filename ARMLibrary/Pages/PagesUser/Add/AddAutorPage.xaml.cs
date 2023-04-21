@@ -22,7 +22,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
         
         private void Add(object sender, RoutedEventArgs e)
         {
-            if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null && DateDeath != null )
+            if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null)
             {
                 if (DateDeath != null)
                 {
