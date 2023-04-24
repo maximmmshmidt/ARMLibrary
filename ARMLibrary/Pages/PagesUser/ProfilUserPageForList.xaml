@@ -23,24 +23,24 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Id User" x:Name="idUsers"/>
-            <TextBlock Text="ФИО" x:Name="FIO"/>
-            <TextBlock Text="Вид Пользователя" x:Name="ViewUsers"/>
-            <TextBlock Text="Год Рождения" x:Name="YearBirth"/>
-            <TextBlock Text="Адрес Проживания" x:Name="Adres"/>
-            <TextBlock Text="Место работы\Учебы" x:Name="placeWork"/>
-            <TextBlock Text="Номер телефона" x:Name="numberPhone"/>
+            <TextBlock Text="Id User " x:Name="idUsers"/>
+            <TextBlock Text="ФИО " x:Name="FIO"/>
+            <TextBlock Text="Вид Пользователя " x:Name="ViewUsers"/>
+            <TextBlock Text="Год Рождения " x:Name="YearBirth"/>
+            <TextBlock Text="Адрес Проживания " x:Name="Adres"/>
+            <TextBlock Text="Место работы\Учебы " x:Name="placeWork"/>
+            <TextBlock Text="Номер телефона " x:Name="numberPhone"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
-            <TextBlock Text="Сколько книг взял"/>
-            <TextBlock Text="Сколько вернул"/>
-            <TextBlock Text="Сколько купил"/>
-            <TextBlock Text="Какие книги брал:"/>
+            <TextBlock Text="Сколько книг взял " x:Name="TakeBookUser"/>
+            <TextBlock Text="Сколько вернул " x:Name="TakeBookUserBack"/>
+            <TextBlock Text="Сколько купил " x:Name="TakeBookUserBuy"/>
+            <TextBlock Text="Какие книги брал: "/>
             <DataGrid x:Name="DataGridBook" AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                <DataGrid.Columns >
-                    <DataGridTextColumn Header="Name Book" Binding="{Binding AccountingBook.idBook.NameBook}"/>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name Book" Binding="{Binding Book.NameBook}"/>
                     <DataGridTextColumn Header="ReturnDate" Binding="{Binding ReturnDate}"/>
-                    <DataGridTextColumn Header="BuyBook" Binding="{Binding BuyBook}"/>
+                    <DataGridTextColumn Header="BuyBook" x:Name="BuyBooks" Binding="{Binding BuyBook}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

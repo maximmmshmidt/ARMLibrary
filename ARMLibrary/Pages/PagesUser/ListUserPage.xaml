@@ -36,7 +36,7 @@
             </TextBox>
         </StackPanel>
         
-        <DataGrid x:Name="DataGridUser" Grid.Row="1"  AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+        <DataGrid x:Name="DataGridUser" Grid.Row="1"  AutoGenerateColumns="False" Margin="15" AutomationProperties.IsRowHeader="False" ColumnWidth="*" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Id" Binding="{Binding idUser}" Width="30"/>
                 <DataGridTextColumn Header="Имя" x:Name="FIO">

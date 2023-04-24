@@ -35,7 +35,7 @@ namespace ARMLibrary.Pages.PagesUser
             FIO.Text += activeStudent.LastName + " "+ activeStudent.FirstName + " " + activeStudent.Patronymic;
             mass = db.context.NumberBookGiven.Where(x => x.idUser == activeStudent.idUser).ToList();
             DataGridBook.ItemsSource = mass;
-
+            
         }
     }
 }
