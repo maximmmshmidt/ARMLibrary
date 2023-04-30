@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System.Collections.Generic;
 using ARMLibrary;
 using System.Data.Entity.Migrations;
+using System.Windows.Documents;
 
 namespace ARMLibrary.Pages.PagesUser
 {
@@ -126,15 +127,26 @@ namespace ARMLibrary.Pages.PagesUser
             }
         }
         AccountingBook accountingBok = new AccountingBook();
+        bool bol;
         private void TakeBook(object sender, RoutedEventArgs e)
         {
-            int us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnedBook == false).Count();
-            var use = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnDate).SingleOrDefault();
-            if (us>0 && use.Date < DateTime.Now)
+            var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser);
+            accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
+            foreach (var item in us)
             {
-                MessageBox.Show("Вы еще не сдали прошлую книгу");
+                if (item.ReturnDate.Date > DateTime.Now && item.BuyBook != true)
+                {
+                    MessageBox.Show("Вы еще не сдали книгу " +
+                        $"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
+                    bol = false;
+                    return;
+                }
+                else
+                {
+                    bol = true;
+                }
             }
-            else
+            if(bol && accountingBok.NumberBook != 0)
             {
                 NumberBookGiven numberBookGiven = new NumberBookGiven()
                 {
@@ -142,12 +154,11 @@ namespace ARMLibrary.Pages.PagesUser
                     idUser = App.loginAuntificate.idUser,
                     DateIssue = DateTime.Now,
                     ReturnDate = DateTime.Now.AddDays(14),
-                    ReturnedBook = false
+                    
                 };
-                accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
                 accountingBok.NumberBook -= 1;
                 accountingBok.NumberBookGiven += 1;
-                db.context.NumberBookGiven.Add(numberBookGiven);
+                //db.context.NumberBookGiven.Add(numberBookGiven);
                 db.context.AccountingBook.AddOrUpdate(accountingBok);
                 try
                 {
