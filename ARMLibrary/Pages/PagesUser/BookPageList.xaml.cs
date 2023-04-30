@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using ARMLibrary;
 using System.Data.Entity.Migrations;
 using System.Windows.Documents;
+using DocumentFormat.OpenXml.Wordprocessing;
 
 namespace ARMLibrary.Pages.PagesUser
 {
@@ -134,11 +135,12 @@ namespace ARMLibrary.Pages.PagesUser
             accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
             foreach (var item in us)
             {
-                if (item.ReturnDate.Date > DateTime.Now && item.BuyBook != true)
+                if (item.ReturnDate.Date > DateTime.Now && item.BuyBook == false)
                 {
                     MessageBox.Show("Вы еще не сдали книгу " +
                         $"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
                     bol = false;
+                    Console.WriteLine($"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
                     return;
                 }
                 else
@@ -154,11 +156,11 @@ namespace ARMLibrary.Pages.PagesUser
                     idUser = App.loginAuntificate.idUser,
                     DateIssue = DateTime.Now,
                     ReturnDate = DateTime.Now.AddDays(14),
-                    
+                    //ReturnedBook = false,
                 };
                 accountingBok.NumberBook -= 1;
                 accountingBok.NumberBookGiven += 1;
-                //db.context.NumberBookGiven.Add(numberBookGiven);
+                db.context.NumberBookGiven.Add(numberBookGiven);
                 db.context.AccountingBook.AddOrUpdate(accountingBok);
                 try
                 {
