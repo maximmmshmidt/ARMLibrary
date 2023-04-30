@@ -18,7 +18,6 @@ namespace ARMLibrary.Models
         public Book()
         {
             this.AccountingBook = new HashSet<AccountingBook>();
-            this.NumberBookGiven = new HashSet<NumberBookGiven>();
         }
     
         public int idBook { get; set; }
@@ -38,7 +37,5 @@ namespace ARMLibrary.Models
         public virtual ICollection<AccountingBook> AccountingBook { get; set; }
         public virtual Author Author { get; set; }
         public virtual Genre Genre { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NumberBookGiven> NumberBookGiven { get; set; }
     }
 }

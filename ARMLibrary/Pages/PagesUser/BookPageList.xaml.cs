@@ -128,9 +128,9 @@ namespace ARMLibrary.Pages.PagesUser
         AccountingBook accountingBok = new AccountingBook();
         private void TakeBook(object sender, RoutedEventArgs e)
         {
-            var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnedBook == false).SingleOrDefault();
+            int us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnedBook == false).Count();
             var use = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser).Select(x => x.ReturnDate).SingleOrDefault();
-            if (us && use.Date < DateTime.Now)
+            if (us>0 && use.Date < DateTime.Now)
             {
                 MessageBox.Show("Вы еще не сдали прошлую книгу");
             }

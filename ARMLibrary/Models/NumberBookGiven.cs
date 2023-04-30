@@ -19,12 +19,10 @@ namespace ARMLibrary.Models
         public int idUser { get; set; }
         public System.DateTime DateIssue { get; set; }
         public System.DateTime ReturnDate { get; set; }
-        public bool ReturnedBook { get; set; }
-        public bool BuyBook { get; set; }
-        public int idBook { get; set; }
+        public Nullable<bool> ReturnedBook { get; set; }
+        public Nullable<bool> BuyBook { get; set; }
     
         public virtual AccountingBook AccountingBook1 { get; set; }
         public virtual User User { get; set; }
-        public virtual Book Book { get; set; }
     }
 }
