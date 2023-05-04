@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AccountingBook">
+      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccountingBooks">
           <Key>
             <PropertyRef Name="AccountingBook" />
           </Key>
-          <Property Name="AccountingBook" Type="int" Nullable="false" />
+          <Property Name="AccountingBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idBook" Type="int" Nullable="false" />
           <Property Name="NumberBook" Type="int" Nullable="false" />
           <Property Name="NumberBookGiven" Type="int" Nullable="false" />
@@ -18,7 +18,7 @@
           <Key>
             <PropertyRef Name="idAuthor" />
           </Key>
-          <Property Name="idAuthor" Type="int" Nullable="false" />
+          <Property Name="idAuthor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -29,7 +29,7 @@
           <Key>
             <PropertyRef Name="idBook" />
           </Key>
-          <Property Name="idBook" Type="int" Nullable="false" />
+          <Property Name="idBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameBook" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="idGenre" Type="int" Nullable="false" />
           <Property Name="idAuthor" Type="int" Nullable="false" />
@@ -46,14 +46,14 @@
           <Key>
             <PropertyRef Name="idGenre" />
           </Key>
-          <Property Name="idGenre" Type="int" Nullable="false" />
+          <Property Name="idGenre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameGenre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="NumberBookGiven">
           <Key>
             <PropertyRef Name="IdBookGiven" />
           </Key>
-          <Property Name="IdBookGiven" Type="int" Nullable="false" />
+          <Property Name="IdBookGiven" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountingBook" Type="int" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
           <Property Name="DateIssue" Type="date" Nullable="false" />
@@ -65,7 +65,7 @@
           <Key>
             <PropertyRef Name="idTemporaryUser" />
           </Key>
-          <Property Name="idTemporaryUser" Type="int" Nullable="false" />
+          <Property Name="idTemporaryUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -74,7 +74,7 @@
           <Key>
             <PropertyRef Name="idUser" />
           </Key>
-          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -90,17 +90,17 @@
           <Key>
             <PropertyRef Name="idViewUser" />
           </Key>
-          <Property Name="idViewUser" Type="int" Nullable="false" />
+          <Property Name="idViewUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameViewUser" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_AccountingBook_Book">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
-          <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="*" />
+          <End Role="AccountingBooks" Type="Self.AccountingBooks" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Book">
               <PropertyRef Name="idBook" />
             </Principal>
-            <Dependent Role="AccountingBook">
+            <Dependent Role="AccountingBooks">
               <PropertyRef Name="idBook" />
             </Dependent>
           </ReferentialConstraint>
@@ -130,10 +130,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NumberBookGiven_AccountingBook">
-          <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="1" />
+          <End Role="AccountingBooks" Type="Self.AccountingBooks" Multiplicity="1" />
           <End Role="NumberBookGiven" Type="Self.NumberBookGiven" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AccountingBook">
+            <Principal Role="AccountingBooks">
               <PropertyRef Name="AccountingBook" />
             </Principal>
             <Dependent Role="NumberBookGiven">
@@ -166,7 +166,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище LibraryModelContainer">
-          <EntitySet Name="AccountingBook" EntityType="Self.AccountingBook" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountingBooks" EntityType="Self.AccountingBooks" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
@@ -176,7 +176,7 @@
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_AccountingBook_Book" Association="Self.FK_AccountingBook_Book">
             <End Role="Book" EntitySet="Book" />
-            <End Role="AccountingBook" EntitySet="AccountingBook" />
+            <End Role="AccountingBooks" EntitySet="AccountingBooks" />
           </AssociationSet>
           <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
             <End Role="Author" EntitySet="Author" />
@@ -187,7 +187,7 @@
             <End Role="Book" EntitySet="Book" />
           </AssociationSet>
           <AssociationSet Name="FK_NumberBookGiven_AccountingBook" Association="Self.FK_NumberBookGiven_AccountingBook">
-            <End Role="AccountingBook" EntitySet="AccountingBook" />
+            <End Role="AccountingBooks" EntitySet="AccountingBooks" />
             <End Role="NumberBookGiven" EntitySet="NumberBookGiven" />
           </AssociationSet>
           <AssociationSet Name="FK_NumberBookGiven_User" Association="Self.FK_NumberBookGiven_User">
@@ -199,26 +199,27 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AccountingBook">
+        <EntityType Name="AccountingBooks">
           <Key>
-            <PropertyRef Name="AccountingBook1" />
+            <PropertyRef Name="AccountingBook" />
           </Key>
-          <Property Name="AccountingBook1" Type="Int32" Nullable="false" />
+          <Property Name="AccountingBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idBook" Type="Int32" Nullable="false" />
           <Property Name="NumberBook" Type="Int32" Nullable="false" />
           <Property Name="NumberBookGiven" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Book" Relationship="Self.FK_AccountingBook_Book" FromRole="AccountingBook" ToRole="Book" />
-          <NavigationProperty Name="NumberBookGiven1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="AccountingBook" ToRole="NumberBookGiven" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_AccountingBook_Book" FromRole="AccountingBooks" ToRole="Book" />
+          <NavigationProperty Name="NumberBookGiven1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="AccountingBooks" ToRole="NumberBookGiven" />
         </EntityType>
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="idAuthor" />
           </Key>
-          <Property Name="idAuthor" Type="Int32" Nullable="false" />
+          <Property Name="idAuthor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -230,7 +231,7 @@
           <Key>
             <PropertyRef Name="idBook" />
           </Key>
-          <Property Name="idBook" Type="Int32" Nullable="false" />
+          <Property Name="idBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameBook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idGenre" Type="Int32" Nullable="false" />
           <Property Name="idAuthor" Type="Int32" Nullable="false" />
@@ -242,7 +243,7 @@
           <Property Name="BBK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ImageBook" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="AccountingBook" Relationship="Self.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBook" />
+          <NavigationProperty Name="AccountingBooks" Relationship="Self.FK_AccountingBook_Book" FromRole="Book" ToRole="AccountingBooks" />
           <NavigationProperty Name="Author" Relationship="Self.FK_Book_Author" FromRole="Book" ToRole="Author" />
           <NavigationProperty Name="Genre" Relationship="Self.FK_Book_Genre" FromRole="Book" ToRole="Genre" />
         </EntityType>
@@ -250,7 +251,7 @@
           <Key>
             <PropertyRef Name="idGenre" />
           </Key>
-          <Property Name="idGenre" Type="Int32" Nullable="false" />
+          <Property Name="idGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Book" Relationship="Self.FK_Book_Genre" FromRole="Genre" ToRole="Book" />
         </EntityType>
@@ -258,21 +259,21 @@
           <Key>
             <PropertyRef Name="IdBookGiven" />
           </Key>
-          <Property Name="IdBookGiven" Type="Int32" Nullable="false" />
+          <Property Name="IdBookGiven" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AccountingBook" Type="Int32" Nullable="false" />
           <Property Name="idUser" Type="Int32" Nullable="false" />
           <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ReturnDate" Type="DateTime" Precision="0" />
           <Property Name="ReturnedBook" Type="Boolean" />
           <Property Name="BuyBook" Type="Boolean" />
-          <NavigationProperty Name="AccountingBook1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />
+          <NavigationProperty Name="AccountingBooks" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBooks" />
           <NavigationProperty Name="User" Relationship="Self.FK_NumberBookGiven_User" FromRole="NumberBookGiven" ToRole="User" />
         </EntityType>
         <EntityType Name="TemporaryUsers">
           <Key>
             <PropertyRef Name="idTemporaryUser" />
           </Key>
-          <Property Name="idTemporaryUser" Type="Int32" Nullable="false" />
+          <Property Name="idTemporaryUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -281,7 +282,7 @@
           <Key>
             <PropertyRef Name="idUser" />
           </Key>
-          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -299,28 +300,28 @@
           <Key>
             <PropertyRef Name="idViewUser" />
           </Key>
-          <Property Name="idViewUser" Type="Int32" Nullable="false" />
+          <Property Name="idViewUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameViewUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_User_ViewUser" FromRole="ViewUser" ToRole="User" />
         </EntityType>
         <Association Name="FK_AccountingBook_Book">
           <End Role="Book" Type="Self.Book" Multiplicity="1" />
-          <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="*" />
+          <End Role="AccountingBooks" Type="Self.AccountingBooks" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Book">
               <PropertyRef Name="idBook" />
             </Principal>
-            <Dependent Role="AccountingBook">
+            <Dependent Role="AccountingBooks">
               <PropertyRef Name="idBook" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NumberBookGiven_AccountingBook">
-          <End Role="AccountingBook" Type="Self.AccountingBook" Multiplicity="1" />
+          <End Role="AccountingBooks" Type="Self.AccountingBooks" Multiplicity="1" />
           <End Role="NumberBookGiven" Type="Self.NumberBookGiven" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="AccountingBook">
-              <PropertyRef Name="AccountingBook1" />
+            <Principal Role="AccountingBooks">
+              <PropertyRef Name="AccountingBook" />
             </Principal>
             <Dependent Role="NumberBookGiven">
               <PropertyRef Name="AccountingBook" />
@@ -376,7 +377,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AccountingBook" EntityType="Self.AccountingBook" />
+          <EntitySet Name="AccountingBooks" EntityType="Self.AccountingBooks" />
           <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="Book" EntityType="Self.Book" />
           <EntitySet Name="Genre" EntityType="Self.Genre" />
@@ -386,10 +387,10 @@
           <EntitySet Name="ViewUser" EntityType="Self.ViewUser" />
           <AssociationSet Name="FK_AccountingBook_Book" Association="Self.FK_AccountingBook_Book">
             <End Role="Book" EntitySet="Book" />
-            <End Role="AccountingBook" EntitySet="AccountingBook" />
+            <End Role="AccountingBooks" EntitySet="AccountingBooks" />
           </AssociationSet>
           <AssociationSet Name="FK_NumberBookGiven_AccountingBook" Association="Self.FK_NumberBookGiven_AccountingBook">
-            <End Role="AccountingBook" EntitySet="AccountingBook" />
+            <End Role="AccountingBooks" EntitySet="AccountingBooks" />
             <End Role="NumberBookGiven" EntitySet="NumberBookGiven" />
           </AssociationSet>
           <AssociationSet Name="FK_Book_Author" Association="Self.FK_Book_Author">
@@ -415,10 +416,10 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище LibraryModelContainer" CdmEntityContainer="LibraryEntities">
-          <EntitySetMapping Name="AccountingBook">
-            <EntityTypeMapping TypeName="LibraryModel.AccountingBook">
-              <MappingFragment StoreEntitySet="AccountingBook">
-                <ScalarProperty Name="AccountingBook1" ColumnName="AccountingBook" />
+          <EntitySetMapping Name="AccountingBooks">
+            <EntityTypeMapping TypeName="LibraryModel.AccountingBooks">
+              <MappingFragment StoreEntitySet="AccountingBooks">
+                <ScalarProperty Name="AccountingBook" ColumnName="AccountingBook" />
                 <ScalarProperty Name="idBook" ColumnName="idBook" />
                 <ScalarProperty Name="NumberBook" ColumnName="NumberBook" />
                 <ScalarProperty Name="NumberBookGiven" ColumnName="NumberBookGiven" />

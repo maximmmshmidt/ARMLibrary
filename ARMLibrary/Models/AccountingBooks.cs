@@ -12,15 +12,15 @@ namespace ARMLibrary.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class AccountingBook
+    public partial class AccountingBooks
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AccountingBook()
+        public AccountingBooks()
         {
             this.NumberBookGiven1 = new HashSet<NumberBookGiven>();
         }
     
-        public int AccountingBook1 { get; set; }
+        public int AccountingBook { get; set; }
         public int idBook { get; set; }
         public int NumberBook { get; set; }
         public int NumberBookGiven { get; set; }

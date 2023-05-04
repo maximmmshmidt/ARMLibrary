@@ -25,7 +25,7 @@ namespace ARMLibrary.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<AccountingBook> AccountingBook { get; set; }
+        public virtual DbSet<AccountingBooks> AccountingBooks { get; set; }
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }

@@ -26,7 +26,7 @@ namespace ARMLibrary.Pages.PagesUser
         {
             InitializeComponent();
             bok = book;
-            NumberBooks.Text += db.context.AccountingBook.Where(x => x.idBook == book.idBook).Select(x => x.NumberBook).SingleOrDefault();
+            NumberBooks.Text += db.context.AccountingBooks.Where(x => x.idBook == book.idBook).Select(x => x.NumberBook).SingleOrDefault();
             NameBookTB.Text = book.NameBook;
             DescriptionTB.Text = book.Description;
             BBKTB.Text += book.BBK;
@@ -128,16 +128,17 @@ namespace ARMLibrary.Pages.PagesUser
                 rowIndex++;
             }
         }
-        AccountingBook accountingBok = new AccountingBook();
+        AccountingBooks accountingBok = new AccountingBooks();
         bool bol;
         private void TakeBook(object sender, RoutedEventArgs e)
         {
             var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser);
-            accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
+            accountingBok = db.context.AccountingBooks.Where(x => x.idBook == bok.idBook).SingleOrDefault();
             foreach (var item in us)
             {
-                if (item.ReturnDate > DateTime.Now && item.BuyBook == false)
+                if (item.ReturnDate >= DateTime.Now && item.BuyBook == false && item.ReturnedBook == false)
                 {
+                    Console.WriteLine(item.AccountingBooks.Book.NameBook);
                     MessageBox.Show("Вы еще не сдали другю книгу");
                     bol = false;
                     return;
@@ -162,7 +163,7 @@ namespace ARMLibrary.Pages.PagesUser
                 accountingBok.NumberBook -= 1;
                 accountingBok.NumberBookGiven += 1;
                 db.context.NumberBookGiven.Add(numberBookGiven);
-                db.context.AccountingBook.AddOrUpdate(accountingBok);
+                db.context.AccountingBooks.AddOrUpdate(accountingBok);
                 try
                 {
                     db.context.SaveChangesAsync();

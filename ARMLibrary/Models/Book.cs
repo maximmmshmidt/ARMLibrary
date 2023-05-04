@@ -17,7 +17,7 @@ namespace ARMLibrary.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Book()
         {
-            this.AccountingBook = new HashSet<AccountingBook>();
+            this.AccountingBooks = new HashSet<AccountingBooks>();
         }
     
         public int idBook { get; set; }
@@ -34,7 +34,7 @@ namespace ARMLibrary.Models
         public byte[] ImageBook { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AccountingBook> AccountingBook { get; set; }
+        public virtual ICollection<AccountingBooks> AccountingBooks { get; set; }
         public virtual Author Author { get; set; }
         public virtual Genre Genre { get; set; }
     }

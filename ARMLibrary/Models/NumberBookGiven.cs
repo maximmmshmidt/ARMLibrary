@@ -22,7 +22,7 @@ namespace ARMLibrary.Models
         public Nullable<bool> ReturnedBook { get; set; }
         public Nullable<bool> BuyBook { get; set; }
     
-        public virtual AccountingBook AccountingBook1 { get; set; }
+        public virtual AccountingBooks AccountingBooks { get; set; }
         public virtual User User { get; set; }
     }
 }
