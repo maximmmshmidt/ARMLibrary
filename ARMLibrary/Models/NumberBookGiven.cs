@@ -18,7 +18,7 @@ namespace ARMLibrary.Models
         public int AccountingBook { get; set; }
         public int idUser { get; set; }
         public System.DateTime DateIssue { get; set; }
-        public System.DateTime ReturnDate { get; set; }
+        public Nullable<System.DateTime> ReturnDate { get; set; }
         public Nullable<bool> ReturnedBook { get; set; }
         public Nullable<bool> BuyBook { get; set; }
     

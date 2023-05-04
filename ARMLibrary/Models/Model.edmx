@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountingBook">
           <Key>
             <PropertyRef Name="AccountingBook" />
@@ -57,7 +57,7 @@
           <Property Name="AccountingBook" Type="int" Nullable="false" />
           <Property Name="idUser" Type="int" Nullable="false" />
           <Property Name="DateIssue" Type="date" Nullable="false" />
-          <Property Name="ReturnDate" Type="date" Nullable="false" />
+          <Property Name="ReturnDate" Type="date" />
           <Property Name="ReturnedBook" Type="bit" />
           <Property Name="BuyBook" Type="bit" />
         </EntityType>
@@ -199,8 +199,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -263,7 +262,7 @@
           <Property Name="AccountingBook" Type="Int32" Nullable="false" />
           <Property Name="idUser" Type="Int32" Nullable="false" />
           <Property Name="DateIssue" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="0" />
           <Property Name="ReturnedBook" Type="Boolean" />
           <Property Name="BuyBook" Type="Boolean" />
           <NavigationProperty Name="AccountingBook1" Relationship="Self.FK_NumberBookGiven_AccountingBook" FromRole="NumberBookGiven" ToRole="AccountingBook" />

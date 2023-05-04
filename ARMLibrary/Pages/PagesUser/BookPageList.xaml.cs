@@ -136,12 +136,10 @@ namespace ARMLibrary.Pages.PagesUser
             accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
             foreach (var item in us)
             {
-                if (item.ReturnDate.Date > DateTime.Now && item.BuyBook == false)
+                if (item.ReturnDate > DateTime.Now && item.BuyBook == false)
                 {
-                    MessageBox.Show("Вы еще не сдали книгу " +
-                        $"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
+                    MessageBox.Show("Вы еще не сдали другю книгу");
                     bol = false;
-                    Console.WriteLine($"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
                     return;
                 }
                 else
@@ -153,11 +151,13 @@ namespace ARMLibrary.Pages.PagesUser
             {
                 NumberBookGiven numberBookGiven = new NumberBookGiven()
                 {
-                    AccountingBook = bok.idBook,
-                    idUser = App.loginAuntificate.idUser,
+                    IdBookGiven = 12,
+                    AccountingBook = Convert.ToInt32(bok.idBook),
+                    idUser = Convert.ToInt32(App.loginAuntificate.idUser),
                     DateIssue = DateTime.Now,
                     ReturnDate = DateTime.Now.AddDays(14),
                     ReturnedBook = false,
+                    BuyBook = false,
                 };
                 accountingBok.NumberBook -= 1;
                 accountingBok.NumberBookGiven += 1;
@@ -165,12 +165,12 @@ namespace ARMLibrary.Pages.PagesUser
                 db.context.AccountingBook.AddOrUpdate(accountingBok);
                 try
                 {
-                    db.context.SaveChanges();
+                    db.context.SaveChangesAsync();
                     MessageBox.Show("Вы Взяли книгу");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ошибка :" + ex);
+                    MessageBox.Show("Ошибка :" + ex );
                 }
             }
         }
