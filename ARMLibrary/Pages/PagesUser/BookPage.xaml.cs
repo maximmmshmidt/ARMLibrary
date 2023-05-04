@@ -16,14 +16,13 @@ namespace ARMLibrary.Pages.PagesUser.Admin
     /// </summary>
     public partial class BookPage : Page
     {
-        readonly Core db = new Core();
         static List<Book> mass = null;
         static List<Book> productTypes;
 
         public BookPage()
         {
             InitializeComponent();
-            JanreFilter.ItemsSource = db.context.Genre.ToList();
+            JanreFilter.ItemsSource = App.db.context.Genre.ToList();
             JanreFilter.DisplayMemberPath = "NameGenre";
             productTypes = new List<Book>
             {
@@ -33,8 +32,8 @@ namespace ARMLibrary.Pages.PagesUser.Admin
                     NameBook = "Все типы"
                 }
             };
-            productTypes.AddRange(db.context.Book.ToList());
-            mass = db.context.Book.ToList();
+            productTypes.AddRange(App.db.context.Book.ToList());
+            mass = App.db.context.Book.ToList();
             ProductListView.ItemsSource = mass;
 
             if (App.loginAuntificate.idViewUser == 1 || App.loginAuntificate.idViewUser == 2 && App.loginAuntificate != null)
@@ -99,14 +98,14 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             if (genre.idGenre == 0)
             {
                 ProductListView.ItemsSource = null;
-                mass = db.context.Book.ToList();
+                mass = App.db.context.Book.ToList();
                 ProductListView.ItemsSource = mass;
             }
             else
             {
                 
                 ProductListView.ItemsSource = null;
-                mass = db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
+                mass = App.db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
                 ProductListView.ItemsSource = mass;
             }
         }
@@ -116,7 +115,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         }
         private List<Book> GetRows()
         {
-            List<Book> arrayProduct = db.context.Book.ToList();
+            List<Book> arrayProduct = App.db.context.Book.ToList();
             string searchData = FindTextBox.Text.ToUpper();
             if (!String.IsNullOrEmpty(FindTextBox.Text))
             {

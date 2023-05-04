@@ -12,7 +12,6 @@ namespace ARMLibrary.Pages
     /// </summary>
     public partial class RegPage : Page
     {
-        readonly Core db = new Core();
         public RegPage()
         {
             InitializeComponent();
@@ -28,8 +27,8 @@ namespace ARMLibrary.Pages
             //        paswordTenant = PasswordTB.Text,
             //        idViewUser = 4,
             //    };
-            //    db.context.TemporaryUsers.Add(user);
-            //    db.context.SaveChanges();
+            //    App.db.context.TemporaryUsers.Add(user);
+            //    App.db.context.SaveChanges();
             //    this.NavigationService.Navigate(new MainPageReader());
             //}
             //else

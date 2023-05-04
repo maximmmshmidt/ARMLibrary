@@ -15,7 +15,6 @@ namespace ARMLibrary.Pages.PagesUser
     /// </summary>
     public partial class ListUserPage : Page
     {
-        readonly Core db = new Core();
         public List<User> mass;
 
         public List<string> filterUser = new List<string>()
@@ -31,7 +30,7 @@ namespace ARMLibrary.Pages.PagesUser
         public ListUserPage()
         {
             InitializeComponent();
-            mass = db.context.User.ToList();
+            mass = App.db.context.User.ToList();
             mass = mass.Where(x => x.idViewUser != App.loginAuntificate.idViewUser).ToList();
             if (App.loginAuntificate.idViewUser > 1)
             {

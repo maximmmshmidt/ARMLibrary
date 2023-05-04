@@ -17,7 +17,6 @@ namespace ARMLibrary.Pages.PagesUser
     /// </summary>
     public partial class BookPageList : System.Windows.Controls.Page
     {
-        readonly Core db = new Core();
 
         readonly Book bok;
 
@@ -25,7 +24,7 @@ namespace ARMLibrary.Pages.PagesUser
         {
             InitializeComponent();
             bok = book;
-            NumberBooks.Text += db.context.AccountingBook.Where(x => x.idBook == book.idBook).Select(x => x.NumberBook).SingleOrDefault();
+            NumberBooks.Text += App.db.context.AccountingBook.Where(x => x.idBook == book.idBook).Select(x => x.NumberBook).SingleOrDefault();
             NameBookTB.Text = book.NameBook;
             DescriptionTB.Text = book.Description;
             BBKTB.Text += book.BBK;
@@ -55,7 +54,7 @@ namespace ARMLibrary.Pages.PagesUser
         
         private void ExcelBTClick(object sender, RoutedEventArgs e)   
         {
-            List<NumberBookGiven> numberBookGiven = db.context.NumberBookGiven.Where(x => x.AccountingBook == bok.idBook).ToList();
+            List<NumberBookGiven> numberBookGiven = App.db.context.NumberBookGiven.Where(x => x.AccountingBook == bok.idBook).ToList();
             /*создаем файл Excel*/
 
             var aplication = new Excel.Application
@@ -131,16 +130,16 @@ namespace ARMLibrary.Pages.PagesUser
         bool bol;
         private void TakeBook(object sender, RoutedEventArgs e)
         {
-            var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser);
-            accountingBok = db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
+            var us = App.db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser);
+            accountingBok = App.db.context.AccountingBook.Where(x => x.idBook == bok.idBook).SingleOrDefault();
             foreach (var item in us)
             {
                 if (item.ReturnDate.Date > DateTime.Now && item.BuyBook == false)
                 {
                     MessageBox.Show("Вы еще не сдали книгу " +
-                        $"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
+                        $"{App.db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
                     bol = false;
-                    Console.WriteLine($"{db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
+                    Console.WriteLine($"{App.db.context.Book.Where(x => x.idBook == item.IdBookGiven).Select(x => x.NameBook)}");
                     return;
                 }
                 else
@@ -156,15 +155,15 @@ namespace ARMLibrary.Pages.PagesUser
                     idUser = App.loginAuntificate.idUser,
                     DateIssue = DateTime.Now,
                     ReturnDate = DateTime.Now.AddDays(14),
-                    //ReturnedBook = false,
+                    ReturnedBook = false,
                 };
                 accountingBok.NumberBook -= 1;
                 accountingBok.NumberBookGiven += 1;
-                db.context.NumberBookGiven.Add(numberBookGiven);
-                db.context.AccountingBook.AddOrUpdate(accountingBok);
+                App.db.context.NumberBookGiven.Add(numberBookGiven);
+                App.db.context.AccountingBook.AddOrUpdate(accountingBok);
                 try
                 {
-                    db.context.SaveChanges();
+                    App.db.context.SaveChanges();
                     MessageBox.Show("Вы Взяли книгу");
                 }
                 catch (Exception ex)

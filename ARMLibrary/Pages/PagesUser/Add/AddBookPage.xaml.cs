@@ -13,19 +13,18 @@ namespace ARMLibrary.Pages.PagesUser.Add
     /// </summary>
     public partial class AddBookPage : Page
     {
-        readonly Core db = new Core();
         public AddBookPage()
         {
             InitializeComponent();
             var author = new List<Author>();
-            author.AddRange(db.context.Author.ToList());
+            author.AddRange(App.db.context.Author.ToList());
 
             AutorTB.ItemsSource = author;
             AutorTB.SelectedValuePath = "idAuthor";
 
 
             var arrGroups = new List<Genre>();
-            arrGroups.AddRange(db.context.Genre.ToList());
+            arrGroups.AddRange(App.db.context.Genre.ToList());
 
             IdJanreTB.ItemsSource = arrGroups;
             IdJanreTB.DisplayMemberPath = "NameGenre";
@@ -51,10 +50,10 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     BBK = BbkTB.Text,
                     Description = DescripTB.Text
                 };
-                db.context.Book.Add(book);
+                App.db.context.Book.Add(book);
                 try
                 {
-                    db.context.SaveChanges();
+                    App.db.context.SaveChanges();
                     MessageBox.Show("Вы Взяли книгу");
                 }
                 catch (Exception ex)
