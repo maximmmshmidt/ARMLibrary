@@ -18,11 +18,13 @@ namespace ARMLibrary.Pages.PagesUser.Admin
     {
         static List<Book> mass = null;
         static List<Book> productTypes;
+        readonly Core db = new Core();
+
 
         public BookPage()
         {
             InitializeComponent();
-            JanreFilter.ItemsSource = App.db.context.Genre.ToList();
+            JanreFilter.ItemsSource = db.context.Genre.ToList();
             JanreFilter.DisplayMemberPath = "NameGenre";
             productTypes = new List<Book>
             {
@@ -32,8 +34,8 @@ namespace ARMLibrary.Pages.PagesUser.Admin
                     NameBook = "Все типы"
                 }
             };
-            productTypes.AddRange(App.db.context.Book.ToList());
-            mass = App.db.context.Book.ToList();
+            productTypes.AddRange(db.context.Book.ToList());
+            mass = db.context.Book.ToList();
             ProductListView.ItemsSource = mass;
 
             if (App.loginAuntificate.idViewUser == 1 || App.loginAuntificate.idViewUser == 2 && App.loginAuntificate != null)
@@ -98,14 +100,14 @@ namespace ARMLibrary.Pages.PagesUser.Admin
             if (genre.idGenre == 0)
             {
                 ProductListView.ItemsSource = null;
-                mass = App.db.context.Book.ToList();
+                mass = db.context.Book.ToList();
                 ProductListView.ItemsSource = mass;
             }
             else
             {
                 
                 ProductListView.ItemsSource = null;
-                mass = App.db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
+                mass = db.context.Book.Where(x => x.idGenre == genre.idGenre).ToList();
                 ProductListView.ItemsSource = mass;
             }
         }
@@ -115,7 +117,7 @@ namespace ARMLibrary.Pages.PagesUser.Admin
         }
         private List<Book> GetRows()
         {
-            List<Book> arrayProduct = App.db.context.Book.ToList();
+            List<Book> arrayProduct = db.context.Book.ToList();
             string searchData = FindTextBox.Text.ToUpper();
             if (!String.IsNullOrEmpty(FindTextBox.Text))
             {
@@ -126,12 +128,12 @@ namespace ARMLibrary.Pages.PagesUser.Admin
 
         private void AddBookNavi(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AddBookPage());
+            NavigationService.Navigate(new AddBookPage());
         }
 
         private void AddAutor(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AddAutorPage());
+            NavigationService.Navigate(new AddAutorPage());
         }
 
         private void BookPageNavi(object sender, RoutedEventArgs e)

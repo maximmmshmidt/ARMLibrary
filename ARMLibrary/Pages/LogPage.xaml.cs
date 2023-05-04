@@ -16,7 +16,7 @@ namespace ARMLibrary.Pages
 
     public partial class LogPage : Page
     {
-        public static User us;
+        readonly Core db = new Core();
         public LogPage()
         {
             InitializeComponent();
@@ -24,20 +24,20 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            us = App.db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
+            User us = db.context.User.FirstOrDefault(x => x.Login == LoginTB.Text && x.Password == PasswordTB.Text);
             App.loginAuntificate = us;
             if (us != null)
             {
                 switch (us.idViewUser)
                 {
                     case 1:
-                        this.NavigationService.Navigate(new MainPageAdmin());
+                        NavigationService.Navigate(new MainPageAdmin());
                         break;
                     case 2:
-                        this.NavigationService.Navigate(new MainPageLibrian());
+                        NavigationService.Navigate(new MainPageLibrian());
                         break;
                     case 3:
-                        this.NavigationService.Navigate(new MainPageReader());
+                        NavigationService.Navigate(new MainPageReader());
                         break;
                 }
                 
@@ -50,7 +50,7 @@ namespace ARMLibrary.Pages
 
         private void RegBT_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new RegPage());
+            NavigationService.Navigate(new RegPage());
         }
     }
 }

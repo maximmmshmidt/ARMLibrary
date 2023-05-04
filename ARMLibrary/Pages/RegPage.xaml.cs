@@ -39,7 +39,7 @@ namespace ARMLibrary.Pages
 
         private void LogButton_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new LogPage());
+            NavigationService.Navigate(new LogPage());
         }
     }
 }

@@ -22,6 +22,7 @@ namespace ARMLibrary.Pages.PagesUser
     /// </summary>
     public partial class ProfilUserPage : Page
     {
+        readonly Core db = new Core();
         public ProfilUserPage()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace ARMLibrary.Pages.PagesUser
             if (App.loginAuntificate!= null)
             {
                 LastName.Text += App.loginAuntificate.LastName + " " + App.loginAuntificate.FirstName + " " + App.loginAuntificate.Patronymic;
-                ViewUser usrole = App.db.context.ViewUser.Where(x => x.idViewUser == App.loginAuntificate.idViewUser).FirstOrDefault();
+                ViewUser usrole = db.context.ViewUser.Where(x => x.idViewUser == App.loginAuntificate.idViewUser).FirstOrDefault();
                 ViewUser.Text += usrole.NameViewUser;
                 NumberPhone.Text += App.loginAuntificate.NumbrePhone;
                 YearBirth.Text += Convert.ToString(App.loginAuntificate.YearBirth.ToString("D"));

@@ -16,6 +16,7 @@ namespace ARMLibrary.Pages.PagesUser
     public partial class ListUserPage : Page
     {
         public List<User> mass;
+        readonly Core db = new Core();
 
         public List<string> filterUser = new List<string>()
         {
@@ -30,7 +31,7 @@ namespace ARMLibrary.Pages.PagesUser
         public ListUserPage()
         {
             InitializeComponent();
-            mass = App.db.context.User.ToList();
+            mass = db.context.User.ToList();
             mass = mass.Where(x => x.idViewUser != App.loginAuntificate.idViewUser).ToList();
             if (App.loginAuntificate.idViewUser > 1)
             {
@@ -47,13 +48,13 @@ namespace ARMLibrary.Pages.PagesUser
             Button activeButton = sender as Button;
             if (activeButton.DataContext is User activeStudent)
             {
-                this.NavigationService.Navigate(new ProfilUserPageForList(activeStudent));
+                NavigationService.Navigate(new ProfilUserPageForList(activeStudent));
             }
         }
 
         private void AddUserPageNav(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new AddUserPage());
+            NavigationService.Navigate(new AddUserPage());
         }
 
         private void FindTextBox_TextChanged(object sender, TextChangedEventArgs e)
