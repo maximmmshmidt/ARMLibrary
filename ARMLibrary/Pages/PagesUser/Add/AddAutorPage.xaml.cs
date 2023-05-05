@@ -26,7 +26,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
             {
                 if (DateDeath != null)
                 {
-                    Author author = new Author()
+                    Author auth = new Author()
                     {
                         FirstName = FirstNameTB.Text,
                         LastName = LastNameTB.Text,
@@ -34,18 +34,18 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         YearBirth = (DateTime)DateBirth.SelectedDate,
                         YearDeath = (DateTime)DateDeath.SelectedDate,
                     };
-                    db.context.Author.Add(author);
+                    db.context.Author.Add(auth);
                 }
                 else
                 {
-                    Author author = new Author()
+                    Author auth = new Author()
                     {
                         FirstName = FirstNameTB.Text,
                         LastName = LastNameTB.Text,
                         Patronymic = PatronicTB.Text,
                         YearBirth = (DateTime)DateBirth.SelectedDate,
                     };
-                    db.context.Author.Add(author);
+                    db.context.Author.Add(auth);
                 }
 
                 try
