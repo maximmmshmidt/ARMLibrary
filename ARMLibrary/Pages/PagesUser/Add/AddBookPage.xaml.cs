@@ -18,14 +18,15 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             InitializeComponent();
             var author = new List<Author>();
-            author.AddRange(App.db.context.Author.ToList());
+            author.AddRange(db.context.Author.ToList());
 
             AutorTB.ItemsSource = author;
             AutorTB.SelectedValuePath = "idAuthor";
 
 
-            var arrGroups = new List<Genre>();
-            arrGroups.AddRange(App.db.context.Genre.ToList());
+            List<Genre> arrGroups = new List<Genre>();
+            arrGroups.AddRange(db.context.Genre.ToList());
+            arrGroups.Remove(arrGroups[0]);
 
             IdJanreTB.ItemsSource = arrGroups;
             IdJanreTB.DisplayMemberPath = "NameGenre";

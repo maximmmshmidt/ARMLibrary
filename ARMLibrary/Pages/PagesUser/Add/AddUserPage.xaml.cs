@@ -10,7 +10,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
     /// </summary>
     public partial class AddUserPage : Page
     {
-        public static int usAddIdViewUser = 0;
+        static int usAddIdViewUser;
         readonly Core db = new Core();
         public AddUserPage()
         {
@@ -27,7 +27,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
 
         private void AddUserLibrary(object sender, RoutedEventArgs e)
         {
-            if (NumberPhoneTB != null && WorkTB!= null && AdresTB != null && YearBitrhtTB != null && PatronicTB!= null && LastNameTB!= null && FirstNameTB != null && PasswordTB != null && LoginTB != null)
+            if (usAddIdViewUser!= 0 && NumberPhoneTB != null && WorkTB!= null && AdresTB != null && YearBitrhtTB != null && PatronicTB!= null && LastNameTB!= null && FirstNameTB != null && PasswordTB != null && LoginTB != null)
             {
                 if (true)
                 {
@@ -47,7 +47,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     db.context.User.Add(us);
                     try
                     {
-                        db.context.SaveChangesAsync();
+                        db.context.SaveChanges();
                         MessageBox.Show($"{us.ViewUser.NameViewUser} добавлен!");
                         NavigationService.GoBack();
                     }
