@@ -132,46 +132,58 @@ namespace ARMLibrary.Pages.PagesUser
         bool bol;
         private void TakeBook(object sender, RoutedEventArgs e)
         {
-            var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser);
-            accountingBok = db.context.AccountingBooks.Where(x => x.idBook == bok.idBook).SingleOrDefault();
-            foreach (var item in us)
+            AccountingBooks forBook = db.context.AccountingBooks.Where(x=>x.idBook == bok.idBook).SingleOrDefault();
+            if (forBook.NumberBook <= 0)
             {
-                if (item.ReturnDate >= DateTime.Now && item.BuyBook == false && item.ReturnedBook == false)
+                MessageBox.Show("Экзепляры данной книги закончились");
+            }
+            else
+            {
+                var us = db.context.NumberBookGiven.Where(x => x.idUser == App.loginAuntificate.idUser);
+                accountingBok = db.context.AccountingBooks.Where(x => x.idBook == bok.idBook).SingleOrDefault();
+                foreach (var item in us)
                 {
-                    Console.WriteLine(item.AccountingBooks.Book.NameBook);
-                    MessageBox.Show("Вы еще не сдали другю книгу");
-                    bol = false;
-                    return;
+                    if (item.ReturnDate >= DateTime.Now && item.BuyBook == false && item.ReturnedBook == false)
+                    {
+                        Console.WriteLine(item.AccountingBooks.Book.NameBook);
+                        MessageBox.Show("Вы еще не сдали другю книгу");
+                        bol = false;
+                        return;
+                    }
+                    else
+                    {
+                        bol = true;
+                    }
+                }
+                if (bol && accountingBok.NumberBook != 0)
+                {
+                    NumberBookGiven numberBookGiven = new NumberBookGiven()
+                    {
+                        IdBookGiven = 12,
+                        AccountingBook = Convert.ToInt32(bok.idBook),
+                        idUser = Convert.ToInt32(App.loginAuntificate.idUser),
+                        DateIssue = DateTime.Now,
+                        ReturnDate = DateTime.Now.AddDays(14),
+                        ReturnedBook = false,
+                        BuyBook = false,
+                    };
+                    accountingBok.NumberBook -= 1;
+                    accountingBok.NumberBookGiven += 1;
+                    db.context.NumberBookGiven.Add(numberBookGiven);
+                    db.context.AccountingBooks.AddOrUpdate(accountingBok);
+                    try
+                    {
+                        db.context.SaveChangesAsync();
+                        MessageBox.Show("Вы Взяли книгу");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка :" + ex);
+                    }
                 }
                 else
                 {
-                    bol = true;
-                }
-            }
-            if(bol && accountingBok.NumberBook != 0)
-            {
-                NumberBookGiven numberBookGiven = new NumberBookGiven()
-                {
-                    IdBookGiven = 12,
-                    AccountingBook = Convert.ToInt32(bok.idBook),
-                    idUser = Convert.ToInt32(App.loginAuntificate.idUser),
-                    DateIssue = DateTime.Now,
-                    ReturnDate = DateTime.Now.AddDays(14),
-                    ReturnedBook = false,
-                    BuyBook = false,
-                };
-                accountingBok.NumberBook -= 1;
-                accountingBok.NumberBookGiven += 1;
-                db.context.NumberBookGiven.Add(numberBookGiven);
-                db.context.AccountingBooks.AddOrUpdate(accountingBok);
-                try
-                {
-                    db.context.SaveChangesAsync();
-                    MessageBox.Show("Вы Взяли книгу");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ошибка :" + ex );
+                    MessageBox.Show("ХЗ что за х");
                 }
             }
         }

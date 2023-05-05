@@ -10,7 +10,8 @@ namespace ARMLibrary.Pages.PagesUser.Add
     /// </summary>
     public partial class AddUserPage : Page
     {
-        public int usAddIdViewUser = 0;
+        public static int usAddIdViewUser = 0;
+        readonly Core db = new Core();
         public AddUserPage()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
             {
                 if (true)
                 {
-                    User user = new User()
+                    User us = new User()
                     {
                         LastName = LastNameTB.Text,
                         FirstName = FirstNameTB.Text,
@@ -43,10 +44,10 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         PlaceWork = WorkTB.Text,
                         NumbrePhone = NumberPhoneTB.Text,
                     };
-                    App.db.context.User.Add(user);
+                    db.context.User.Add(us);
                     try
                     {
-                        App.db.context.SaveChanges();
+                        db.context.SaveChangesAsync();
                         MessageBox.Show("Пользов добавлен!");
                     }
                     catch (Exception ex)
