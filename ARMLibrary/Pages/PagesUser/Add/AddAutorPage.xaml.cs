@@ -14,6 +14,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
     /// </summary>
     public partial class AddAutorPage : Page
     {
+        readonly Core db = new Core();
         public AddAutorPage()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         YearBirth = (DateTime)DateBirth.SelectedDate,
                         YearDeath = (DateTime)DateDeath.SelectedDate,
                     };
-                    App.db.context.Author.Add(author);
+                    db.context.Author.Add(author);
                 }
                 else
                 {
@@ -44,12 +45,12 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         Patronymic = PatronicTB.Text,
                         YearBirth = (DateTime)DateBirth.SelectedDate,
                     };
-                    App.db.context.Author.Add(author);
+                    db.context.Author.Add(author);
                 }
 
                 try
                 {
-                    App.db.context.SaveChanges();
+                    db.context.SaveChanges();
                     MessageBox.Show("Вы Взяли книгу");
                 }
                 catch (Exception ex)

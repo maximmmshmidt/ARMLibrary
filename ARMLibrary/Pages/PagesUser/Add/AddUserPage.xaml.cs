@@ -33,11 +33,11 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 {
                     User us = new User()
                     {
+                        Login = LoginTB.Text,
+                        Password = PasswordTB.Text,
                         LastName = LastNameTB.Text,
                         FirstName = FirstNameTB.Text,
                         Patronymic = PatronicTB.Text,
-                        Password = PasswordTB.Text,
-                        Login = LoginTB.Text,
                         idViewUser = usAddIdViewUser,
                         YearBirth = (DateTime)YearBitrhtTB.DataContext,
                         ResidentialAddress = AdresTB.Text,

@@ -13,6 +13,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
     /// </summary>
     public partial class AddBookPage : Page
     {
+        readonly Core db = new Core();
         public AddBookPage()
         {
             InitializeComponent();
@@ -50,10 +51,10 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     BBK = BbkTB.Text,
                     Description = DescripTB.Text
                 };
-                App.db.context.Book.Add(book);
+                db.context.Book.Add(book);
                 try
                 {
-                    App.db.context.SaveChanges();
+                    db.context.SaveChangesAsync();
                     MessageBox.Show("Вы Взяли книгу");
                 }
                 catch (Exception ex)
