@@ -19,15 +19,15 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             InitializeComponent();
         }
-        
+        public Author auth = new Author();
         private void Add(object sender, RoutedEventArgs e)
         {
             if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null)
             {
                 if (DateDeath != null)
                 {
-                    Author auth = new Author()
-                    {
+                    auth= new Author(){
+
                         FirstName = FirstNameTB.Text,
                         LastName = LastNameTB.Text,
                         Patronymic = PatronicTB.Text,
@@ -38,7 +38,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 }
                 else
                 {
-                    Author auth = new Author()
+                    auth = new Author()
                     {
                         FirstName = FirstNameTB.Text,
                         LastName = LastNameTB.Text,
@@ -51,7 +51,8 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 try
                 {
                     db.context.SaveChanges();
-                    MessageBox.Show("Вы Взяли книгу");
+                    MessageBox.Show($"Автор {auth.LastName} {auth.FirstName} {auth.Patronymic}, был добавлен");
+                    NavigationService.GoBack();
                 }
                 catch (Exception ex)
                 {
@@ -60,7 +61,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
             }
             else
             {
-                System.Windows.MessageBox.Show("Заполните все данные!!!");
+                MessageBox.Show("Заполните все данные!!!");
             }
         }
     }

@@ -55,7 +55,8 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 try
                 {
                     db.context.SaveChangesAsync();
-                    MessageBox.Show("Вы Взяли книгу");
+                    MessageBox.Show($"Книга {book.NameBook},была добавлена");
+                    NavigationService.GoBack();
                 }
                 catch (Exception ex)
                 {

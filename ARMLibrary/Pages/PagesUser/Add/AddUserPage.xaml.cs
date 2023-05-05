@@ -48,7 +48,8 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     try
                     {
                         db.context.SaveChangesAsync();
-                        MessageBox.Show("Пользов добавлен!");
+                        MessageBox.Show($"{us.ViewUser.NameViewUser} добавлен!");
+                        NavigationService.GoBack();
                     }
                     catch (Exception ex)
                     {
