@@ -24,28 +24,32 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null)
             {
-                if (DateDeath != null)
+                if (true)
                 {
-                    auth= new Author(){
-
-                        FirstName = FirstNameTB.Text,
-                        LastName = LastNameTB.Text,
-                        Patronymic = PatronicTB.Text,
-                        YearBirth = (DateTime)DateBirth.SelectedDate,
-                        YearDeath = (DateTime)DateDeath.SelectedDate,
-                    };
-                    db.context.Author.Add(auth);
-                }
-                else
-                {
-                    auth = new Author()
+                    if (DateDeath != null)
                     {
-                        FirstName = FirstNameTB.Text,
-                        LastName = LastNameTB.Text,
-                        Patronymic = PatronicTB.Text,
-                        YearBirth = (DateTime)DateBirth.SelectedDate,
-                    };
-                    db.context.Author.Add(auth);
+                        auth = new Author()
+                        {
+
+                            FirstName = FirstNameTB.Text,
+                            LastName = LastNameTB.Text,
+                            Patronymic = PatronicTB.Text,
+                            YearBirth = (DateTime)DateBirth.SelectedDate,
+                            YearDeath = (DateTime)DateDeath.SelectedDate,
+                        };
+                        db.context.Author.Add(auth);
+                    }
+                    else
+                    {
+                        auth = new Author()
+                        {
+                            FirstName = FirstNameTB.Text,
+                            LastName = LastNameTB.Text,
+                            Patronymic = PatronicTB.Text,
+                            YearBirth = (DateTime)DateBirth.SelectedDate,
+                        };
+                        db.context.Author.Add(auth);
+                    }
                 }
 
                 try
