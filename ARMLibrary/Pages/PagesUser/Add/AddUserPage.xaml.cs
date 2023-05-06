@@ -1,5 +1,7 @@
 ﻿using ARMLibrary.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,14 +12,20 @@ namespace ARMLibrary.Pages.PagesUser.Add
     /// </summary>
     public partial class AddUserPage : Page
     {
-        static int usAddIdViewUser;
+        static int usAddIdViewUser = 3;
         readonly Core db = new Core();
         public AddUserPage()
         {
             InitializeComponent();
+            List<ViewUser> arrGroups = new List<ViewUser>();
+            arrGroups.AddRange(db.context.ViewUser.ToList());
+            arrGroups.Remove(arrGroups[0]);
+            ViewUs.ItemsSource = arrGroups;
+            ViewUs.DisplayMemberPath = "NameViewUser";
+            ViewUs.SelectedValuePath = "idViewUser";
             if (App.loginAuntificate.idViewUser == 1)
             {
-                VisibleVid.Visibility = Visibility.Visible;
+                ViewUsers.Visibility = Visibility.Visible;
             }
             else
             {
@@ -38,8 +46,8 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         LastName = LastNameTB.Text,
                         FirstName = FirstNameTB.Text,
                         Patronymic = PatronicTB.Text,
-                        idViewUser = usAddIdViewUser,
-                        YearBirth = (DateTime)YearBitrhtTB.DataContext,
+                        idViewUser = ViewUs.Items.Count,
+                        YearBirth = YearBitrhtTB.SelectedDate.Value,
                         ResidentialAddress = AdresTB.Text,
                         PlaceWork = WorkTB.Text,
                         NumbrePhone = NumberPhoneTB.Text,
@@ -47,7 +55,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     db.context.User.Add(us);
                     try
                     {
-                        db.context.SaveChanges();
+                        db.context.SaveChangesAsync();
                         MessageBox.Show($"{us.ViewUser.NameViewUser} добавлен!");
                         NavigationService.GoBack();
                     }
@@ -61,20 +69,6 @@ namespace ARMLibrary.Pages.PagesUser.Add
             {
                 MessageBox.Show("Данные не введины");
             }
-        }
-
-        private void Biblioteck_Click(object sender, RoutedEventArgs e)
-        {
-            Biblioteck.Opacity = 0.5;
-            Reader.Opacity = 1;
-            usAddIdViewUser = 2;
-        }
-
-        private void Reader_Click(object sender, RoutedEventArgs e)
-        {
-            Biblioteck.Opacity = 1;
-            Reader.Opacity = 0.5;
-            usAddIdViewUser = 3;
         }
     }
 }

@@ -55,13 +55,12 @@
                 <TextBlock Text="Номер телефона" Margin="10 0"/>
                 <TextBox Width="150" x:Name="NumberPhoneTB"/>
             </StackPanel>
+            <StackPanel x:Name="ViewUsers" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" Visibility="Hidden">
+                <TextBlock Text="Вид Пользователя" Margin="10 0"/>
+                <ComboBox Width="150" x:Name="ViewUs"/>
+            </StackPanel>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal" Visibility="Hidden" x:Name="VisibleVid">
-                <TextBlock Text="Вид пользователя" Margin="10 0" VerticalAlignment="Center"/>
-                <Button  x:Name="Reader" Click="Reader_Click" Background="Transparent" BorderBrush="Transparent" Padding="10" Content="Читатель" Foreground="White" Margin="5 0"/>
-                <Button x:Name="Biblioteck" Click="Biblioteck_Click" Content="Библиотекарь" Foreground="White" Background="Transparent" BorderBrush="Transparent" Padding="10" Margin="5 0"/>
-            </StackPanel>
             <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="AddUserLibrary">
                 <Button.Background>
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
