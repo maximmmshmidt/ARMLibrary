@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ARMLibraryClass
 {
-    public class Class1
+    public class AddAuthor
     {
     }
 }
