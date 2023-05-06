@@ -304,5 +304,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ARMLibraryClass\ARMLibraryClass.csproj">
+      <Project>{3e72d47b-f8d9-434d-99c9-2fe6ac10c995}</Project>
+      <Name>ARMLibraryClass</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
