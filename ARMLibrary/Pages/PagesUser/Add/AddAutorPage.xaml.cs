@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using ARMLibraryClass;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace ARMLibrary.Pages.PagesUser.Add
@@ -24,9 +25,9 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null)
             {
-                if (true)
+                if (AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text) && AddAuthor.Reg_Date(DateBirth.Text))
                 {
-                    if (DateDeath != null)
+                    if (DateDeath != null && AddAuthor.Reg_Date(DateDeath.Text))
                     {
                         auth = new Author()
                         {
@@ -34,8 +35,8 @@ namespace ARMLibrary.Pages.PagesUser.Add
                             FirstName = FirstNameTB.Text,
                             LastName = LastNameTB.Text,
                             Patronymic = PatronicTB.Text,
-                            YearBirth = (DateTime)DateBirth.SelectedDate,
-                            YearDeath = (DateTime)DateDeath.SelectedDate,
+                            YearBirth = DateBirth.SelectedDate.Value,
+                            YearDeath = DateDeath.SelectedDate.Value,
                         };
                         db.context.Author.Add(auth);
                     }

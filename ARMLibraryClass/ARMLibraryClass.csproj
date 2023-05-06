@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddAuthor.cs" />
-    <Compile Include="AddBookcs.cs" />
+    <Compile Include="AddBook.cs" />
     <Compile Include="AddUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
