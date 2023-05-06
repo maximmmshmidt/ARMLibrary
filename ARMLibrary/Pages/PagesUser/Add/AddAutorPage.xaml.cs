@@ -51,7 +51,6 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         db.context.Author.Add(auth);
                     }
                 }
-
                 try
                 {
                     db.context.SaveChanges();
