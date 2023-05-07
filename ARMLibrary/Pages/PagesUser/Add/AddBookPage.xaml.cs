@@ -1,4 +1,5 @@
 ﻿using ARMLibrary.Models;
+using ARMLibraryClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,33 +37,48 @@ namespace ARMLibrary.Pages.PagesUser.Add
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            if (true)
+            if (NameBookTB!= null && IdJanreTB.Items.Count !=0 && AutorTB.Items.Count != 0 &&
+                PublicationHouseTB != null && PlacePublTB != null && YearPublTB != null &&
+                NumberPage != null && IsbnTB != null && BbkTB != null && DescripTB != null)
             {
-                var num = Convert.ToInt16(NumberPage.Text);
-                Book book = new Book()
+                if (AddBook.Reg_NameBook(NameBookTB.Text) && AddBook.Reg_PublishingHouse(PublicationHouseTB.Text) &&
+                    AddBook.Reg_PlacePublication(PlacePublTB.Text) && AddBook.Reg_Number(NumberPage.Text)&&
+                    AddBook.gg_IBN(IsbnTB.Text) && AddBook.Reg_BBK(BbkTB.Text))
                 {
-                    NameBook = NameBookTB.Text,
-                    idAuthor = AutorTB.Items.Count,
-                    idGenre = IdJanreTB.Items.Count,
-                    PublishingHouse = PublicationHouseTB.Text,
-                    PlacePublication = PlacePublTB.Text,
-                    YearPublication = YearPublTB.SelectedDate.Value,
-                    NumberPages = num,
-                    ISBN = IsbnTB.Text,
-                    BBK = BbkTB.Text,
-                    Description = DescripTB.Text
-                };
-                db.context.Book.Add(book);
-                try
-                {
-                    db.context.SaveChangesAsync();
-                    MessageBox.Show($"Книга {book.NameBook},была добавлена");
-                    NavigationService.GoBack();
+                    var num = Convert.ToInt16(NumberPage.Text);
+                    Book book = new Book()
+                    {
+                        NameBook = NameBookTB.Text,
+                        idAuthor = AutorTB.Items.Count,
+                        idGenre = IdJanreTB.Items.Count,
+                        PublishingHouse = PublicationHouseTB.Text,
+                        PlacePublication = PlacePublTB.Text,
+                        YearPublication = YearPublTB.SelectedDate.Value,
+                        NumberPages = num,
+                        ISBN = IsbnTB.Text,
+                        BBK = BbkTB.Text,
+                        Description = DescripTB.Text
+                    };
+                    db.context.Book.Add(book);
+                    try
+                    {
+                        db.context.SaveChangesAsync();
+                        MessageBox.Show($"Книга {book.NameBook},была добавлена");
+                        NavigationService.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка :" + ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Ошибка :" + ex);
+                    MessageBox.Show("Данные введены не коректно");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Заполните все данные");
             }
         }
 
