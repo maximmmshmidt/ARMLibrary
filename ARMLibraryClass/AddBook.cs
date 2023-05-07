@@ -42,7 +42,7 @@ namespace ARMLibraryClass
             }
             else { return false; }
         }
-        public static bool gg_IBN(string text)
+        public static bool Gg_IBN(string text)
         {
             int kr = 0;
             if (text.Length == 10)

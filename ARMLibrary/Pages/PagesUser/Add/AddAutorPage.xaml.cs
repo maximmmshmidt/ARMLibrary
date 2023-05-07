@@ -25,7 +25,10 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null)
             {
-                if (AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text) && AddAuthor.Reg_Date(DateBirth.Text))
+                DateTime dateBegin = DateTime.Parse(DateBirth.Text);
+                DateTime dateEnd = DateTime.Parse(DateBirth.Text);
+                TimeSpan sp = dateEnd - dateBegin;
+                if (sp.Days > 3650  && AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text) && AddAuthor.Reg_Date(DateBirth.Text))
                 {
                     if (DateDeath != null && AddAuthor.Reg_Date(DateDeath.Text))
                     {
@@ -47,7 +50,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                             FirstName = FirstNameTB.Text,
                             LastName = LastNameTB.Text,
                             Patronymic = PatronicTB.Text,
-                            YearBirth = (DateTime)DateBirth.SelectedDate,
+                            YearBirth = DateBirth.SelectedDate.Value,
                         };
                         db.context.Author.Add(auth);
                     }
