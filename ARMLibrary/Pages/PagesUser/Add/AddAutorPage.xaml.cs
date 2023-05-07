@@ -28,42 +28,56 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 DateTime dateBegin = DateTime.Parse(DateBirth.Text);
                 DateTime dateEnd = DateTime.Parse(DateBirth.Text);
                 TimeSpan sp = dateEnd - dateBegin;
-                if (sp.Days > 7300  && AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text) && AddAuthor.Reg_Date(DateBirth.Text))
+                if ( AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text) && AddAuthor.Reg_Date(DateBirth.Text))
                 {
-                    if (DateDeath != null && AddAuthor.Reg_Date(DateDeath.Text))
+                    if (AddAuthor.Reg_Date(DateDeath.Text))
                     {
-                        auth = new Author()
+                        if (DateDeath != null)
                         {
+                            if (sp.Days > 7300)
+                            {
+                                auth = new Author()
+                                {
 
-                            FirstName = FirstNameTB.Text,
-                            LastName = LastNameTB.Text,
-                            Patronymic = PatronicTB.Text,
-                            YearBirth = DateBirth.SelectedDate.Value,
-                            YearDeath = DateDeath.SelectedDate.Value,
-                        };
-                        db.context.Author.Add(auth);
+                                    FirstName = FirstNameTB.Text,
+                                    LastName = LastNameTB.Text,
+                                    Patronymic = PatronicTB.Text,
+                                    YearBirth = DateBirth.SelectedDate.Value,
+                                    YearDeath = DateDeath.SelectedDate.Value,
+                                };
+                                db.context.Author.Add(auth);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Разница в дате слишком мала");
+                            }
+                        }
+                        else
+                        {
+                            auth = new Author()
+                            {
+                                FirstName = FirstNameTB.Text,
+                                LastName = LastNameTB.Text,
+                                Patronymic = PatronicTB.Text,
+                                YearBirth = DateBirth.SelectedDate.Value,
+                            };
+                            db.context.Author.Add(auth);
+                        }
+                        try
+                        {
+                            db.context.SaveChanges();
+                            MessageBox.Show($"Автор {auth.LastName} {auth.FirstName} {auth.Patronymic}, был добавлен");
+                            NavigationService.GoBack();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ошибка :" + ex);
+                        }
                     }
                     else
                     {
-                        auth = new Author()
-                        {
-                            FirstName = FirstNameTB.Text,
-                            LastName = LastNameTB.Text,
-                            Patronymic = PatronicTB.Text,
-                            YearBirth = DateBirth.SelectedDate.Value,
-                        };
-                        db.context.Author.Add(auth);
+                        MessageBox.Show("не правильный формат даты");
                     }
-                }
-                try
-                {
-                    db.context.SaveChanges();
-                    MessageBox.Show($"Автор {auth.LastName} {auth.FirstName} {auth.Patronymic}, был добавлен");
-                    NavigationService.GoBack();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ошибка :" + ex);
                 }
             }
             else
