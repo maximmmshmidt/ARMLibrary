@@ -48,7 +48,7 @@
                 <TextBox Width="150" x:Name="AdresTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Учебы/Работа" Margin="10 0"/>
+                <TextBlock Text="Учеба/Работа" Margin="10 0"/>
                 <TextBox Width="150" x:Name="WorkTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
