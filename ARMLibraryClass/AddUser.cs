@@ -59,6 +59,19 @@ namespace ARMLibraryClass
                 return true; 
             }
         }
-        
+        public static bool NumberPhone(string text)
+        {
+            if (text.Length < 18 && text.Length > 5)
+            {
+                reg = new Regex(@"^[1-9]{4,18}");
+                match = reg.Match(text);
+                if (match.Success)
+                {
+                    return true;
+                }
+                else { return false; }
+            }
+            return true;
+        }
     }
 }
