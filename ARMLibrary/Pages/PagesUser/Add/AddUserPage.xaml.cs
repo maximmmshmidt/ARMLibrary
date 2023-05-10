@@ -36,9 +36,11 @@ namespace ARMLibrary.Pages.PagesUser.Add
 
         private void AddUserLibrary(object sender, RoutedEventArgs e)
         {
+            ErorTB.Text = "";
             if (usAddIdViewUser!= 0 && NumberPhoneTB != null && WorkTB!= null && AdresTB != null && YearBitrhtTB != null && PatronicTB!= null && LastNameTB!= null && FirstNameTB != null && PasswordTB != null && LoginTB != null)
             {
-                if (true)
+                var log = db.context.User.Where(x=>x.Login == LoginTB.Text);
+                if (log == null)
                 {
                     User us = new User()
                     {
@@ -64,11 +66,15 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     {
                         MessageBox.Show("Ошибка :" + ex);
                     }
-                }   
+                }
+                else
+                {
+                    ErorTB.Text += " * Данные введены не коректно";
+                }
             }
             else
             {
-                MessageBox.Show("Данные не введины");
+                ErorTB.Text += " * Данные не введины";
             }
         }
     }

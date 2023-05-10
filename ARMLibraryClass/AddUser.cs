@@ -33,20 +33,21 @@ namespace ARMLibraryClass
         }   
         public static bool DateBirth(string text)
         {
+            string dat = "";
             string inti = "";
-            string date = Convert.ToString(DateTime.Today);
-            date = date.Replace(".", "");
+            string dateToday = Convert.ToString(DateTime.Today);
+            dateToday.Replace(".", "");
             text.Replace(".","");
             for (int i = 0; i < text.Length; i++)
             {
-                if (date[i] == ' ')
+                if (text[i] == ' ')
                 {
                     break;
                 }
                 else
                 {
-                    text += date[i].ToString();
-                    inti += date[i].ToString();
+                    inti += dateToday[i].ToString();
+                    dat += text[i].ToString();
                 }
             }
             if (Convert.ToInt32(inti) -5 <= Convert.ToInt32(text))

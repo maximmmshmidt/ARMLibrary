@@ -15,6 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <TextBlock x:Name="ErorTB" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="red" MinWidth="200" MaxHeight="120" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
                 <TextBlock Text="Логин" Margin="10 0"/>

@@ -28,55 +28,48 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 DateTime dateBegin = DateTime.Parse(DateBirth.Text);
                 DateTime dateEnd = DateTime.Parse(DateBirth.Text);
                 TimeSpan sp = dateEnd - dateBegin;
-                if ( AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text) && AddAuthor.Reg_Date(DateBirth.Text))
+                if ( AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text))
                 {
-                    if (AddAuthor.Reg_Date(DateDeath.Text))
+                    if (DateDeath != null)
                     {
-                        if (DateDeath != null)
-                        {
-                            if (sp.Days > 7300)
-                            {
-                                auth = new Author()
-                                {
-
-                                    FirstName = FirstNameTB.Text,
-                                    LastName = LastNameTB.Text,
-                                    Patronymic = PatronicTB.Text,
-                                    YearBirth = DateBirth.SelectedDate.Value,
-                                    YearDeath = DateDeath.SelectedDate.Value,
-                                };
-                                db.context.Author.Add(auth);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Разница в дате слишком мала");
-                            }
-                        }
-                        else
+                        if (sp.Days > 7300)
                         {
                             auth = new Author()
                             {
+
                                 FirstName = FirstNameTB.Text,
                                 LastName = LastNameTB.Text,
                                 Patronymic = PatronicTB.Text,
                                 YearBirth = DateBirth.SelectedDate.Value,
+                                YearDeath = DateDeath.SelectedDate.Value,
                             };
                             db.context.Author.Add(auth);
                         }
-                        try
+                        else
                         {
-                            db.context.SaveChanges();
-                            MessageBox.Show($"Автор {auth.LastName} {auth.FirstName} {auth.Patronymic}, был добавлен");
-                            NavigationService.GoBack();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Ошибка :" + ex);
+                            MessageBox.Show("Разница в дате слишком мала");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("не правильный формат даты");
+                        auth = new Author()
+                        {
+                            FirstName = FirstNameTB.Text,
+                            LastName = LastNameTB.Text,
+                            Patronymic = PatronicTB.Text,
+                            YearBirth = DateBirth.SelectedDate.Value,
+                        };
+                        db.context.Author.Add(auth);
+                    }
+                    try
+                    {
+                        db.context.SaveChanges();
+                        MessageBox.Show($"Автор {auth.LastName} {auth.FirstName} {auth.Patronymic}, был добавлен");
+                        NavigationService.GoBack();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка :" + ex);
                     }
                 }
             }

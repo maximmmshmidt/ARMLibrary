@@ -24,15 +24,5 @@ namespace ARMLibraryClass
             }
             else { return false; }
         }
-        public static bool Reg_Date(string text)
-        {
-            reg = new Regex(@"(\d{1,2}\/\d{1,2}\/\d{4})");
-            match = reg.Match(text);
-            if (match.Success)
-            {
-                return true;
-            }
-            else { return false; }
-        }
     }
 }
