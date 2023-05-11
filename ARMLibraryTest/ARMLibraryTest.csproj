@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5DE8E88C-E837-4D79-95C6-B808D9F39276}</ProjectGuid>
+    <ProjectGuid>{9E59AC03-717D-4809-B9DB-B0922E11C0C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ARMLibraryTest</RootNamespace>
@@ -49,19 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBookTest.cs" />
-    <Compile Include="AddAuthorTest.cs" />
-    <Compile Include="AddUserTest.cs" />
+    <Compile Include="ARMLibraryClassTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ARMLibraryClass\ARMLibraryClass.csproj">
-      <Project>{3e72d47b-f8d9-434d-99c9-2fe6ac10c995}</Project>
-      <Name>ARMLibraryClass</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

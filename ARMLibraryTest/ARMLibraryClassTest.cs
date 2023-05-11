@@ -4,12 +4,11 @@ using System;
 namespace ARMLibraryTest
 {
     [TestClass]
-    public class AddUserTest
+    public class ARMLibraryClassTest
     {
         [TestMethod]
         public void TestMethod1()
         {
-            a
         }
     }
 }
