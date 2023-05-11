@@ -4,7 +4,7 @@ using System;
 namespace ARMLibraryTest
 {
     [TestClass]
-    public class AddBookTst
+    public class AddBookTest
     {
         [TestMethod]
         public void TestMethod1()
