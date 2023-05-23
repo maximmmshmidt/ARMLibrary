@@ -40,6 +40,7 @@ namespace ARMLibraryTest
                 //Assert
                 Assert.IsFalse(actual);
             }
+
         /// <summary>
         /// Проверка на книгу
         /// </summary>
@@ -53,6 +54,7 @@ namespace ARMLibraryTest
                 //Assert
                 Assert.IsFalse(actual);
             }
+
         /// <summary>
         /// Проверка на Пользователя
         /// </summary>
