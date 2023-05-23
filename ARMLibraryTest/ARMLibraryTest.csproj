@@ -55,6 +55,16 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ARMLibraryClass\ARMLibraryClass.csproj">
+      <Project>{3e72d47b-f8d9-434d-99c9-2fe6ac10c995}</Project>
+      <Name>ARMLibraryClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ARMLibrary\ARMLibrary.csproj">
+      <Project>{3469e1fb-6502-4df5-820f-de8ef8f314f5}</Project>
+      <Name>ARMLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
