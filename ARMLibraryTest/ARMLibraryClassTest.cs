@@ -10,61 +10,61 @@ namespace ARMLibraryTest
         /// <summary>
         /// Проверка на автора
         /// </summary>
-        [TestMethod]
-        public void Author_FIO_Null()
-        {
-            //Arrange
-            string FIO = "";
-            //Act
-            bool actual = AddAuthor.Reg_FIO(FIO);
-            //Assert
-            Assert.IsFalse(actual);
-        }
-        [TestMethod]
-        public void Author_FIO_true()
-        {
-            //Arrange
-            string FIO = "Тест Тест Тест";
-            //Act
-            bool actual = AddAuthor.Reg_FIO(FIO);
-            //Assert
-            Assert.IsTrue(actual);
-        }
-        [TestMethod]
-        public void Author_FIO_False()
-        {
-            //Arrange
-            string FIO = "Тест Тест; Тест!";
-            //Act
-            bool actual = AddAuthor.Reg_FIO(FIO);
-            //Assert
-            Assert.IsFalse(actual);
-        }
+            [TestMethod]
+            public void Author_FIO_Null()
+            {
+                //Arrange
+                string FIO = "";
+                //Act
+                bool actual = AddAuthor.Reg_FIO(FIO);
+                //Assert
+                Assert.IsFalse(actual);
+            }
+            [TestMethod]
+            public void Author_FIO_true()
+            {
+                //Arrange
+                string FIO = "Тест Тест Тест";
+                //Act
+                bool actual = AddAuthor.Reg_FIO(FIO);
+                //Assert
+                Assert.IsTrue(actual);
+            }
+            [TestMethod]
+            public void Author_FIO_False()
+            {
+                //Arrange
+                string FIO = "Тест Тест; Тест!";
+                //Act
+                bool actual = AddAuthor.Reg_FIO(FIO);
+                //Assert
+                Assert.IsFalse(actual);
+            }
         /// <summary>
         /// Проверка на книгу
         /// </summary>
-        [TestMethod]
-        public void Book_Name()
-        {
-            //Arrange
-            string name = "";
-            //Act
-            bool actual = AddBook.Reg_NameBook(name);
-            //Assert
-            Assert.IsFalse(actual);
-        }
+            [TestMethod]
+            public void Book_Name()
+            {
+                //Arrange
+                string name = "";
+                //Act
+                bool actual = AddBook.Reg_NameBook(name);
+                //Assert
+                Assert.IsFalse(actual);
+            }
         /// <summary>
         /// Проверка на Пользователя
         /// </summary>
-        [TestMethod]
-        public void User_FIO()
-        {
-            //Arrange
-            string FIO = "";
-            //Act
-            bool actual = AddUser.Reg_FIO(FIO);
-            //Assert
-            Assert.IsFalse(actual);
-        }
+            [TestMethod]
+            public void User_FIO()
+            {
+                //Arrange
+                string FIO = "";
+                //Act
+                bool actual = AddUser.Reg_FIO(FIO);
+                //Assert
+                Assert.IsFalse(actual);
+            }
     }
 }
