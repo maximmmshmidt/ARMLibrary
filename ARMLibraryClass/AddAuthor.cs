@@ -16,11 +16,20 @@ namespace ARMLibraryClass
 
         public static bool Reg_FIO(string text)
         {
-            reg = new Regex(@"^[A-ЯЁ][а-яё]{2,}");
+            reg = new Regex(@"^[A-ЯЁ][а-яё].{3,}");
             match = reg.Match(text);
             if (match.Success)
             {
-                return true;
+                reg = new Regex(@"[\!@#$%^&*()\\//№;%:?*\-=+_'0-9.,;:~`]");
+                match = reg.Match(text);
+                if (!match.Success)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else { return false; }
         }

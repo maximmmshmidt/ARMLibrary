@@ -20,6 +20,26 @@ namespace ARMLibraryTest
             //Assert
             Assert.IsFalse(actual);
         }
+        [TestMethod]
+        public void Author_FIO_true()
+        {
+            //Arrange
+            string FIO = "Тест Тест Тест";
+            //Act
+            bool actual = AddAuthor.Reg_FIO(FIO);
+            //Assert
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void Author_FIO_False()
+        {
+            //Arrange
+            string FIO = "Тест Тест; Тест!";
+            //Act
+            bool actual = AddAuthor.Reg_FIO(FIO);
+            //Assert
+            Assert.IsFalse(actual);
+        }
         /// <summary>
         /// Проверка на книгу
         /// </summary>
@@ -37,7 +57,7 @@ namespace ARMLibraryTest
         /// Проверка на Пользователя
         /// </summary>
         [TestMethod]
-        public void User()
+        public void User_FIO()
         {
             //Arrange
             string FIO = "";
