@@ -14,7 +14,7 @@ namespace ARMLibraryClass
 
         public static bool Reg_NameBook(string text)
         {
-            reg = new Regex(@"^[A-ЯЁ][а-яё]{2,}");
+            reg = new Regex(@"^[A-ЯЁ][а-яё].{2,}");
             match = reg.Match(text);
             if (match.Success)
             {
@@ -34,7 +34,7 @@ namespace ARMLibraryClass
         }
         public static bool Reg_PublishingHouse(string text)
         {
-            reg = new Regex(@"^[A-ЯЁ][а-яё]{3,}");
+            reg = new Regex(@"^[A-ЯЁ]{1}[а-яё]{3,}");
             match = reg.Match(text);
             if (match.Success)
             {
@@ -47,15 +47,24 @@ namespace ARMLibraryClass
             int kr = 0;
             if (text.Length == 10)
             {
-                for (int i = 0; i <= 10; i++)
+                reg = new Regex(@"^[1-9 0]");
+                match = reg.Match(text);
+                if (match.Success)
                 {
-                    kr += text[i] * i;
+                    for (int i = 0; i <= 10; i++)
+                    {
+                        kr += Convert.ToInt32(text[i]) * i;
+                    }
+                    if (kr / 11 == 0)
+                    {
+                        return true;
+                    }
+                    else return false;
                 }
-                if (kr/11 == 0)
+                else
                 {
-                    return true;
+                    return false;
                 }
-                else return false;
             }
             else
             {
@@ -64,7 +73,7 @@ namespace ARMLibraryClass
         }
         public static bool Reg_BBK(string text)
         {
-            reg = new Regex(@"^[A-ЯЁ][а-яё]{3,}");
+            reg = new Regex(@"[1-9][0-9]\.?[0-9]{0,3}");
             match = reg.Match(text);
             if (match.Success)
             {
