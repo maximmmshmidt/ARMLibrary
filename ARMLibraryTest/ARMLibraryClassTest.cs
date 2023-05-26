@@ -100,7 +100,7 @@ namespace ARMLibraryTest
         public void Book_Names_ibn()
         {
             //Arrange
-            string name = "1111111111";
+            string name = "59895430162";
             //Act
             bool actual = AddBook.Gg_IBN(name);
             //Assert
@@ -151,7 +151,7 @@ namespace ARMLibraryTest
         public void Book_Names_Reg_PlacePublicat()
         {
             //Arrange
-            string name = "г.Екатеринбург";
+            string name = "г Екатеринбург";
             //Act
             bool actual = AddBook.Reg_PlacePublication(name);
             //Assert
@@ -168,6 +168,26 @@ namespace ARMLibraryTest
             //Assert
             Assert.IsFalse(actual);
         }
+        [TestMethod]
+        public void Book_Names_Reg_PublishingHousse()
+        {
+            //Arrange
+            string name = "АВан";
+            //Act
+            bool actual = AddBook.Reg_PublishingHouse(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_PublishingHouses()
+        {
+            //Arrange
+            string name = "Авын";
+            //Act
+            bool actual = AddBook.Reg_PublishingHouse(name);
+            //Assert
+            Assert.IsTrue(actual);
+        }
 //Reg_PublishingHouse
         [TestMethod]
         public void Book_Names_Reg_BBK()
@@ -175,17 +195,48 @@ namespace ARMLibraryTest
             //Arrange
             string name = "";
             //Act
-            bool actual = AddBook.Reg_PublishingHouse(name);
+            bool actual = AddBook.Reg_BBK(name);
             //Assert
             Assert.IsFalse(actual);
         }
         [TestMethod]
-        public void Book_Names_Reg_BBKs()
+        public void Book_Names_Regs_BBK()
         {
             //Arrange
             string name = "46.73";
             //Act
-            bool actual = AddBook.Reg_PublishingHouse(name);
+            bool actual = AddBook.Reg_BBK(name);
+            //Assert
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+//Reg_Number
+        public void Book_Names_Reg_Number()
+        {
+            //Arrange
+            string name = "";
+            //Act
+            bool actual = AddBook.Reg_Number(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_Numbers()
+        {
+            //Arrange
+            string name = "46.73";
+            //Act
+            bool actual = AddBook.Reg_Number(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_Numberss()
+        {
+            //Arrange
+            string name = "46";
+            //Act
+            bool actual = AddBook.Reg_Number(name);
             //Assert
             Assert.IsFalse(actual);
         }
