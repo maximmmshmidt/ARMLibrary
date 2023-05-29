@@ -337,5 +337,35 @@ namespace ARMLibraryTest
             //Assert
             Assert.IsFalse(actual);
         }
+        [TestMethod]
+        public void User_Reg_Reg_Passwors()
+        {
+            //Arrange
+            string text = "1748801241m";
+            //Act
+            bool actual = AddUser.Reg_Password(text);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void User_Reg_Reg_Passw()
+        {
+            //Arrange
+            string text = "1748801241mM";
+            //Act
+            bool actual = AddUser.Reg_Password(text);
+            //Assert
+            Assert.IsTrue(actual);
+        }
+        [TestMethod]
+        public void User_Reg_Reg_Pass()
+        {
+            //Arrange
+            string text = "1748801241mM;!@#";
+            //Act
+            bool actual = AddUser.Reg_Password(text);
+            //Assert
+            Assert.IsTrue(actual);
+        }
     }
 }

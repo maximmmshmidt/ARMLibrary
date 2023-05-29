@@ -32,6 +32,7 @@ namespace ARMLibraryClass
                 return true;
             }
             else { return false; }
+
         }
         //проверка на фамилию имя отчество
         public static bool Reg_FIO(string text)
