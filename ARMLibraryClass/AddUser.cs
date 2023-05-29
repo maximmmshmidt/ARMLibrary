@@ -14,7 +14,7 @@ namespace ARMLibraryClass
         // проверка логина
         public static bool Reg_Login(string text)
         {
-            reg = new Regex(@"^[a-zA-Z]{1}[a-zA-Z1-9]{1,9}$");
+            reg = new Regex(@"^[a-zA-Z]{1}[a-zA-Z0-9 ]{1,9}$");
             match = reg.Match(text);
             if (match.Success)
             {
