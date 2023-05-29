@@ -1,6 +1,7 @@
 ﻿using ARMLibrary.Models;
 using ARMLibraryClass;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ARMLibraryTest
 {
@@ -234,9 +235,9 @@ namespace ARMLibraryTest
         public void Book_Names_Reg_Numberss()
         {
             //Arrange
-            string name = "46";
+            string text = "46";
             //Act
-            bool actual = AddBook.Reg_Number(name);
+            bool actual = AddBook.Reg_Number(text);
             //Assert
             Assert.IsFalse(actual);
         }
@@ -248,9 +249,9 @@ namespace ARMLibraryTest
         public void User_FIO()
         {
             //Arrange
-            string FIO = "";
+            string text = "";
             //Act
-            bool actual = AddUser.Reg_FIO(FIO);
+            bool actual = AddUser.Reg_FIO(text);
             //Assert
             Assert.IsFalse(actual);
         }
@@ -258,9 +259,9 @@ namespace ARMLibraryTest
         public void User_FIO_flases()
         {
             //Arrange
-            string FIO = ";asd";
+            string text = ";asd";
             //Act
-            bool actual = AddUser.Reg_FIO(FIO);
+            bool actual = AddUser.Reg_FIO(text);
             //Assert
             Assert.IsFalse(actual);
         }
@@ -268,19 +269,40 @@ namespace ARMLibraryTest
         public void User_FIO_false()
         {
             //Arrange
-            string FIO = "Тест";
+            string text = "Тест";
             //Act
-            bool actual = AddUser.Reg_FIO(FIO);
+            bool actual = AddUser.Reg_FIO(text);
             //Assert
             Assert.IsFalse(actual);
         }
         [TestMethod]
-        public void User_FIO_true()
+        public void User_FIO_trues()
         {
             //Arrange
-            string FIO = "Тест Тест Тест";
+            string text = "Тест Тест Тест";
             //Act
-            bool actual = AddUser.Reg_FIO(FIO);
+            bool actual = AddUser.Reg_FIO(text);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+//Reg_Login
+        [TestMethod]
+        public void User_Reg_Login_false()
+        {
+            //Arrange
+            string text = "";
+            //Act
+            bool actual = AddUser.Reg_Login(text);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void User_Reg_Login_falses()
+        {
+            //Arrange
+            string text = "Тест;a-=";
+            //Act
+            bool actual = AddUser.Reg_Login(text);
             //Assert
             Assert.IsFalse(actual);
         }
