@@ -24,7 +24,7 @@ namespace ARMLibraryClass
         }
         public static bool Reg_PlacePublication(string text)
         {
-            reg = new Regex(@"^[г]\./[A-ЯЁ][а-яё]{3,}");
+            reg = new Regex(@"г\s[^\d][^\s-\s][^,]*");
             match = reg.Match(text);
             if (match.Success)
             {
