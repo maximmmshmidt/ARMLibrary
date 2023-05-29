@@ -18,7 +18,7 @@ namespace ARMLibraryTest
             //Act
             bool actual = AddAuthor.Reg_FIO(FIO);
             //Assert
-            Assert.IsFalse(actual);
+            Assert.IsFalse(actual); 
         }
         [TestMethod]
         public void Author_FIO_true()
