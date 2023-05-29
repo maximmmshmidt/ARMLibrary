@@ -326,16 +326,16 @@ namespace ARMLibraryTest
             //Assert
             Assert.IsTrue(actual);
         }
-        [TestMethod]
 //Reg_Password
+        [TestMethod]
         public void User_Reg_Reg_Password()
         {
             //Arrange
-            string text = "Limisk01";
+            string text = "";
             //Act
-            bool actual = AddUser.Reg_Login(text);
+            bool actual = AddUser.Reg_Password(text);
             //Assert
-            Assert.IsTrue(actual);
+            Assert.IsFalse(actual);
         }
     }
 }
