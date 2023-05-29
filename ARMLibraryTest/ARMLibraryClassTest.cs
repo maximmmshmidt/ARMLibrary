@@ -242,7 +242,7 @@ namespace ARMLibraryTest
             Assert.IsFalse(actual);
         }
         /// <summary>
-        /// Проверка на Пользователя
+        // Проверка на Пользователя
         /// </summary>
 //FIO
         [TestMethod]
