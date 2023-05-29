@@ -367,5 +367,56 @@ namespace ARMLibraryTest
             //Assert
             Assert.IsTrue(actual);
         }
+//Reg_Adres
+        [TestMethod]
+        public void Book_Names_Reg_Adres()
+        {
+            //Arrange
+            string name = "1111111111";
+            //Act
+            bool actual = AddUser.Reg_Adres(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_Adress()
+        {
+            //Arrange
+            string name = "trf";
+            //Act
+            bool actual = AddUser.Reg_Adres(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_Adre()
+        {
+            //Arrange
+            string name = ";'";
+            //Act
+            bool actual = AddUser.Reg_Adres(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_Adresss()
+        {
+            //Arrange
+            string name = "Екатеринбург";
+            //Act
+            bool actual = AddUser.Reg_Adres(name);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void Book_Names_Reg_Adrss()
+        {
+            //Arrange
+            string name = "г Екатеринбург";
+            //Act
+            bool actual = AddUser.Reg_Adres(name);
+            //Assert
+            Assert.IsTrue(actual);
+        }
     }
 }
