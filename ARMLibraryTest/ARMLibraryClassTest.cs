@@ -243,11 +243,42 @@ namespace ARMLibraryTest
         /// <summary>
         /// Проверка на Пользователя
         /// </summary>
+//FIO
         [TestMethod]
         public void User_FIO()
         {
             //Arrange
             string FIO = "";
+            //Act
+            bool actual = AddUser.Reg_FIO(FIO);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void User_FIO_flases()
+        {
+            //Arrange
+            string FIO = ";asd";
+            //Act
+            bool actual = AddUser.Reg_FIO(FIO);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void User_FIO_false()
+        {
+            //Arrange
+            string FIO = "Тест";
+            //Act
+            bool actual = AddUser.Reg_FIO(FIO);
+            //Assert
+            Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void User_FIO_true()
+        {
+            //Arrange
+            string FIO = "Тест Тест Тест";
             //Act
             bool actual = AddUser.Reg_FIO(FIO);
             //Assert
