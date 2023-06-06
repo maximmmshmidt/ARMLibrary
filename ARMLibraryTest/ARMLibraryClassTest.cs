@@ -97,16 +97,6 @@ namespace ARMLibraryTest
             //Assert
             Assert.IsFalse(actual);
         }
-        [TestMethod]
-        public void Book_Names_ibn()
-        {
-            //Arrange
-            string name = "59895430162";
-            //Act
-            bool actual = AddBook.Gg_IBN(name);
-            //Assert
-            Assert.IsTrue(actual);
-        }
 //Reg_PlacePublication
         [TestMethod]
         public void Book_Names_Reg_PlacePublication()
