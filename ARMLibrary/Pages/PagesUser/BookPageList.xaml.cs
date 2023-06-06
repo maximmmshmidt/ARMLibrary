@@ -85,10 +85,12 @@ namespace ARMLibrary.Pages.PagesUser
             worksheet.Cells[3][1] = "Отдел фонда";
             worksheet.Cells[4][1] = "Автор";
             worksheet.Cells[5][1] = "Название книги";
-            worksheet.Cells[6][1] = "Подпись Чит";
-            worksheet.Cells[7][1] = "Подпись Библ";
-            worksheet.Cells[8][1] = "Примечаниея";
+            worksheet.Cells[6][1] = "Серия и номер паспорта";
+            worksheet.Cells[7][1] = "Подпись Чит";
+            worksheet.Cells[8][1] = "Подпись Библ";
+            worksheet.Cells[9][1] = "Примечаниея";
 
+            worksheet.Cells[9][1].font.bold = true;
             worksheet.Cells[8][1].font.bold = true;
             worksheet.Cells[7][1].font.bold = true;
             worksheet.Cells[6][1].font.bold = true;
@@ -106,23 +108,28 @@ namespace ARMLibrary.Pages.PagesUser
 
             foreach (var item in numberBookGiven)
             {
+                string ser = item.User.Seriennummer[0] +item.User.Seriennummer[1] + " "
+                    +item.User.Seriennummer[2] +item.User.Seriennummer[3];
+
+
                 worksheet.Cells[1][rowIndex] = item.DateIssue;
                 worksheet.Cells[2][rowIndex] = item.ReturnDate;
                 worksheet.Cells[3][rowIndex] = bok.PublishingHouse;
                 worksheet.Cells[4][rowIndex] = bok.Author.LastName + " " + bok.Author.FirstName + " " + bok.Author.Patronymic;
                 worksheet.Cells[5][rowIndex] = bok.NameBook;
-                worksheet.Cells[6][rowIndex] = item.User.FirstName + " "
+                worksheet.Cells[6][rowIndex] = ser + item.User.Passcode;
+                worksheet.Cells[7][rowIndex] = item.User.FirstName + " "
                     + item.User.LastName[0].ToString().ToUpper() 
                     + "." + item.User.Patronymic[0].ToString().ToUpper() + ".";
                 if (item.ReturnedBook == true)
                 {
-                    worksheet.Cells[7][rowIndex] = "(❁´◡`❁)";
-                    worksheet.Cells[8][rowIndex] = "Отдал во время";
+                    worksheet.Cells[8][rowIndex] = "(❁´◡`❁)";
+                    worksheet.Cells[9][rowIndex] = "Отдал во время";
                 }
                 else
                 {
-                    worksheet.Cells[7][rowIndex] = "(╯°□°）╯︵ ┻━┻";
-                    worksheet.Cells[8][rowIndex] ="Срок сдачи просрочен";
+                    worksheet.Cells[8][rowIndex] = "(╯°□°）╯︵ ┻━┻";
+                    worksheet.Cells[9][rowIndex] ="Срок сдачи просрочен";
                 }
                 worksheet.Columns.AutoFit();
                 rowIndex++;

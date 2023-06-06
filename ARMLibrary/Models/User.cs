@@ -31,6 +31,8 @@ namespace ARMLibrary.Models
         public string ResidentialAddress { get; set; }
         public string PlaceWork { get; set; }
         public string NumbrePhone { get; set; }
+        public string Seriennummer { get; set; }
+        public string Passcode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NumberBookGiven> NumberBookGiven { get; set; }

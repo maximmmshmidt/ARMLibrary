@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище LibraryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccountingBooks">
           <Key>
             <PropertyRef Name="AccountingBook" />
@@ -85,6 +85,8 @@
           <Property Name="ResidentialAddress" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="PlaceWork" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NumbrePhone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Seriennummer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Passcode" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="ViewUser">
           <Key>
@@ -199,8 +201,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -295,6 +296,8 @@
           <Property Name="NumbrePhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="NumberBookGiven" Relationship="Self.FK_NumberBookGiven_User" FromRole="User" ToRole="NumberBookGiven" />
           <NavigationProperty Name="ViewUser" Relationship="Self.FK_User_ViewUser" FromRole="User" ToRole="ViewUser" />
+          <Property Name="Seriennummer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="ViewUser">
           <Key>
@@ -490,6 +493,8 @@
           <EntitySetMapping Name="User">
             <EntityTypeMapping TypeName="LibraryModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Passcode" ColumnName="Passcode" />
+                <ScalarProperty Name="Seriennummer" ColumnName="Seriennummer" />
                 <ScalarProperty Name="idUser" ColumnName="idUser" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
