@@ -39,10 +39,10 @@ namespace ARMLibrary.Pages.PagesUser.Add
             ErorTB.Text = "";
             if (usAddIdViewUser!= 0 && NumberPhoneTB != null && WorkTB!= null && AdresTB != null && YearBitrhtTB != null && PatronicTB!= null && LastNameTB!= null && FirstNameTB != null && PasswordTB != null && LoginTB != null)
             {
-                var log = db.context.User.Where(x=>x.Login == LoginTB.Text);
-                if (log == null && AddUser.Reg_Login(LoginTB.Text) && AddUser.Reg_Password(PasswordTB.Text) &&
+                var log = db.context.User.Where(x => x.Login == LoginTB.Text).Count();
+                if (log == 0 && AddUser.Reg_Login(LoginTB.Text) && AddUser.Reg_Password(PasswordTB.Text) &&
                     AddUser.Reg_FIO(LastNameTB.Text) && AddUser.Reg_FIO(FirstNameTB.Text) && AddUser.Reg_FIO(PatronicTB.Text) &&
-                    AddUser.DateBirth(YearBitrhtTB.Text) && AddUser.Reg_Adres(AdresTB.Text) && AddUser.NumberPhone(NumberPhoneTB.Text))
+                    AddUser.NumberPhone(NumberPhoneTB.Text))
                 {
                     User us = new User()
                     {
@@ -56,10 +56,13 @@ namespace ARMLibrary.Pages.PagesUser.Add
                         ResidentialAddress = AdresTB.Text,
                         PlaceWork = WorkTB.Text,
                         NumbrePhone = NumberPhoneTB.Text,
+                        Passcode = Passcode.Text,
+                        Seriennummer = Seriennummer.Text
                     };
-                    db.context.User.Add(us);
+                    
                     try
                     {
+                        db.context.User.Add(us);
                         db.context.SaveChangesAsync();
                         MessageBox.Show($"{us.ViewUser.NameViewUser} добавлен!");
                         NavigationService.GoBack();

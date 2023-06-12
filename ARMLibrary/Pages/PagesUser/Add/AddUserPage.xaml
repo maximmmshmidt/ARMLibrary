@@ -56,10 +56,19 @@
                 <TextBlock FontSize="18" Text="Номер телефона" Margin="10 0"/>
                 <TextBox Width="150" x:Name="NumberPhoneTB"/>
             </StackPanel>
+            <StackPanel x:Name="Serien" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" >
+                <TextBlock FontSize="18" Text="Серия паспорта" Margin="10 0"/>
+                <TextBox Width="150" x:Name="Seriennummer"/>
+            </StackPanel>
+            <StackPanel x:Name="passcode" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" >
+                <TextBlock FontSize="18" Text="Номер паспорта" Margin="10 0"/>
+                <TextBox Width="150" x:Name="Passcode"/>
+            </StackPanel>
             <StackPanel x:Name="ViewUsers" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" Visibility="Hidden">
                 <TextBlock FontSize="18" Text="Вид Пользователя" Margin="10 0"/>
                 <ComboBox Width="150" x:Name="ViewUs"/>
             </StackPanel>
+            
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
             <Button FontSize="18" VerticalAlignment="Center" Content="Отправить" Foreground="White"  Height="30" Width="150" Margin="0 15" Click="AddUserLibrary">

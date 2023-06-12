@@ -37,7 +37,7 @@ namespace ARMLibraryClass
         //проверка на фамилию имя отчество
         public static bool Reg_FIO(string text)
         {
-            reg = new Regex(@"(^[A-ЯЁ][а-яё].{2,15}$){3}");
+            reg = new Regex(@"^[A-ЯЁ][а-яё].{2,15}$");
             match = reg.Match(text);
             if (match.Success)
             {
