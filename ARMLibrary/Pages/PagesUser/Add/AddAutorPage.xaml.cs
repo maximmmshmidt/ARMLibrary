@@ -25,44 +25,36 @@ namespace ARMLibrary.Pages.PagesUser.Add
         {
             if (LastNameTB != null && FirstNameTB != null && PatronicTB!=null && DateBirth != null)
             {
-                DateTime dateBegin = DateTime.Parse(DateBirth.Text);
-                DateTime dateEnd = DateTime.Parse(DateBirth.Text);
-                TimeSpan sp = dateEnd - dateBegin;
+                
                 if ( AddAuthor.Reg_FIO(FirstNameTB.Text) && AddAuthor.Reg_FIO(LastNameTB.Text) && AddAuthor.Reg_FIO(PatronicTB.Text))
                 {
-                    if (DateDeath != null)
-                    {
-                        if (sp.Days > 7300)
-                        {
-                            auth = new Author()
-                            {
 
-                                FirstName = FirstNameTB.Text,
-                                LastName = LastNameTB.Text,
-                                Patronymic = PatronicTB.Text,
-                                YearBirth = DateBirth.SelectedDate.Value,
-                                YearDeath = DateDeath.SelectedDate.Value,
-                            };
-                            db.context.Author.Add(auth);
-                        }
-                        else
+                    if (DateDeath == null)
+                    {
+                        auth = new Author()
                         {
-                            MessageBox.Show("Разница в дате слишком мала");
-                        }
+
+                            FirstName = FirstNameTB.Text,
+                            LastName = LastNameTB.Text,
+                            Patronymic = PatronicTB.Text,
+                            YearBirth = DateBirth.SelectedDate.Value,
+                            YearDeath = DateDeath.SelectedDate.Value,
+                        };
                     }
                     else
                     {
                         auth = new Author()
                         {
+
                             FirstName = FirstNameTB.Text,
                             LastName = LastNameTB.Text,
                             Patronymic = PatronicTB.Text,
                             YearBirth = DateBirth.SelectedDate.Value,
                         };
-                        db.context.Author.Add(auth);
                     }
                     try
                     {
+                        db.context.Author.Add(auth);
                         db.context.SaveChanges();
                         MessageBox.Show($"Автор {auth.LastName} {auth.FirstName} {auth.Patronymic}, был добавлен");
                         NavigationService.GoBack();
@@ -71,6 +63,10 @@ namespace ARMLibrary.Pages.PagesUser.Add
                     {
                         MessageBox.Show("Ошибка :" + ex);
                     }
+                }
+                else
+                {
+                    MessageBox.Show(" * Данные введены не коректно");
                 }
             }
             else
