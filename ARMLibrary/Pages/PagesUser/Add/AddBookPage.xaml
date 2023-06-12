@@ -18,15 +18,15 @@
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Название Книги" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Название Книги" Margin="10 0"/>
                 <TextBox x:Name="NameBookTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Id жанра" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Id жанра" Margin="10 0"/>
                 <ComboBox x:Name="IdJanreTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Автор" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Автор" Margin="10 0"/>
                 <ComboBox x:Name="AutorTB" MinWidth="150">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -40,18 +40,18 @@
                 </ComboBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Место Публикации" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Место Публикации" Margin="10 0"/>
                 <TextBox Width="150" x:Name="PublicationHouseTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Издатель" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Издатель" Margin="10 0"/>
                 <TextBox Width="150" x:Name="PlacePublTB"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Год публикации" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Год публикации" Margin="10 0"/>
                 <DatePicker Width="150" x:Name="YearPublTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
@@ -59,19 +59,19 @@
                 <TextBox Width="150" x:Name="NumberPage"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="IBN" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="IBN" Margin="10 0"/>
                 <TextBox Width="150" x:Name="IsbnTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="BBK" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="BBK" Margin="10 0"/>
                 <TextBox Width="150" x:Name="BbkTB"/>
             </StackPanel><StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Описание" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Описание" Margin="10 0"/>
                 <TextBox Width="150" x:Name="DescripTB" TextWrapping="Wrap"/>
             </StackPanel>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
-            <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="Add">
+            <Button FontSize="18" VerticalAlignment="Center" Content="Отправить" Foreground="White"  Height="30" Width="150" Margin="0 15" Click="Add">
                 <Button.Background>
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Button.Background>

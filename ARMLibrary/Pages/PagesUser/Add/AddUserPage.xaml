@@ -18,51 +18,51 @@
         <TextBlock x:Name="ErorTB" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="red" MinWidth="200" MaxHeight="120" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Логин" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Логин" Margin="10 0"/>
                 <TextBox x:Name="LoginTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Пароль" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Пароль" Margin="10 0"/>
                 <TextBox x:Name="PasswordTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Фамилия" Margin="10 0"/>
                 <TextBox x:Name="LastNameTB" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Имя" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Имя" Margin="10 0"/>
                 <TextBox Width="150" x:Name="FirstNameTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Отчество" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Отчество" Margin="10 0"/>
                 <TextBox Width="150" x:Name="PatronicTB"/>
             </StackPanel>
         </StackPanel>
         
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Год рождения" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Год рождения" Margin="10 0"/>
                 <DatePicker Width="150" x:Name="YearBitrhtTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Адрес проживания" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Адрес проживания" Margin="10 0"/>
                 <TextBox Width="150" x:Name="AdresTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Учеба/Работа" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Учеба/Работа" Margin="10 0"/>
                 <TextBox Width="150" x:Name="WorkTB"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Номер телефона" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Номер телефона" Margin="10 0"/>
                 <TextBox Width="150" x:Name="NumberPhoneTB"/>
             </StackPanel>
             <StackPanel x:Name="ViewUsers" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" Visibility="Hidden">
-                <TextBlock Text="Вид Пользователя" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Вид Пользователя" Margin="10 0"/>
                 <ComboBox Width="150" x:Name="ViewUs"/>
             </StackPanel>
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.ColumnSpan="2">
-            <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="AddUserLibrary">
+            <Button FontSize="18" VerticalAlignment="Center" Content="Отправить" Foreground="White"  Height="30" Width="150" Margin="0 15" Click="AddUserLibrary">
                 <Button.Background>
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Button.Background>

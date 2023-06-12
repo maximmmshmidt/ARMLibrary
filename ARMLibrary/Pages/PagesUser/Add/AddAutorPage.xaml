@@ -14,29 +14,29 @@
         </TextBlock.Foreground>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Фамилия" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Фамилия" Margin="10 0"/>
                 <TextBox x:Name="LastNameTB" Width="150" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Имя" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Имя" Margin="10 0"/>
                 <TextBox Width="150" x:Name="FirstNameTB" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Отчество" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Отчество" Margin="10 0"/>
                 <TextBox Width="150" x:Name="PatronicTB" Height="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Дата Рождения" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Дата Рождения" Margin="10 0"/>
                 <DatePicker x:Name="DateBirth" Width="150" Height="28"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
-                <TextBlock Text="Дата Смерти" Margin="10 0"/>
+                <TextBlock FontSize="18" Text="Дата Смерти" Margin="10 0"/>
                 <DatePicker x:Name="DateDeath" Width="150" Height="28"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button Content="Отправить" Foreground="White"  Height="25" Width="150" Margin="0 15" Click="Add">
+            <Button FontSize="18" VerticalAlignment="Center" Content="Отправить" Foreground="White"  Height="30" Width="150" Margin="0 15" Click="Add">
                 <Button.Background>
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Button.Background>
