@@ -14,7 +14,7 @@ namespace ARMLibraryClass
 
         public static bool Reg_NameBook(string text)
         {
-            reg = new Regex(@"^[A-ЯЁ][а-яё].{2,}");
+            reg = new Regex(@"^[A-ЯЁа-яёA-Za-z].{2,}");
             match = reg.Match(text);
             if (match.Success)
             {

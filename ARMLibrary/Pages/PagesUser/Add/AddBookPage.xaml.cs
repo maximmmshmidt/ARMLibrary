@@ -42,8 +42,7 @@ namespace ARMLibrary.Pages.PagesUser.Add
                 NumberPage != null && IsbnTB != null && BbkTB != null && DescripTB != null)
             {
                 if (AddBook.Reg_NameBook(NameBookTB.Text) && AddBook.Reg_PublishingHouse(PublicationHouseTB.Text) &&
-                    AddBook.Reg_PlacePublication(PlacePublTB.Text) && AddBook.Reg_Number(NumberPage.Text)&&
-                    AddBook.Gg_IBN(IsbnTB.Text) && AddBook.Reg_BBK(BbkTB.Text))
+                    AddBook.Reg_PlacePublication(PlacePublTB.Text) && AddBook.Reg_Number(NumberPage.Text))
                 {
                     var num = Convert.ToInt16(NumberPage.Text);
                     Book book = new Book()
